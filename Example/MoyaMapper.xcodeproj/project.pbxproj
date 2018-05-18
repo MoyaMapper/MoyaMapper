@@ -15,6 +15,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		693F7EDF1AE21C3AD81AEFDD /* Pods_MoyaMapper_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F626826386069280689B6FE6 /* Pods_MoyaMapper_Example.framework */; };
+		FD1BB83820AECF130084FA95 /* LXFNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BB83620AECF130084FA95 /* LXFNetworkTool.swift */; };
+		FD1BB83920AECF130084FA95 /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BB83720AECF130084FA95 /* MyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +32,7 @@
 /* Begin PBXFileReference section */
 		1E3ACF85F0566394D861441E /* Pods_MoyaMapper_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaMapper_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3196A2035CECAFEA67894D4C /* Pods-MoyaMapper_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaMapper_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaMapper_Tests/Pods-MoyaMapper_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		5D677A33F7D2CD6EED1F8159 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		5D677A33F7D2CD6EED1F8159 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MoyaMapper_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaMapper_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,11 +44,13 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		696B1B3C81FA1DBFB03E0A1E /* Pods-MoyaMapper_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaMapper_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaMapper_Example/Pods-MoyaMapper_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		7CABCD0C5760DBC3D7BB441A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		7D162279A43E93C33EDB67EC /* MoyaMapper.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = MoyaMapper.podspec; path = ../MoyaMapper.podspec; sourceTree = "<group>"; };
+		7CABCD0C5760DBC3D7BB441A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		7D162279A43E93C33EDB67EC /* MoyaMapper.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MoyaMapper.podspec; path = ../MoyaMapper.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B6F4D2AB4067674F326A3C05 /* Pods-MoyaMapper_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaMapper_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaMapper_Example/Pods-MoyaMapper_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CFA351889E9DBCC03999E651 /* Pods-MoyaMapper_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaMapper_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaMapper_Tests/Pods-MoyaMapper_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F626826386069280689B6FE6 /* Pods_MoyaMapper_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaMapper_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1BB83620AECF130084FA95 /* LXFNetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFNetworkTool.swift; sourceTree = "<group>"; };
+		FD1BB83720AECF130084FA95 /* MyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 		607FACD21AFB9204008FA782 /* Example for MoyaMapper */ = {
 			isa = PBXGroup;
 			children = (
+				FD1BB83620AECF130084FA95 /* LXFNetworkTool.swift */,
+				FD1BB83720AECF130084FA95 /* MyModel.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -286,11 +292,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MoyaMapper_Example/Pods-MoyaMapper_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/MoyaMapper/MoyaMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MoyaMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -323,7 +339,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				FD1BB83820AECF130084FA95 /* LXFNetworkTool.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				FD1BB83920AECF130084FA95 /* MyModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

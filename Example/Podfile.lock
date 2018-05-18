@@ -1,0 +1,50 @@
+PODS:
+  - Alamofire (4.7.2)
+  - Moya (11.0.2):
+    - Moya/Core (= 11.0.2)
+  - Moya/Core (11.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (11.0.2):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - MoyaMapper (0.0.1):
+    - MoyaMapper/Core (= 0.0.1)
+  - MoyaMapper/Core (0.0.1):
+    - Moya (~> 11.0.2)
+    - SwiftyJSON
+  - MoyaMapper/Rx (0.0.1):
+    - Moya/RxSwift (~> 11.0.2)
+    - MoyaMapper/Core
+    - RxSwift (~> 4.1.2)
+  - Result (3.2.4)
+  - RxSwift (4.1.2)
+  - SwiftyJSON (4.1.0)
+
+DEPENDENCIES:
+  - MoyaMapper (from `../`)
+  - MoyaMapper/Rx (from `../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Moya
+    - Result
+    - RxSwift
+    - SwiftyJSON
+
+EXTERNAL SOURCES:
+  MoyaMapper:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Moya: a725035953bc1c0eb1be505ab903984501d82440
+  MoyaMapper: e376bb9d5de20e79b2dce910f039ab7d8ed67968
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+
+PODFILE CHECKSUM: 1b90701c5a9c0e6aa564e3cd18131852cee1ca92
+
+COCOAPODS: 1.5.0

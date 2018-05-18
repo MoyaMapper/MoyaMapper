@@ -1,0 +1,6 @@
+framework module Pods_MoyaMapper_Example {
+  umbrella header "Pods-MoyaMapper_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
