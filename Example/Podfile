@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MoyaMapper_Example' do
+  pod 'MoyaMapper', :path => '../'
+
+  target 'MoyaMapper_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
