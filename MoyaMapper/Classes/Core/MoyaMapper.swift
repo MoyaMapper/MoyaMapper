@@ -16,8 +16,7 @@ public typealias MoyaMapperResult = (Bool, String)
 extension Response {
     public func toJSON(modelKey: String? = nil) throws -> JSON {
         let result =  try mapJSON()
-        var lxf_modelKey = self.lxf_modelableParameter.modelKey
-        if modelKey != nil { lxf_modelKey = modelKey! }
+        let lxf_modelKey = modelKey == nil ? self.lxf_modelableParameter.modelKey : modelKey!
         return JSON(result)[lxf_modelKey]
     }
     
@@ -68,12 +67,13 @@ extension Response {
 // MARK: - Json -> Models
 extension Response {
     /// 将Json解析为多个Model，返回数组，对于不同的json格式需要对该方法进行修改
-    public func mapArray<T: Modelable>(_ type: T.Type, modelKey: String) throws -> [T] {
+    public func mapArray<T: Modelable>(_ type: T.Type, modelKey: String? = nil) throws -> [T] {
         guard let json = try mapJSON() as? [String : Any] else {
             throw MoyaError.jsonMapping(self)
         }
         
-        guard let jsonArr = (json[modelKey] as? [[String : Any]]) else {
+        let lxf_modelKey = modelKey == nil ? self.lxf_modelableParameter.modelKey : modelKey!
+        guard let jsonArr = (json[lxf_modelKey] as? [[String : Any]]) else {
             throw MoyaError.jsonMapping(self)
         }
         

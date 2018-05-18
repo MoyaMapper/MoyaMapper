@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MoyaMapper'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = '基于Moya+SwiftyJSON，使解析Response更加方便'
 
 

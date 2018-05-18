@@ -73,7 +73,7 @@ extension LXFNetworkTool: TargetType {
 
 final class NetParameter : ModelableParameterType {
     var successValue: String {
-        return "0"
+        return "false"
     }
 
     var statusCodeKey: String {
