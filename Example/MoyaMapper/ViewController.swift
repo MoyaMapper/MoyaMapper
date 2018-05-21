@@ -14,7 +14,6 @@ import MoyaMapper
 class ViewController: UIViewController {
     
     var dispseBag = DisposeBag()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,22 +65,10 @@ class ViewController: UIViewController {
 
 }
 
-
-final class CustomParameter: ModelableParameterType {
-    static var successValue: String {
-        return "000"
-    }
-    
-    static var statusCodeKey: String {
-        return "retCode"
-    }
-    
-    static var tipStrKey: String {
-        return "retMsg"
-    }
-    
-    static var modelKey: String {
-        return "retBody"
-    }
+struct CustomParameter: ModelableParameterType {
+    static var successValue: String { return "000" }
+    static var statusCodeKey: String { return "retCode" }
+    static var tipStrKey: String { return "retMsg" }
+    static var modelKey: String { return "retBody"}
 }
 

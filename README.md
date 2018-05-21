@@ -11,39 +11,29 @@ MoyaMapper是基于Moya和SwiftyJSON封装的工具，以Moya的plugin的方式�
 
 ## Usage
 
-### 一、注入 
+### 一、注入插件 
 
-1. 定义一个继承于ModelableParameterType的类
+1. 定义一个遵守ModelableParameterType协议的结构体
 
 ```swift
-final class NetParameter : ModelableParameterType {
-    var successValue: String {
-        return "false"
-    }
-
-    var statusCodeKey: String {
-        return "error"
-    }
-
-    var tipStrKey: String {
-        return ""
-    }
-
-    var modelKey: String {
-        return "results"
-    }
+// 所返回的JSON数据对照
+struct NetParameter : ModelableParameterType {
+    static var successValue: String { return "false" }
+    static var statusCodeKey: String { return "error" }
+    static var tipStrKey: String { return "" }
+    static var modelKey: String { return "results" }
 }
 ```
 
 2. 以plugin的方式传递给MoyaProvider
 
 ```swift
-let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter())])
+let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter.self)])
 ```
 
 ### 二、定义模型
 
-1. 创建一个继承于Modelable的结构体
+1. 创建一个遵守Modelable协议的结构体
 
 ```swift
 struct MyModel: Modelable {
@@ -105,7 +95,7 @@ rxRequest.mapArray(MyModel.self).subscribe(onSuccess: { models in
 }).disposed(by: dispseBag)
 
 // Models + Result
-rxRequest.mapArrResult(MyModel.self).subscribe(onSuccess: { (result, models) in
+rxRequest.mapArrayResult(MyModel.self).subscribe(onSuccess: { (result, models) in
     print("isSuccess --\(result.0)")
     print("tipStr --\(result.1)")
     print("models count -- \(models.count)")
