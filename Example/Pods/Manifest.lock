@@ -8,12 +8,12 @@ PODS:
   - Moya/RxSwift (11.0.2):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - MoyaMapper (0.0.1):
-    - MoyaMapper/Core (= 0.0.1)
-  - MoyaMapper/Core (0.0.1):
+  - MoyaMapper (0.0.3):
+    - MoyaMapper/Core (= 0.0.3)
+  - MoyaMapper/Core (0.0.3):
     - Moya (~> 11.0.2)
     - SwiftyJSON
-  - MoyaMapper/Rx (0.0.1):
+  - MoyaMapper/Rx (0.0.3):
     - Moya/RxSwift (~> 11.0.2)
     - MoyaMapper/Core
     - RxSwift (~> 4.1.2)
@@ -40,7 +40,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Moya: a725035953bc1c0eb1be505ab903984501d82440
-  MoyaMapper: e376bb9d5de20e79b2dce910f039ab7d8ed67968
+  MoyaMapper: ebcd8fa45bd8d8a85d871d787fd758f964eead2e
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3

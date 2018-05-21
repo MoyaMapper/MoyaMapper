@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         }).disposed(by: dispseBag)
         
         // Models + Result
-        rxRequest.mapArrResult(MyModel.self).subscribe(onSuccess: { (result, models) in
+        rxRequest.mapArrayResult(MyModel.self).subscribe(onSuccess: { (result, models) in
             print("isSuccess --\(result.0)")
             print("tipStr --\(result.1)")
             print("models count -- \(models.count)")
@@ -68,19 +68,19 @@ class ViewController: UIViewController {
 
 
 final class CustomParameter: ModelableParameterType {
-    var successValue: String {
+    static var successValue: String {
         return "000"
     }
     
-    var statusCodeKey: String {
+    static var statusCodeKey: String {
         return "retCode"
     }
     
-    var tipStrKey: String {
+    static var tipStrKey: String {
         return "retMsg"
     }
     
-    var modelKey: String {
+    static var modelKey: String {
         return "retBody"
     }
 }

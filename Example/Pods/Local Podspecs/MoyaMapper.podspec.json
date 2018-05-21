@@ -1,6 +1,6 @@
 {
   "name": "MoyaMapper",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "summary": "基于Moya+SwiftyJSON，使解析Response更加方便",
   "description": "MoyaMapper可以更加方便的解析Response，提供RxSwift拓展",
   "homepage": "https://github.com/LinXunFeng/MoyaMapper",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/LinXunFeng/MoyaMapper.git",
-    "tag": "0.0.1"
+    "tag": "0.0.3"
   },
   "platforms": {
     "ios": "9.0"

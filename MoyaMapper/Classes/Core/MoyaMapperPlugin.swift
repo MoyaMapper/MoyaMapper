@@ -10,9 +10,9 @@ import Moya
 import Result
 
 public struct MoyaMapperPlugin: PluginType {
-    var parameter: ModelableParameterType
+    var parameter: ModelableParameterType.Type
     
-    public init<T: ModelableParameterType>(_ type: T) {
+    public init<T: ModelableParameterType>(_ type: T.Type) {
         parameter = type
     }
     

@@ -71,23 +71,12 @@ extension LXFNetworkTool: TargetType {
     }
 }
 
-final class NetParameter : ModelableParameterType {
-    var successValue: String {
-        return "false"
-    }
-
-    var statusCodeKey: String {
-        return "error"
-    }
-
-    var tipStrKey: String {
-        return ""
-    }
-
-    var modelKey: String {
-        return "results"
-    }
+struct NetParameter : ModelableParameterType {
+    static var successValue: String { return "false" }
+    static var statusCodeKey: String { return "error" }
+    static var tipStrKey: String { return "" }
+    static var modelKey: String { return "results" }
 }
 
-let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter())])
+let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter.self)])
 

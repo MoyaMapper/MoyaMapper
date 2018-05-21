@@ -9,7 +9,7 @@
 import Moya
 import SwiftyJSON
 
-public typealias ModelableParamsBlock = ()->(ModelableParameterType)
+public typealias ModelableParamsBlock = ()->(ModelableParameterType.Type)
 public typealias MoyaMapperResult = (Bool, String)
 
 // MARK:- Json -> JSON
@@ -73,11 +73,9 @@ extension Response {
         }
         
         let lxf_modelKey = modelKey == nil ? self.lxf_modelableParameter.modelKey : modelKey!
-        guard let jsonArr = (json[lxf_modelKey] as? [[String : Any]]) else {
-            throw MoyaError.jsonMapping(self)
-        }
+        let jsonArr = JSON(json)[lxf_modelKey].arrayValue
         
-        return try JSON(jsonArr).arrayValue.compactMap { dict -> T in
+        return try jsonArr.compactMap { dict -> T in
             let klass = T.self
             if var obj = klass.init(dict) {
                 obj.mapping(dict)
@@ -108,13 +106,14 @@ extension Response {
     private struct AssociatedKeys {
         static var lxf_modelableParameterKey = "lxf_modelableParameterKey"
     }
-    var lxf_modelableParameter: ModelableParameterType {
+    var lxf_modelableParameter: ModelableParameterType.Type {
         get {
-            guard let value = objc_getAssociatedObject(self, &AssociatedKeys.lxf_modelableParameterKey) as? ModelableParameterType else { return NullParameter() }
-            return value
+            // https://stackoverflow.com/questions/42033735/failing-cast-in-swift-from-any-to-protocol/42034523#42034523
+            let value = objc_getAssociatedObject(self, &AssociatedKeys.lxf_modelableParameterKey) as AnyObject
+            guard let type = value as? ModelableParameterType.Type else { return NullParameter.self }
+            return type
         } set {
             objc_setAssociatedObject(self, &AssociatedKeys.lxf_modelableParameterKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    
 }
