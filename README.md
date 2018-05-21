@@ -1,17 +1,19 @@
-# MoyaMapper
+<br>
+
+![MoyaMapper](https://github.com/LinXunFeng/MoyaMapper/raw/master/Screenshots/MoyaMapper.png)
+
+
+
+<br>
 
 [![CI Status](https://img.shields.io/travis/LinXunFeng/MoyaMapper.svg?style=flat)](https://travis-ci.org/LinXunFeng/MoyaMapper)
 [![Version](https://img.shields.io/cocoapods/v/MoyaMapper.svg?style=flat)](https://cocoapods.org/pods/MoyaMapper)
 [![License](https://img.shields.io/cocoapods/l/MoyaMapper.svg?style=flat)](https://cocoapods.org/pods/MoyaMapper)
 [![Platform](https://img.shields.io/cocoapods/p/MoyaMapper.svg?style=flat)](https://cocoapods.org/pods/MoyaMapper)
 
-<br><br>
-
-![MoyaMapper](https://github.com/LinXunFeng/MoyaMapper/raw/master/Screenshots/MoyaMapper.png)
 
 
-
-<br><br>MoyaMapper是基于Moya和SwiftyJSON封装的工具，以Moya的plugin的方式来实现间接解析，支持RxSwift
+MoyaMapper是基于Moya和SwiftyJSON封装的工具，以Moya的plugin的方式来实现间接解析，支持RxSwift
 
 ## Usage
 
