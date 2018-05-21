@@ -74,7 +74,7 @@ extension LXFNetworkTool: TargetType {
 struct NetParameter : ModelableParameterType {
     static var successValue: String { return "false" }
     static var statusCodeKey: String { return "error" }
-    static var tipStrKey: String { return "" }
+    static var tipStrKey: String { return "error>used" }
     static var modelKey: String { return "results" }
 }
 

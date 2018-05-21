@@ -21,9 +21,7 @@ struct MyModel: Modelable {
     var used = ""
     var who = ""
     
-    init?(_ json: JSON) {
-        
-    }
+    init(_ json: JSON) { }
     
     mutating func mapping(_ json: JSON) {
         self._id = json["_id"].stringValue

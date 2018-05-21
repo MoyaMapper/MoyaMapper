@@ -21,24 +21,43 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        print("============= Normal =============")
+        
         // MARK: Normal
         lxfNetTool.request(.data(type: .all, size: 10, index: 1)) { result in
             guard let response = result.value else { return }
             
             // Models
-            guard let models = try? response.mapArray(MyModel.self) else {return}
+            let models = response.mapArray(MyModel.self)
             for model in models {
                 print("id -- \(model._id)")
             }
             
-            // 使用自定义模型参数类
+            // Result
+            let (isSuccess, tipStr) = response.mapResult()
+            print("isSuccess -- \(isSuccess)")
+            print("tipStr -- \(tipStr)")
+            
+            // Model
             /*
-            guard let models = try? response.mapArray(MyModel.self, params: { () -> (ModelableParameterType) in
-                return CustomParameter()
-            }) else {return}
+            let model = response.mapObjResult(MyModel.self)
             */
             
+            // 获取指定路径的值
+            // response.fetchJSONString(keys: []])
+            // response.fetchJSONString(path: "", keys: [])
+            
+            // 使用自定义模型参数类
+            /*
+            let (result, models) = response.mapArrayResult(MyModel.self, params: { () -> (ModelableParameterType.Type) in
+                return CustomParameter.self
+            })
+             */
+            
         }
+        
+        print("============= Rx =============")
         
         // MARK: Rx
         let rxRequest = lxfNetTool.rx.request(.data(type: .all, size: 10, index: 1))
@@ -59,6 +78,7 @@ class ViewController: UIViewController {
 
         // 获取指定路径的值
         rxRequest.fetchString(keys: [0, "_id"]).subscribe(onSuccess: { str in
+            // 取第1条数据中的'_id'字段对应的值
             print("str -- \(str)")
         }).disposed(by: dispseBag)
     }

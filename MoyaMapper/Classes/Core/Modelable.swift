@@ -32,6 +32,6 @@ public protocol BaseModelable {
 }
 
 public protocol Modelable: BaseModelable {
-    init?(_ json: JSON)
+    init(_ json: JSON)
 }
 
