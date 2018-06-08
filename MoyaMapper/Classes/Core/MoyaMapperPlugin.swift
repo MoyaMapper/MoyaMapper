@@ -17,11 +17,10 @@ public struct MoyaMapperPlugin: PluginType {
     }
     
     // modify response
-    public func process(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
+    public func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
         _ = result.map { (response) -> Response in
             response.lxf_modelableParameter = parameter
             return response
         }
-        return result
     }
 }

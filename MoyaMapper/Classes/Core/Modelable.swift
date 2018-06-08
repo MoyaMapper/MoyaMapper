@@ -27,11 +27,8 @@ public protocol ModelableParameterType {
 }
 
 // MARK:- Model
-public protocol BaseModelable {
+public protocol Modelable {
     mutating func mapping(_ json: JSON)
-}
-
-public protocol Modelable: BaseModelable {
     init(_ json: JSON)
 }
 

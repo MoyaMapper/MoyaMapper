@@ -22,8 +22,6 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        print("============= Normal =============")
-        
         // MARK: Normal
         lxfNetTool.request(.data(type: .all, size: 10, index: 1)) { result in
             guard let response = result.value else { return }
@@ -56,8 +54,6 @@ class ViewController: UIViewController {
              */
             
         }
-        
-        print("============= Rx =============")
         
         // MARK: Rx
         let rxRequest = lxfNetTool.rx.request(.data(type: .all, size: 10, index: 1))
