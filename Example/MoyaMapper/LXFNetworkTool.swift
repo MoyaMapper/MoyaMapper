@@ -72,9 +72,10 @@ extension LXFNetworkTool: TargetType {
 }
 
 struct NetParameter : ModelableParameterType {
+    // 可以任意指定位置的值，如： "error>used"
     static var successValue: String { return "false" }
     static var statusCodeKey: String { return "error" }
-    static var tipStrKey: String { return "error>used" }
+    static var tipStrKey: String { return "errMsg" }
     static var modelKey: String { return "results" }
 }
 

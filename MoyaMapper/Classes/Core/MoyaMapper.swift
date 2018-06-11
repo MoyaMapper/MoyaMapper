@@ -88,24 +88,25 @@ extension Response {
     }
     
     public func mapArrayResult<T: Modelable>(_ type: T.Type, params: ModelableParamsBlock? = nil) -> (MoyaMapperResult, [T]) {
-        let result = JSON(data)
-        
         let parameter = params != nil ? params!() : lxf_modelableParameter
-        let resCodeKey = parameter.statusCodeKey
-        let resMsgKey = parameter.tipStrKey
-        let resSuccessValue = parameter.successValue
         let modelKey = parameter.modelKey
+        let result = mapResult(params: params)
         
-        let code = result.json(path: resCodeKey).stringValue
-        let msg = result.json(path: resMsgKey).stringValue
         let models = mapArray(type, modelKey: modelKey)
-        return ((code==resSuccessValue, msg), models)
+        return (result, models)
     }
 }
 
 // MARK:- runtime
 extension Response {
-    public func setNetParameter(_ type: ModelableParameterType.Type) {
+    // 主要用于 catchError
+    public convenience init(_ dataDict: [String: Any], statusCode: Int, parameterType: ModelableParameterType.Type) {
+        defer { self.setNetParameter(parameterType) }
+        let jsonData = (try? JSON(dataDict).rawData()) ?? Data()
+        self.init(statusCode: statusCode, data: jsonData)
+    }
+    
+    func setNetParameter(_ type: ModelableParameterType.Type) {
         self.lxf_modelableParameter = type
     }
     

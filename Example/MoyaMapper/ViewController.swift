@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import Result
 import MoyaMapper
+import Moya
 
 class ViewController: UIViewController {
     
@@ -55,6 +56,8 @@ class ViewController: UIViewController {
             
         }
         
+        /* ============================================================ */
+        
         // MARK: Rx
         let rxRequest = lxfNetTool.rx.request(.data(type: .all, size: 10, index: 1))
 
@@ -66,7 +69,13 @@ class ViewController: UIViewController {
         }).disposed(by: dispseBag)
         
         // Models + Result
-        rxRequest.mapArrayResult(MyModel.self).subscribe(onSuccess: { (result, models) in
+        rxRequest.catchError { (error) -> PrimitiveSequence<SingleTrait, Response> in
+            // 捕获请求失败（如：无网状态），自定义response
+            let err = error as NSError
+            let resBodyDict = ["error":"true", "errMsg":err.localizedDescription]
+            let response = Response(resBodyDict, statusCode: 203, parameterType: NetParameter.self)
+            return Single.just(response)
+        }.mapArrayResult(MyModel.self).subscribe(onSuccess: { (result, models) in
             print("isSuccess --\(result.0)")
             print("tipStr --\(result.1)")
             print("models count -- \(models.count)")

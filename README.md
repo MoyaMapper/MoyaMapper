@@ -173,6 +173,32 @@ result：(Bool, String)
 
 
 
+## Misc
+
+### 自定义Response
+
+在无网状态下使用Moya发送请求时，response为nil，则插件式注入无效化，可以在 `catchError`方法中自定义`response`并返回。使用方法如下所示：
+
+```swift
+rxRequest.catchError { (error) -> PrimitiveSequence<SingleTrait, Response> in
+    // 捕获请求失败（如：无网状态），自定义response
+    let err = error as NSError
+    let resBodyDict = ["error":"true", "errMsg":err.localizedDescription]
+    let response = Response(resBodyDict, statusCode: 203, parameterType: NetParameter.self)
+    return Single.just(response)
+}.mapArrayResult(MyModel.self).subscribe(onSuccess: { (result, models) in
+    print("isSuccess --\(result.0)")
+    print("tipStr --\(result.1)")
+    print("models count -- \(models.count)")
+}).disposed(by: dispseBag)
+```
+
+
+
+**配合 `MoyaSugar` 使用更加方便**
+
+
+
 ## CocoaPods
 
 - 默认安装
