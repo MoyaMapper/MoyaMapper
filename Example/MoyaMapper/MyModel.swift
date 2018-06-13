@@ -11,19 +11,17 @@ import MoyaMapper
 
 struct MyModel: Modelable {
     
-    var _id = ""
-    var createdAt = ""
-    var desc = ""
-    var publishedAt = ""
-    var source = ""
-    var type = ""
-    var url = ""
-    var used = ""
-    var who = ""
+    var _id : String
+    var createdAt : String
+    var desc : String
+    var publishedAt : String
+    var source : String
+    var type : String
+    var url : String
+    var used : String
+    var who : String
     
-    init(_ json: JSON) { }
-    
-    mutating func mapping(_ json: JSON) {
+    init(_ json: JSON) {
         self._id = json["_id"].stringValue
         self.createdAt = json["createdAt"].stringValue
         self.desc = json["desc"].stringValue

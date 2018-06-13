@@ -26,9 +26,7 @@ extension JSON {
 // MARK:- JSON -> Model
 extension Response {
     func toModel<T: Modelable>(_ type: T.Type, modelJson: JSON) -> T {
-        var obj = T.init(modelJson)
-        obj.mapping(modelJson)
-        return obj
+        return T.init(modelJson)
     }
 }
 

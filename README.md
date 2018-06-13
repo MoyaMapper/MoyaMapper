@@ -53,14 +53,10 @@ let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetPara
 ```swift
 struct MyModel: Modelable {
     
-    var _id = ""
+    var _id : String
     ......
     
     init?(_ json: JSON) {
-        
-    }
-    
-    mutating func mapping(_ json: JSON) {
         self._id = json["_id"].stringValue
         ......
     }

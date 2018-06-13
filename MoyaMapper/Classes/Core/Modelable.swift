@@ -28,7 +28,6 @@ public protocol ModelableParameterType {
 
 // MARK:- Model
 public protocol Modelable {
-    mutating func mapping(_ json: JSON)
     init(_ json: JSON)
 }
 
