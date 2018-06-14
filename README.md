@@ -54,13 +54,46 @@ let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetPara
 struct MyModel: Modelable {
     
     var _id : String
+    var address : AddressModel
     ......
     
     init?(_ json: JSON) {
         self._id = json["_id"].stringValue
+        self.address = json["address"].modelValue(AddressModel.self)
         ......
     }
 }
+
+struct AddressModel: Modelable {
+    
+    var street : String
+    ......
+    
+    init(_ json: JSON) {
+        self.street = json["street"].stringValue
+        ......
+    }
+}
+```
+
+
+
+2. 模型嵌套解析
+
+使用泛型的方式为 `JSON` 类拓展两个解析方法，使解析模型嵌套易如反掌
+
+```swift
+// 解析单个模型
+modelValue<T: Modelable>(_ type: T.Type) -> T
+
+// 解析数组模型
+modelsValue<T: Modelable>(_ type: T.Type) -> [T]
+```
+
+示例代码：
+
+```
+self.address = json["address"].modelValue(AddressModel.self)
 ```
 
 
@@ -140,7 +173,17 @@ rxRequest.fetchString(keys: [0, "_id"]).subscribe(onSuccess: { str in
 
 为方便理解，这里给出具体使用`JSON数据图`，结合 `Example`食用更佳～
 
-![JSON数据对照](https://github.com/LinXunFeng/MoyaMapper/raw/master/Screenshots/JSON数据对照.png)
+- 单层模型
+
+![JSON数据对照-单层模型](https://github.com/LinXunFeng/MoyaMapper/raw/master/Screenshots/JSON数据对照-单层模型.png)
+
+- 模型嵌套
+
+![JSON数据对照-模型嵌套](https://github.com/LinXunFeng/MoyaMapper/raw/master/Screenshots/JSON数据对照-模型嵌套.png)
+
+
+
+
 
 ### 返回类型注释：
 

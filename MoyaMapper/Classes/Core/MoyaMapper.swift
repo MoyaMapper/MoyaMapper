@@ -40,10 +40,7 @@ extension Response {
     
     public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType]) -> String {
         var resJson = toJSON(modelKey: path)
-        for key in keys {
-            resJson = resJson[key]
-        }
-        return resJson.stringValue
+        return resJson[keys].stringValue
     }
 }
 

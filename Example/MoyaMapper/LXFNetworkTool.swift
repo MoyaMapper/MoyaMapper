@@ -18,8 +18,8 @@ enum LXFNetworkTool {
         case ios     = "iOS"
         case welfare = "福利"
     }
-    
     case data(type: LXFNetworkCategory, size:Int, index:Int)
+    case multipleModel
 }
 
 extension LXFNetworkTool: TargetType {
@@ -29,12 +29,19 @@ extension LXFNetworkTool: TargetType {
     
     /// The target's base `URL`.
     var baseURL: URL {
-        return URL(string: "http://gank.io/api/data/")!
+        switch self {
+        case .multipleModel:
+            return URL(string: "http://jsonplaceholder.typicode.com/")!
+        default:
+            return URL(string: "http://gank.io/api/data/")!
+        }
     }
     
     /// The path to be appended to `baseURL` to form the full `URL`.
     var path: String {
         switch self {
+        case .multipleModel:
+            return "users"
         case .data(let type, let size, let index):
             return "\(type.rawValue)/\(size)/\(index)"
         }
@@ -81,3 +88,12 @@ struct NetParameter : ModelableParameterType {
 
 let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter.self)])
 
+
+
+// MARK:- 自定义网络结果参数
+struct CustomNetParameter: ModelableParameterType {
+    static var successValue: String { return "000" }
+    static var statusCodeKey: String { return "retCode" }
+    static var tipStrKey: String { return "retMsg" }
+    static var modelKey: String { return "retBody"}
+}

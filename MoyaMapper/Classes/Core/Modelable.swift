@@ -31,3 +31,12 @@ public protocol Modelable {
     init(_ json: JSON)
 }
 
+extension JSON {
+    public func modelValue<T: Modelable>(_ type: T.Type) -> T {
+        return T.init(self)
+    }
+    public func modelsValue<T: Modelable>(_ type: T.Type) -> [T] {
+        return arrayValue.compactMap { $0.modelValue(type) }
+    }
+}
+
