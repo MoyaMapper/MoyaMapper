@@ -38,9 +38,14 @@ extension Response {
         return result.json(path: lxf_modelKey)
     }
     
-    public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType]) -> String {
+    public func fetchString(path: String? = nil, keys: [JSONSubscriptType]) -> String {
         var resJson = toJSON(modelKey: path)
         return resJson[keys].stringValue
+    }
+    
+    public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType]) -> String {
+        var resJson = toJSON(modelKey: path)
+        return resJson[keys].rawString() ?? ""
     }
 }
 

@@ -127,6 +127,7 @@ lxfNetTool.request(.data(type: .all, size: 10, index: 1)) { result in
     // 获取指定路径的值
     // response.fetchJSONString(keys: []])
     // response.fetchJSONString(path: "", keys: [])
+    // response.fetchString(path: "", keys: [])
     
     // 使用自定义模型参数类
     /*

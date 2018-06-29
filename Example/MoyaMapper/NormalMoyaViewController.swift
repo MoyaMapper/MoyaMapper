@@ -61,7 +61,9 @@ extension NormalMoyaViewController {
     // MARK: 获取 指定路径的值
     fileprivate func fetchString(_ result: moyaResult) {
         guard let response = result.value else { return }
-        print(response.fetchJSONString(keys: [0, "_id"]))
+        print(response.fetchJSONString(keys: [0]))
+        
+        print(response.fetchString(keys: [0, "_id"]))
     }
     
     // MARK: 使用自定义模型参数类
@@ -125,9 +127,9 @@ extension NormalMoyaViewController: UITableViewDataSource, UITableViewDelegate {
             completion = result(_:)
         } else if indexPath.row == 2 { // modelsResult
             completion = modelsResult(_:)
-        } else if indexPath.row == 2 { // fetchString
+        } else if indexPath.row == 3 { // fetchString
             completion = fetchString(_:)
-        } else if indexPath.row == 2 { // customNetParamer
+        } else if indexPath.row == 4 { // customNetParamer
             completion = customNetParamer(_:)
         }
         

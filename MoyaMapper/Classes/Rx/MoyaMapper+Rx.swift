@@ -21,6 +21,12 @@ extension ObservableType where E == Response {
 
     public func fetchString(keys: [JSONSubscriptType], path: String? = nil) -> Observable<String> {
         return flatMap { response -> Observable<String> in
+            return Observable.just(response.fetchString(path: path, keys: keys))
+        }
+    }
+    
+    public func fetchJSONString(keys: [JSONSubscriptType], path: String? = nil) -> Observable<String> {
+        return flatMap { response -> Observable<String> in
             return Observable.just(response.fetchJSONString(path: path, keys: keys))
         }
     }
@@ -67,6 +73,11 @@ extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
     }
     
     public func fetchString(keys: [JSONSubscriptType], path: String? = nil) -> Single<String> {
+        return flatMap { response -> Single<String> in
+            return Single.just(response.fetchString(path: path, keys: keys))
+        }
+    }
+    public func fetchJSONString(keys: [JSONSubscriptType], path: String? = nil) -> Single<String> {
         return flatMap { response -> Single<String> in
             return Single.just(response.fetchJSONString(path: path, keys: keys))
         }
