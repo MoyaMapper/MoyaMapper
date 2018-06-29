@@ -43,7 +43,7 @@ extension Response {
         return resJson[keys].stringValue
     }
     
-    public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType]) -> String {
+    public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType] = []) -> String {
         var resJson = toJSON(modelKey: path)
         return resJson[keys].rawString() ?? ""
     }

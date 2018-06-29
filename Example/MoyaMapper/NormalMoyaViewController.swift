@@ -61,6 +61,7 @@ extension NormalMoyaViewController {
     // MARK: 获取 指定路径的值
     fileprivate func fetchString(_ result: moyaResult) {
         guard let response = result.value else { return }
+        print(response.fetchJSONString())
         print(response.fetchJSONString(keys: [0]))
         
         print(response.fetchString(keys: [0, "_id"]))
