@@ -16,7 +16,6 @@ public struct MoyaMapperPlugin: PluginType {
         parameter = type
     }
     
-    // modify response
     public func process(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
         _ = result.map { (response) -> Response in
             response.setNetParameter(parameter)
