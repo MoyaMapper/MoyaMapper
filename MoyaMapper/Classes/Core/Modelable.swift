@@ -31,8 +31,26 @@ public protocol ModelableParameterType {
 }
 
 // MARK:- Model
-public protocol Modelable {
+public protocol Modelable : MMConvertable {
     init(_ json: JSON)
+}
+
+public extension Modelable {
+    static func mapModel(from jsonString: String) -> Self {
+        return JSON(parseJSON: jsonString).modelValue(Self.self)
+    }
+    static func mapModels(from jsonString: String) -> [Self] {
+        return JSON(parseJSON: jsonString).modelsValue(Self.self)
+    }
+}
+
+public extension Array where Element: Modelable {
+    func toJSONString() -> String {
+        let dictArr = self.map { $0.toDictionary() }
+        guard let data = try? JSONSerialization.data(withJSONObject: dictArr, options: .prettyPrinted) else { return "" }
+        guard let json = try? JSON(data: data) else { return "" }
+        return json.rawString() ?? ""
+    }
 }
 
 extension JSON {
@@ -52,4 +70,3 @@ extension JSON {
         return arrayValue.compactMap { $0.modelValue(type) }
     }
 }
-

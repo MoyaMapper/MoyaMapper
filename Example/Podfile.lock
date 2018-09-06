@@ -9,12 +9,12 @@ PODS:
   - Moya/RxSwift (11.0.2):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - MoyaMapper (0.0.7):
-    - MoyaMapper/Core (= 0.0.7)
-  - MoyaMapper/Core (0.0.7):
+  - MoyaMapper (0.1.3):
+    - MoyaMapper/Core (= 0.1.3)
+  - MoyaMapper/Core (0.1.3):
     - Moya (>= 11.0.0)
     - SwiftyJSON
-  - MoyaMapper/Rx (0.0.7):
+  - MoyaMapper/Rx (0.1.3):
     - Moya/RxSwift (>= 11.0.0)
     - MoyaMapper/Core
     - RxSwift
@@ -53,13 +53,13 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   Moya: a725035953bc1c0eb1be505ab903984501d82440
-  MoyaMapper: ee0d324ad81da88933fa4fdc044a74788f732c1c
+  MoyaMapper: cc9db75067122e0b1e514418573da3d5b22945a9
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 5f05011275909adb08e0a5e94de70eea75e4ef21
+PODFILE CHECKSUM: ecdf7bfeccf0b18c2e614cad79a1c360b4870b4c
 
 COCOAPODS: 1.5.0
