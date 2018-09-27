@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MoyaMapper'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = '基于Moya+SwiftyJSON，使解析Response更加方便'
 
 
@@ -23,12 +23,24 @@ MoyaMapper可以更加方便的解析Response，提供RxSwift拓展
     ss.dependency "Moya", ">= 11.0.0"
     ss.dependency "SwiftyJSON"
   end
+  
+  s.subspec "Cache" do |ss|
+    ss.source_files = "MoyaMapper/Classes/Cache"
+    ss.dependency "MoyaMapper/Core"
+    ss.dependency "Cache"
+  end
 
   s.subspec "Rx" do |ss|
     ss.source_files = "MoyaMapper/Classes/Rx"
     ss.dependency "MoyaMapper/Core"
     ss.dependency "Moya/RxSwift", ">= 11.0.0"
     ss.dependency "RxSwift"
+  end
+  
+  s.subspec "RxCache" do |ss|
+    ss.source_files = "MoyaMapper/Classes/RxCache"
+    ss.dependency "MoyaMapper/Rx"
+    ss.dependency "MoyaMapper/Cache"
   end
 
 end

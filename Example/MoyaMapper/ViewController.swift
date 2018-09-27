@@ -11,10 +11,10 @@ import RxSwift
 import Result
 import MoyaMapper
 import Moya
-
+import SwiftyJSON
 class ViewController: BaseViewController {
     
-    let dataArray = ["普通Moya网络请求", "RxMoya网络请求", "模型嵌套解析"]
+    let dataArray = ["普通Moya网络请求", "RxMoya网络请求", "模型嵌套解析", "Cache"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +58,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             vc = RxMoyaViewController()
         } else if indexPath.row == 2 {
             vc = MultipleModelViewController()
+        } else if indexPath.row == 3 {
+            vc = CacheViewController()
         }
         
         if vc == nil { return }

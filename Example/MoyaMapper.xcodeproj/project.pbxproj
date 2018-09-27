@@ -17,6 +17,7 @@
 		693F7EDF1AE21C3AD81AEFDD /* Pods_MoyaMapper_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F626826386069280689B6FE6 /* Pods_MoyaMapper_Example.framework */; };
 		FD1BB83820AECF130084FA95 /* LXFNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BB83620AECF130084FA95 /* LXFNetworkTool.swift */; };
 		FD1BB83920AECF130084FA95 /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BB83720AECF130084FA95 /* MyModel.swift */; };
+		FD24F24C215B28BF00B19F4B /* CacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24F24B215B28BF00B19F4B /* CacheViewController.swift */; };
 		FD86BA1920D1FA0A006D52AE /* NormalMoyaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA1820D1FA0A006D52AE /* NormalMoyaViewController.swift */; };
 		FD86BA2220D20535006D52AE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA2120D20535006D52AE /* BaseViewController.swift */; };
 		FD86BA2520D206BD006D52AE /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA2420D206BD006D52AE /* UITableView+Rx.swift */; };
@@ -58,6 +59,7 @@
 		F626826386069280689B6FE6 /* Pods_MoyaMapper_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaMapper_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1BB83620AECF130084FA95 /* LXFNetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFNetworkTool.swift; sourceTree = "<group>"; };
 		FD1BB83720AECF130084FA95 /* MyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
+		FD24F24B215B28BF00B19F4B /* CacheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheViewController.swift; sourceTree = "<group>"; };
 		FD86BA1820D1FA0A006D52AE /* NormalMoyaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalMoyaViewController.swift; sourceTree = "<group>"; };
 		FD86BA2120D20535006D52AE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FD86BA2420D206BD006D52AE /* UITableView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				FD86BA1820D1FA0A006D52AE /* NormalMoyaViewController.swift */,
 				FD86BA2620D20730006D52AE /* RxMoyaViewController.swift */,
 				FD86BA2A20D2121E006D52AE /* MultipleModelViewController.swift */,
+				FD24F24B215B28BF00B19F4B /* CacheViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MoyaMapper_Example/Pods-MoyaMapper_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/MoyaMapper/MoyaMapper.framework",
@@ -378,6 +382,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MoyaMapper.framework",
@@ -424,6 +429,7 @@
 				FD86BA2B20D2121E006D52AE /* MultipleModelViewController.swift in Sources */,
 				FD86BA2920D20772006D52AE /* RxMoyaSection.swift in Sources */,
 				FD86BA2520D206BD006D52AE /* UITableView+Rx.swift in Sources */,
+				FD24F24C215B28BF00B19F4B /* CacheViewController.swift in Sources */,
 				FD86BA2720D20730006D52AE /* RxMoyaViewController.swift in Sources */,
 				FD86BA2220D20535006D52AE /* BaseViewController.swift in Sources */,
 				FD1BB83920AECF130084FA95 /* MyModel.swift in Sources */,

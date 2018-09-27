@@ -8,6 +8,11 @@
 
 import SwiftyJSON
 
+public enum MMStatusCode: Int {
+    case cache = 230
+    case loadFail = 700
+}
+
 public struct NullParameter: ModelableParameterType {
     /// 请求成功时状态码对应的值 (默认值 "")
     public static var successValue: String {return ""}
