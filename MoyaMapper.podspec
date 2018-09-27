@@ -24,9 +24,10 @@ MoyaMapper可以更加方便的解析Response，提供RxSwift拓展
     ss.dependency "SwiftyJSON"
   end
   
-  s.subspec "Cache" do |ss|
-    ss.source_files = "MoyaMapper/Classes/Cache"
+  s.subspec "MMCache" do |ss|
+    ss.source_files = "MoyaMapper/Classes/MMCache"
     ss.dependency "MoyaMapper/Core"
+    ss.dependency "Cache"
   end
 
   s.subspec "Rx" do |ss|
@@ -39,7 +40,7 @@ MoyaMapper可以更加方便的解析Response，提供RxSwift拓展
   s.subspec "RxCache" do |ss|
     ss.source_files = "MoyaMapper/Classes/RxCache"
     ss.dependency "MoyaMapper/Rx"
-    ss.dependency "MoyaMapper/Cache"
+    ss.dependency "MoyaMapper/MMCache"
   end
 
 end

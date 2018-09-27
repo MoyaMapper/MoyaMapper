@@ -12,18 +12,18 @@ PODS:
     - RxSwift (~> 4.0)
   - MoyaMapper (0.3.0):
     - MoyaMapper/Core (= 0.3.0)
-  - MoyaMapper/Cache (0.3.0):
-    - Cache
-    - MoyaMapper/Core
   - MoyaMapper/Core (0.3.0):
     - Moya (>= 11.0.0)
     - SwiftyJSON
+  - MoyaMapper/MMCache (0.3.0):
+    - Cache
+    - MoyaMapper/Core
   - MoyaMapper/Rx (0.3.0):
     - Moya/RxSwift (>= 11.0.0)
     - MoyaMapper/Core
     - RxSwift
   - MoyaMapper/RxCache (0.3.0):
-    - MoyaMapper/Cache
+    - MoyaMapper/MMCache
     - MoyaMapper/Rx
   - Result (3.2.4)
   - RxCocoa (4.2.0):
@@ -63,7 +63,7 @@ SPEC CHECKSUMS:
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   Moya: a725035953bc1c0eb1be505ab903984501d82440
-  MoyaMapper: 09ec179b0af89171cf548e880f184196cf648121
+  MoyaMapper: 6090552e9b1b682e2dff4ac4b3094bc92a4925a1
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
