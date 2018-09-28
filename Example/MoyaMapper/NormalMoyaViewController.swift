@@ -70,8 +70,8 @@ extension NormalMoyaViewController {
     // MARK: 使用自定义模型参数类
     fileprivate func customNetParamer(_ result: moyaResult) {
         guard let response = result.value else { return }
-        let (isSuccess, tipStr) = response.mapResult { () -> (ModelableParameterType.Type) in
-            return CustomNetParameter.self
+        let (isSuccess, tipStr) = response.mapResult { () -> (ModelableParameterType) in
+            return CustomNetParameter()
         }
         print("isSuccess -- \(isSuccess)")
         print("tipStr -- \(tipStr)")

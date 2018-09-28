@@ -83,7 +83,7 @@ extension RxMoyaViewController {
             // 捕获请求失败（如：无网状态），自定义response
             let err = error as NSError
             let resBodyDict = ["error":"true", "errMsg":err.localizedDescription]
-            let response = Response(resBodyDict, statusCode: 203, parameterType: NetParameter.self)
+            let response = Response(resBodyDict, statusCode: 203, parameter: NetParameter())
             return Single.just(response)
             }.mapArrayResult(MyModel.self).subscribe(onSuccess: { (result, models) in
                 print("isSuccess --\(result.0)")
@@ -103,8 +103,8 @@ extension RxMoyaViewController {
     
     // MARK: 使用自定义模型参数类
     fileprivate func customNetParamer() {
-        rxRequest.mapResult { () -> (ModelableParameterType.Type) in
-            return CustomNetParameter.self
+        rxRequest.mapResult { () -> (ModelableParameterType) in
+            return CustomNetParameter()
         }.subscribe(onSuccess: { (isSuccess, tipStr) in
             print("isSuccess -- \(isSuccess)")
             print("tipStr -- \(tipStr)")

@@ -10,10 +10,10 @@ import Moya
 import Result
 
 public struct MoyaMapperPlugin: PluginType {
-    var parameter: ModelableParameterType.Type
+    var parameter: ModelableParameterType
     var transformError: Bool
     
-    public init<T: ModelableParameterType>(_ type: T.Type, transformError: Bool = true) {
+    public init<T: ModelableParameterType>(_ type: T, transformError: Bool = true) {
         parameter = type
         self.transformError = transformError
     }
@@ -30,7 +30,7 @@ public struct MoyaMapperPlugin: PluginType {
             var errorDict: [String: Any] = [:]
             errorDict[parameter.statusCodeKey] = MMStatusCode.loadFail.rawValue
             errorDict[parameter.tipStrKey] = result.error!.localizedDescription
-            let response = Response(errorDict, statusCode: MMStatusCode.loadFail.rawValue, parameterType: parameter)
+            let response = Response(errorDict, statusCode: MMStatusCode.loadFail.rawValue, parameter: parameter)
             return Result(value: response)
         }
         

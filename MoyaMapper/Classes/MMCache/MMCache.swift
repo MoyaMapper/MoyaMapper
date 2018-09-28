@@ -70,14 +70,29 @@ public extension MMCache {
     func cacheResponse(_ response: Moya.Response, target: TargetType, cacheType: CacheKeyType = .default) -> Bool {
         do {
             try MMCache.shared.responseStorage?.setObject(response, forKey: target.fetchCacheKey(cacheType))
+            let mp = MMResponseParameter(response.lxf_modelableParameter)
+            mp.cache(key: target.cacheParameterTypeKey)
+            try MMCache.shared.jsonStorage?.setObject(mp.toJSON(), forKey: target.cacheParameterTypeKey)
             return true
         }
         catch { return false }
-        
     }
     func fetchResponseCache(target: TargetType, cacheType: CacheKeyType = .default) -> Moya.Response? {
         guard let response = try? MMCache.shared.responseStorage?.object(forKey: target.fetchCacheKey(cacheType))
         else { return nil }
+        
+        guard let json = try? MMCache.shared.jsonStorage?.object(forKey: target.cacheParameterTypeKey)
+        else { return nil }
+        
+        guard let mp = json?.modelValue(MMResponseParameter.self)
+        else { return nil }
+        
+        response?.setNetParameter(TemplateParameter(
+            successValue: mp.successValue,
+            statusCodeKey: mp.statusCodeKey,
+            tipStrKey: mp.tipStrKey,
+            modelKey: mp.modelKey
+        ))
         return response
     }
     

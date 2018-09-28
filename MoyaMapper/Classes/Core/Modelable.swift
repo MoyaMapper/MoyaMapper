@@ -13,28 +13,6 @@ public enum MMStatusCode: Int {
     case loadFail = 700
 }
 
-public struct NullParameter: ModelableParameterType {
-    /// 请求成功时状态码对应的值 (默认值 "")
-    public static var successValue: String {return ""}
-    /// 状态码对应的键 (默认值 "")
-    public static var statusCodeKey: String {return ""}
-    /// 请求后的提示语对应的键 (默认值 "")
-    public static var tipStrKey: String {return ""}
-    /// 请求后的主要模型数据的键 (默认值 "")
-    public static var modelKey: String {return ""}
-}
-
-public protocol ModelableParameterType {
-    /// 请求成功时状态码对应的值
-    static var successValue: String { get }
-    /// 状态码对应的键
-    static var statusCodeKey: String { get }
-    /// 请求后的提示语对应的键
-    static var tipStrKey: String { get }
-    /// 请求后的主要模型数据的键
-    static var modelKey: String { get }
-}
-
 // MARK:- Model
 public protocol Modelable : MMConvertable {
     init(_ json: JSON)

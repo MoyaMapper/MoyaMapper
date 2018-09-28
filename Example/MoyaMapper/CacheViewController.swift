@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import SwiftyJSON
+import MoyaMapper
 
 class CacheViewController: UIViewController {
     
@@ -21,7 +23,6 @@ class CacheViewController: UIViewController {
         label.textAlignment = .center
         label.text = "点击屏幕"
         self.view.addSubview(label)
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -32,6 +33,7 @@ class CacheViewController: UIViewController {
          */
         lxfNetTool.rx.cacheRequest(.data(type: .all, size: 10, index: 1))
             .subscribe(onNext: { response in
+                response.toJSON()
                 print(" ===== cache =====")
             }).disposed(by: disposeBag)
     }

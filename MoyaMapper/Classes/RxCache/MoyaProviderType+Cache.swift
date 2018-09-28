@@ -26,11 +26,12 @@ public extension Reactive where Base: MoyaProviderType {
             if let cache = MMCache.shared.fetchResponseCache(target: token) {
                 cacheResponse = cache
             }
-            originRequest = originRequest.map { response -> Response in
-                let resp = try response.filterSuccessfulStatusCodes()
-                MMCache.shared.cacheResponse(resp, target: token)
-                return response
-            }
+        }
+        // 更新缓存
+        originRequest = originRequest.map { response -> Response in
+            let resp = try response.filterSuccessfulStatusCodes()
+            MMCache.shared.cacheResponse(resp, target: token)
+            return response
         }
         
         guard let lxf_cacheResponse = cacheResponse else { return originRequest }

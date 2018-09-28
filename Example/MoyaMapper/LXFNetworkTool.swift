@@ -80,20 +80,20 @@ extension LXFNetworkTool: TargetType {
 
 struct NetParameter : ModelableParameterType {
     // 可以任意指定位置的值，如： "error>used"
-    static var successValue: String { return "false" }
-    static var statusCodeKey: String { return "error" }
-    static var tipStrKey: String { return "errMsg" }
-    static var modelKey: String { return "results" }
+    var successValue = "false"
+    var statusCodeKey = "error"
+    var tipStrKey = "errMsg"
+    var modelKey = "results"
 }
 
-let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter.self)])
+let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter())])
 
 
 
 // MARK:- 自定义网络结果参数
 struct CustomNetParameter: ModelableParameterType {
-    static var successValue: String { return "000" }
-    static var statusCodeKey: String { return "retCode" }
-    static var tipStrKey: String { return "retMsg" }
-    static var modelKey: String { return "retBody"}
+    var successValue = "000"
+    var statusCodeKey = "retCode"
+    var tipStrKey = "retMsg"
+    var modelKey = "retBody"
 }

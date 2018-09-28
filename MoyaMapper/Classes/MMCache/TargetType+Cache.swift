@@ -21,6 +21,10 @@ extension TargetType {
         }
     }
     
+    var cacheParameterTypeKey : String {
+        return cacheKey(with: "ParameterTypeKey")
+    }
+    
     private var baseCacheKey : String {
         return "[\(self.method)]\(self.baseURL.absoluteString)/\(self.path)"
     }

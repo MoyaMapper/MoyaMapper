@@ -9,7 +9,7 @@
 import Moya
 import SwiftyJSON
 
-public typealias ModelableParamsBlock = ()->(ModelableParameterType.Type)
+public typealias ModelableParamsBlock = ()->(ModelableParameterType)
 /// 统一接口请求结果
 public typealias MoyaMapperResult = (Bool, String)
 /// 路径分割符
@@ -164,8 +164,8 @@ extension Response {
     ///   - dataDict: 数据字典
     ///   - statusCode: 状态码
     ///   - parameterType: ModelableParameterType
-    public convenience init(_ dataDict: [String: Any], statusCode: Int, parameterType: ModelableParameterType.Type) {
-        defer { self.setNetParameter(parameterType) }
+    public convenience init(_ dataDict: [String: Any], statusCode: Int, parameter: ModelableParameterType) {
+        defer { self.setNetParameter(parameter) }
         let jsonData = (try? JSON(dataDict).rawData()) ?? Data()
         self.init(statusCode: statusCode, data: jsonData)
     }
@@ -173,18 +173,18 @@ extension Response {
     /// 设置数据解析参数
     ///
     /// - Parameter type: ModelableParameterType
-    func setNetParameter(_ type: ModelableParameterType.Type) {
+    func setNetParameter(_ type: ModelableParameterType) {
         self.lxf_modelableParameter = type
     }
     
     private struct AssociatedKeys {
         static var lxf_modelableParameterKey = "lxf_modelableParameterKey"
     }
-    fileprivate var lxf_modelableParameter: ModelableParameterType.Type {
+    var lxf_modelableParameter: ModelableParameterType {
         get {
             // https://stackoverflow.com/questions/42033735/failing-cast-in-swift-from-any-to-protocol/42034523#42034523
             let value = objc_getAssociatedObject(self, &AssociatedKeys.lxf_modelableParameterKey) as AnyObject
-            guard let type = value as? ModelableParameterType.Type else { return NullParameter.self }
+            guard let type = value as? ModelableParameterType else { return TemplateParameter() }
             return type
         } set {
             objc_setAssociatedObject(self, &AssociatedKeys.lxf_modelableParameterKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
