@@ -38,7 +38,7 @@ extension ObservableType where E == Response {
     ///
     /// - Parameters:
     ///   - keys: 目标数据子路径  (例： [0, "_id"])
-    ///   - path: JSON数据路径 (默认为模型数据路径)
+    ///   - path: JSON数据路径 (默认为根路径)
     /// - Returns: Observable<String>
     public func fetchJSONString(keys: [JSONSubscriptType] = [], path: String? = nil) -> Observable<String> {
         return flatMap { response -> Observable<String> in

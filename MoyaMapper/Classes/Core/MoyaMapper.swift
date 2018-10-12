@@ -69,11 +69,12 @@ extension Response {
     /// 获取指定路径的原始json字符串
     ///
     /// - Parameters:
-    ///   - path: JSON数据路径 (默认为模型数据路径)
+    ///   - path: JSON数据路径 (默认为根路径)
     ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: 指定路径的原始json字符串
     public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType] = []) -> String {
-        var resJson = toJSON(modelKey: path)
+        let rootPath = ""
+        var resJson = toJSON(modelKey: path != nil ? path : rootPath)
         return resJson[keys].rawString() ?? ""
     }
 }
