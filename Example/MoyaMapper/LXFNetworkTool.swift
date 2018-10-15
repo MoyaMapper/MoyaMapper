@@ -18,8 +18,14 @@ enum LXFNetworkTool {
         case ios     = "iOS"
         case welfare = "福利"
     }
+    enum LXFJsonserverCategory: String {
+        case obj     = "obj"
+        case array   = "array"
+        case fail    = "fail"
+    }
     case data(type: LXFNetworkCategory, size:Int, index:Int)
     case multipleModel
+    case jsonserver(type: LXFJsonserverCategory)
 }
 
 extension LXFNetworkTool: TargetType {
@@ -32,6 +38,8 @@ extension LXFNetworkTool: TargetType {
         switch self {
         case .multipleModel:
             return URL(string: "http://jsonplaceholder.typicode.com/")!
+        case .jsonserver:
+            return URL(string: "http://127.0.0.1:3000/")!
         default:
             return URL(string: "http://gank.io/api/data/")!
         }
@@ -44,6 +52,8 @@ extension LXFNetworkTool: TargetType {
             return "users"
         case .data(let type, let size, let index):
             return "\(type.rawValue)/\(size)/\(index)"
+        case .jsonserver(let type):
+            return "\(type.rawValue)"
         }
     }
     

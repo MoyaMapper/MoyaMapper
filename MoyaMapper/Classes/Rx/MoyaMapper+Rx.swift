@@ -25,10 +25,10 @@ extension ObservableType where E == Response {
     /// 获取指定路径的字符串
     ///
     /// - Parameters:
-    ///   - keys: 目标数据子路径  (例： [0, "_id"])
     ///   - path: JSON数据路径 (默认为模型数据路径)
+    ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: Observable<String>
-    public func fetchString(keys: [JSONSubscriptType] = [], path: String? = nil) -> Observable<String> {
+    public func fetchString(path: String? = nil, keys: [JSONSubscriptType] = []) -> Observable<String> {
         return flatMap { response -> Observable<String> in
             return Observable.just(response.fetchString(path: path, keys: keys))
         }
@@ -37,10 +37,10 @@ extension ObservableType where E == Response {
     /// 获取指定路径的原始json字符串
     ///
     /// - Parameters:
-    ///   - keys: 目标数据子路径  (例： [0, "_id"])
     ///   - path: JSON数据路径 (默认为根路径)
+    ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: Observable<String>
-    public func fetchJSONString(keys: [JSONSubscriptType] = [], path: String? = nil) -> Observable<String> {
+    public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType] = []) -> Observable<String> {
         return flatMap { response -> Observable<String> in
             return Observable.just(response.fetchJSONString(path: path, keys: keys))
         }
@@ -62,7 +62,7 @@ extension ObservableType where E == Response {
     ///
     /// - Parameter params: 自定义解析的设置回调
     /// - Returns: Observable<MoyaMapperResult>
-    public func mapObjResult(params: ModelableParamsBlock? = nil) -> Observable<MoyaMapperResult> {
+    public func mapResult(params: ModelableParamsBlock? = nil) -> Observable<MoyaMapperResult> {
         return flatMap({ response -> Observable<MoyaMapperResult> in
             return Observable.just(response.mapResult(params: params))
         })
@@ -121,10 +121,10 @@ extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
     /// 获取指定路径的字符串
     ///
     /// - Parameters:
-    ///   - keys: 目标数据子路径  (例： [0, "_id"])
     ///   - path: JSON数据路径 (默认为模型数据路径)
+    ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: Single<String>
-    public func fetchString(keys: [JSONSubscriptType] = [], path: String? = nil) -> Single<String> {
+    public func fetchString(path: String? = nil, keys: [JSONSubscriptType] = []) -> Single<String> {
         return flatMap { response -> Single<String> in
             return Single.just(response.fetchString(path: path, keys: keys))
         }
@@ -133,10 +133,10 @@ extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
     /// 获取指定路径的原始json字符串
     ///
     /// - Parameters:
-    ///   - keys: 目标数据子路径  (例： [0, "_id"])
     ///   - path: JSON数据路径 (默认为模型数据路径)
+    ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: Single<String>
-    public func fetchJSONString(keys: [JSONSubscriptType] = [], path: String? = nil) -> Single<String> {
+    public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType] = []) -> Single<String> {
         return flatMap { response -> Single<String> in
             return Single.just(response.fetchJSONString(path: path, keys: keys))
         }
