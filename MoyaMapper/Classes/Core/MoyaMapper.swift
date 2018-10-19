@@ -39,7 +39,7 @@ extension Response {
     ///   - modelJson: 模型对应的json数据
     /// - Returns: 模型
     func toModel<T: Modelable>(_ type: T.Type, modelJson: JSON) -> T {
-        return T.init(modelJson)
+        return modelJson.modelValue(type)
     }
 }
 

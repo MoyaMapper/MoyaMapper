@@ -11,16 +11,17 @@ import MoyaMapper
 
 struct UserModel: Modelable {
     
-    var id : String
-    var name : String
-    var username : String
-    var email : String
-    var phone : String
-    var website : String
-    var address : AddressModel
-    var company : CompanyModel
+    var id : String = ""
+    var name : String = ""
+    var username : String = ""
+    var email : String = ""
+    var phone : String = ""
+    var website : String = ""
+    var address : AddressModel = AddressModel()
+    var company : CompanyModel = CompanyModel()
     
-    init(_ json: JSON) {
+    init() { }
+    mutating func mapping(_ json: JSON) {
         
         self.id = json["id"].stringValue
         self.name = json["name"].stringValue
@@ -35,13 +36,14 @@ struct UserModel: Modelable {
 
 struct AddressModel: Modelable {
     
-    var street : String
-    var suite : String
-    var city : String
-    var zipcode : String
-    var geo : GeoModel
+    var street : String = ""
+    var suite : String = ""
+    var city : String = ""
+    var zipcode : String = ""
+    var geo : GeoModel = GeoModel()
     
-    init(_ json: JSON) {
+    init() { }
+    mutating func mapping(_ json: JSON) {
         
         self.street = json["street"].stringValue
         self.suite = json["suite"].stringValue
@@ -53,10 +55,11 @@ struct AddressModel: Modelable {
 
 struct GeoModel: Modelable {
     
-    var lat : String
-    var lng : String
+    var lat : String = ""
+    var lng : String = ""
     
-    init(_ json: JSON) {
+    init() { }
+    mutating func mapping(_ json: JSON) {
         self.lat = json["lat"].stringValue
         self.lng = json["lng"].stringValue
     }
@@ -64,11 +67,12 @@ struct GeoModel: Modelable {
 
 struct CompanyModel: Modelable {
     
-    var name : String
-    var catchPhrase : String
-    var bs : String
+    var name : String = ""
+    var catchPhrase : String = ""
+    var bs : String = ""
     
-    init(_ json: JSON) {
+    init() { }
+    mutating func mapping(_ json: JSON) {
         
         self.name = json["name"].stringValue
         self.catchPhrase = json["catchPhrase"].stringValue

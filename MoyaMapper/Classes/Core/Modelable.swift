@@ -14,8 +14,20 @@ public enum MMStatusCode: Int {
 }
 
 // MARK:- Model
+private var customMappingKey = "customMappingKey"
 public protocol Modelable : MMConvertable {
-    init(_ json: JSON)
+    init()
+    mutating func mapping(_ json: JSON)
+}
+
+public extension Modelable {
+    fileprivate var customMapping : Bool {
+        get { return (objc_getAssociatedObject(self, &customMappingKey) as? Bool) ?? true }
+        set { objc_setAssociatedObject(self, &customMappingKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    }
+    mutating func mapping(_ json: JSON) {
+        self.customMapping = false
+    }
 }
 
 public extension Modelable {
@@ -42,7 +54,40 @@ extension JSON {
     /// - Parameter type: 模型类型
     /// - Returns: 模型
     public func modelValue<T: Modelable>(_ type: T.Type) -> T {
-        return T.init(self)
+        var model = T()
+        var _dict: [String: Any] = [:]
+        
+        for case let (key, value) in Mirror(reflecting: model).children {
+            guard let key = key else { continue }
+            let _json = self[key]
+            var _value : Any?
+            switch value {
+            case is Bool: _value = _json.boolValue
+            case is Int: _value = _json.intValue
+            case is Int8: _value = _json.int8Value
+            case is Int16: _value = _json.int16Value
+            case is Int32: _value = _json.int32Value
+            case is Int64: _value = _json.int64Value
+            case is UInt: _value = _json.uIntValue
+            case is UInt8: _value = _json.uInt8Value
+            case is UInt16: _value = _json.uInt16Value
+            case is UInt32: _value = _json.uInt32Value
+            case is UInt64: _value = _json.uInt64Value
+            case is Float: _value = _json.stringValue
+            case is Double: _value = _json.doubleValue
+            case is String: _value = _json.stringValue
+            default: continue
+            }
+            if _value != nil { _dict[key] = _value }
+        }
+        
+        guard let data =  try? JSONSerialization.data(withJSONObject: _dict, options: .prettyPrinted) else { return model }
+        
+        let decoder = JSONDecoder()
+        if let _model = try? decoder.decode(T.self, from: data) { model = _model }
+        
+        model.mapping(self)
+        return model
     }
     
     /// 模型数组解析

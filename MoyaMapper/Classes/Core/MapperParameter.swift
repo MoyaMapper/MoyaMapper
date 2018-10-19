@@ -34,12 +34,14 @@ public struct MMResponseParameterKey {
 }
 
 public struct MMResponseParameter: Modelable {
-    public var modelKey: String
-    public var statusCodeKey: String
-    public var successValue: String
-    public var tipStrKey: String
     
-    public init(_ json: JSON) {
+    public var modelKey: String = ""
+    public var statusCodeKey: String = ""
+    public var successValue: String = ""
+    public var tipStrKey: String = ""
+    
+    public init() { }
+    public mutating func mapping(_ json: JSON) {
         modelKey = json[MMResponseParameterKey.modelKey].stringValue
         statusCodeKey = json[MMResponseParameterKey.statusCodeKey].stringValue
         successValue = json[MMResponseParameterKey.successValue].stringValue
