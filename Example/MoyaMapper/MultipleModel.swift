@@ -23,14 +23,14 @@ struct UserModel: Modelable {
     init() { }
     mutating func mapping(_ json: JSON) {
         
-        self.id = json["id"].stringValue
-        self.name = json["name"].stringValue
-        self.username = json["username"].stringValue
-        self.email = json["email"].stringValue
-        self.phone = json["phone"].stringValue
-        self.website = json["website"].stringValue
-        self.address = json["address"].modelValue(AddressModel.self)
-        self.company = json["company"].modelValue(CompanyModel.self)
+//        self.id = json["id"].stringValue
+//        self.name = json["name"].stringValue
+//        self.username = json["username"].stringValue
+//        self.email = json["email"].stringValue
+//        self.phone = json["phone"].stringValue
+//        self.website = json["website"].stringValue
+//        self.address = json["address"].modelValue(AddressModel.self)
+//        self.company = json["company"].modelValue(CompanyModel.self)
     }
 }
 
@@ -45,11 +45,11 @@ struct AddressModel: Modelable {
     init() { }
     mutating func mapping(_ json: JSON) {
         
-        self.street = json["street"].stringValue
-        self.suite = json["suite"].stringValue
-        self.city = json["city"].stringValue
-        self.zipcode = json["zipcode"].stringValue
-        self.geo = json["geo"].modelValue(GeoModel.self)
+//        self.street = json["street"].stringValue
+//        self.suite = json["suite"].stringValue
+//        self.city = json["city"].stringValue
+//        self.zipcode = json["zipcode"].stringValue
+//        self.geo = json["geo"].modelValue(GeoModel.self)
     }
 }
 
@@ -60,8 +60,8 @@ struct GeoModel: Modelable {
     
     init() { }
     mutating func mapping(_ json: JSON) {
-        self.lat = json["lat"].stringValue
-        self.lng = json["lng"].stringValue
+//        self.lat = json["lat"].stringValue
+//        self.lng = json["lng"].stringValue
     }
 }
 
@@ -74,8 +74,8 @@ struct CompanyModel: Modelable {
     init() { }
     mutating func mapping(_ json: JSON) {
         
-        self.name = json["name"].stringValue
-        self.catchPhrase = json["catchPhrase"].stringValue
-        self.bs = json["bs"].stringValue
+//        self.name = json["name"].stringValue
+//        self.catchPhrase = json["catchPhrase"].stringValue
+//        self.bs = json["bs"].stringValue
     }
 }

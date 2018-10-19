@@ -14,20 +14,12 @@ public enum MMStatusCode: Int {
 }
 
 // MARK:- Model
-private var customMappingKey = "customMappingKey"
 public protocol Modelable : MMConvertable {
     init()
-    mutating func mapping(_ json: JSON)
 }
 
 public extension Modelable {
-    fileprivate var customMapping : Bool {
-        get { return (objc_getAssociatedObject(self, &customMappingKey) as? Bool) ?? true }
-        set { objc_setAssociatedObject(self, &customMappingKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-    }
-    mutating func mapping(_ json: JSON) {
-        self.customMapping = false
-    }
+    mutating func mapping(_ json: JSON) {}
 }
 
 public extension Modelable {
@@ -76,12 +68,14 @@ extension JSON {
             case is Float: _value = _json.stringValue
             case is Double: _value = _json.doubleValue
             case is String: _value = _json.stringValue
-            default: continue
+            default: _value = _json.rawValue
             }
             if _value != nil { _dict[key] = _value }
         }
         
-        guard let data =  try? JSONSerialization.data(withJSONObject: _dict, options: .prettyPrinted) else { return model }
+        guard let data =  try? JSONSerialization.data(withJSONObject: _dict, options: .prettyPrinted) else {
+            return model
+        }
         
         let decoder = JSONDecoder()
         if let _model = try? decoder.decode(T.self, from: data) { model = _model }
