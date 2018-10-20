@@ -22,7 +22,7 @@ MoyaMapper可以更加方便的解析Response，提供RxSwift拓展
   s.subspec "Core" do |ss|
     ss.source_files  = "MoyaMapper/Classes/Core"
     ss.dependency "Moya", ">= 11.0.0"
-    ss.dependency "SwiftyJSON", ">= 4.0.0"
+    ss.dependency "SwiftyJSON"
   end
   
   s.subspec "MMCache" do |ss|

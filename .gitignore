@@ -36,3 +36,6 @@ Carthage/Build
 #
 # Pods/
 Example/Pods/
+Example/Podfile.lock
+Example/*.xcworkspace
+
