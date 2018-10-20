@@ -7,5 +7,4 @@ before_install:
   - pod install --project-directory=Example 
 
 script:
-  - pod update
   - pod lib lint --allow-warnings --verbose
