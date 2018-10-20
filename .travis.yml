@@ -1,4 +1,10 @@
 osx_image: xcode9.4.1
 language: swift
+
+before_install: 
+  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet 
+  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet 
+  - pod install --project-directory=Example 
+
 script:
-- pod lib lint --allow-warnings --verbose
+  - pod lib lint --allow-warnings --verbose

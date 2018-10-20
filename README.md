@@ -3,8 +3,7 @@
 
 
 <center>
-
-[![](https://img.shields.io/badge/author-LinXunFeng-blue.svg)](https://cocoapods.org/pods/MoyaMapper)[![CI Status](https://img.shields.io/travis/LinXunFeng/MoyaMapper.svg?style=flat)](https://travis-ci.org/LinXunFeng/MoyaMapper)[![Version](https://img.shields.io/cocoapods/v/MoyaMapper.svg?style=flat)](https://cocoapods.org/pods/MoyaMapper)[![License](https://img.shields.io/github/license/LinXunFeng/MoyaMapper.svg)](https://cocoapods.org/pods/MoyaMapper)[![Platform](https://img.shields.io/cocoapods/p/MoyaMapper.svg?style=flat)](https://cocoapods.org/pods/MoyaMapper)
+[![](https://img.shields.io/badge/author-LinXunFeng-blue.svg)](https://cocoapods.org/pods/MoyaMapper)[![Version](https://img.shields.io/cocoapods/v/MoyaMapper.svg?style=flat)](https://cocoapods.org/pods/MoyaMapper)[![License](https://img.shields.io/github/license/LinXunFeng/MoyaMapper.svg)](https://cocoapods.org/pods/MoyaMapper)[![Platform](https://img.shields.io/cocoapods/p/MoyaMapper.svg?style=flat)](https://cocoapods.org/pods/MoyaMapper)
 
 </center>
 
@@ -12,7 +11,75 @@
 
 
 
+详细的使用 手册 [https://MoyaMapper.github.io](https://moyamapper.github.io/)
+
+
+
 如果接口请求后 `json` 的数据结构与下图类似，则使用 `MoyaMapper` 是最合适不过了
+
+
+
+## Usage
+
+
+
+### Model
+
+
+
+支持模型自动映射，不需要考虑源json数据的真实类型，这里统一按`Model`中属性声明的类型进行转换
+
+
+
+一般情况下如下写法即可
+
+```swift
+struct CompanyModel: Modelable {
+    
+    var name : String = ""
+    var catchPhrase : String = ""
+    
+    init() { }
+}
+```
+
+
+
+如果键名需要自定义，则可以实现方法 `mutating func mapping(_ json: JSON)`
+
+```swift
+struct CompanyModel: Modelable {
+    
+    var name : String = ""
+    var catchPhrase : String = ""
+    
+    init() { }
+    mutating func mapping(_ json: JSON) {
+        self.name = json["nickname"].stringValue
+    }
+}
+```
+
+
+
+支持模型嵌套
+
+```swift
+struct UserModel: Modelable {
+    
+    var id : String = ""
+    var name : String = ""
+    var company : CompanyModel = CompanyModel()
+    
+    init() { }
+}
+```
+
+
+
+
+
+### Response --> Model
 
 ![success-obj](https://github.com/MoyaMapper/MoyaMapper.github.io/raw/master/img/code/success-obj.png)
 
@@ -69,8 +136,6 @@ rxRequest.mapResult { CustomNetParameter() }
 ```
 
 
-
-详细的使用请参考 [https://MoyaMapper.github.io](https://moyamapper.github.io/)
 
 
 
