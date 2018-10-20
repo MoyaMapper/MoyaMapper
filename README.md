@@ -9,14 +9,8 @@
 </center>
 
 >  MoyaMapper是基于Moya和SwiftyJSON封装的工具，以Moya的plugin的方式来实现间接解析，支持RxSwift
-
-
-
-详细的使用 手册 [https://MoyaMapper.github.io](https://moyamapper.github.io/)
-
-
-
-如果接口请求后 `json` 的数据结构与下图类似，则使用 `MoyaMapper` 是最合适不过了
+>
+>  详细的使用 手册 [https://MoyaMapper.github.io](https://moyamapper.github.io/)
 
 
 
@@ -81,6 +75,8 @@ struct UserModel: Modelable {
 
 
 ### Response --> Model
+
+如果接口请求后 `json` 的数据结构与下图类似，则使用 `MoyaMapper` 是最合适不过了
 
 ![success-obj](https://github.com/MoyaMapper/MoyaMapper.github.io/raw/master/img/code/success-obj.png)
 

@@ -14,7 +14,7 @@ PODS:
     - MoyaMapper/Core (= 1.0.0)
   - MoyaMapper/Core (1.0.0):
     - Moya (>= 11.0.0)
-    - SwiftyJSON
+    - SwiftyJSON (>= 4.0.0)
   - MoyaMapper/MMCache (1.0.0):
     - Cache
     - MoyaMapper/Core
@@ -63,7 +63,7 @@ SPEC CHECKSUMS:
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   Moya: a725035953bc1c0eb1be505ab903984501d82440
-  MoyaMapper: cbc896fe1528bef85abc78bed1295fae4b507f52
+  MoyaMapper: 5edcf9a28b846f3f73afeb452098f75910432eae
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
