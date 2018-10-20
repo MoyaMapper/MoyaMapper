@@ -367,7 +367,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MoyaMapper_Example/Pods-MoyaMapper_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MoyaMapper_Example/Pods-MoyaMapper_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
@@ -394,7 +394,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoyaMapper_Example/Pods-MoyaMapper_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoyaMapper_Example/Pods-MoyaMapper_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D30EA93D57A075D16EB30F29 /* [CP] Check Pods Manifest.lock */ = {
