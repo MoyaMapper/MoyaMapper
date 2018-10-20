@@ -12,7 +12,7 @@ import MoyaMapper
 struct MyModel: Modelable {
     
     var _id : String = ""
-    var createdAt : String = ""
+    var created : String = ""
     var desc : String = ""
     var publishedAt : String = ""
     var source : String = ""
@@ -22,9 +22,9 @@ struct MyModel: Modelable {
     var who : String = ""
     
     init() { }
-//    mutating func mapping(_ json: JSON) {
+    mutating func mapping(_ json: JSON) {
 //        self._id = json["_id"].stringValue
-//        self.createdAt = json["createdAt"].stringValue
+        self.created = json["createdAt"].stringValue
 //        self.desc = json["desc"].stringValue
 //        self.publishedAt = json["publishedAt"].stringValue
 //        self.source = json["source"].stringValue
@@ -32,5 +32,5 @@ struct MyModel: Modelable {
 //        self.url = json["url"].stringValue
 //        self.used = json["used"].stringValue
 //        self.who = json["who"].stringValue
-//    }
+    }
 }

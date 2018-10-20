@@ -35,9 +35,10 @@ extension NormalMoyaViewController {
     // MARK: 获取 模型数组
     fileprivate func models(_ result: moyaResult) {
         guard let response = result.value else { return }
+        print("json -- \(response.fetchJSONString())")
         let models = response.mapArray(MyModel.self)
         for model in models {
-            print("id -- \(model._id)")
+            print("createdAt -- \(model.created)")
         }
     }
     

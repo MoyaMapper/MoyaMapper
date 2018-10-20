@@ -16,10 +16,11 @@ public enum MMStatusCode: Int {
 // MARK:- Model
 public protocol Modelable : MMConvertable {
     init()
+    mutating func mapping(_ json: JSON)
 }
 
 public extension Modelable {
-    mutating func mapping(_ json: JSON) {}
+    mutating func mapping(_ json: JSON) { }
 }
 
 public extension Modelable {
