@@ -9,22 +9,31 @@
 /* Begin PBXBuildFile section */
 		4221CC063CE6437C3AF56F52 /* Pods_MoyaMapper_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3ACF85F0566394D861441E /* Pods_MoyaMapper_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		693F7EDF1AE21C3AD81AEFDD /* Pods_MoyaMapper_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F626826386069280689B6FE6 /* Pods_MoyaMapper_Example.framework */; };
-		FD1BB83820AECF130084FA95 /* LXFNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BB83620AECF130084FA95 /* LXFNetworkTool.swift */; };
-		FD1BB83920AECF130084FA95 /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BB83720AECF130084FA95 /* MyModel.swift */; };
-		FD24F24C215B28BF00B19F4B /* CacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD24F24B215B28BF00B19F4B /* CacheViewController.swift */; };
-		FD86BA1920D1FA0A006D52AE /* NormalMoyaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA1820D1FA0A006D52AE /* NormalMoyaViewController.swift */; };
-		FD86BA2220D20535006D52AE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA2120D20535006D52AE /* BaseViewController.swift */; };
-		FD86BA2520D206BD006D52AE /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA2420D206BD006D52AE /* UITableView+Rx.swift */; };
-		FD86BA2720D20730006D52AE /* RxMoyaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA2620D20730006D52AE /* RxMoyaViewController.swift */; };
-		FD86BA2920D20772006D52AE /* RxMoyaSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA2820D20772006D52AE /* RxMoyaSection.swift */; };
-		FD86BA2B20D2121E006D52AE /* MultipleModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA2A20D2121E006D52AE /* MultipleModelViewController.swift */; };
-		FD86BA2D20D2128B006D52AE /* MultipleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86BA2C20D2128B006D52AE /* MultipleModel.swift */; };
+		FD0273C7217DA7BF006E5F24 /* RxMoyaSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273B1217DA7BF006E5F24 /* RxMoyaSection.swift */; };
+		FD0273C8217DA7BF006E5F24 /* MultipleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273B3217DA7BF006E5F24 /* MultipleModel.swift */; };
+		FD0273C9217DA7BF006E5F24 /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273B4217DA7BF006E5F24 /* MyModel.swift */; };
+		FD0273CA217DA7BF006E5F24 /* RxMoyaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273B7217DA7BF006E5F24 /* RxMoyaViewController.swift */; };
+		FD0273CB217DA7BF006E5F24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273B8217DA7BF006E5F24 /* ViewController.swift */; };
+		FD0273CC217DA7BF006E5F24 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273B9217DA7BF006E5F24 /* BaseViewController.swift */; };
+		FD0273CD217DA7BF006E5F24 /* CacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273BA217DA7BF006E5F24 /* CacheViewController.swift */; };
+		FD0273CE217DA7BF006E5F24 /* NormalMoyaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273BB217DA7BF006E5F24 /* NormalMoyaViewController.swift */; };
+		FD0273CF217DA7BF006E5F24 /* MultipleModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273BC217DA7BF006E5F24 /* MultipleModelViewController.swift */; };
+		FD0273D0217DA7BF006E5F24 /* LXFNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273BF217DA7BF006E5F24 /* LXFNetworkTool.swift */; };
+		FD0273D1217DA7BF006E5F24 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273C1217DA7BF006E5F24 /* Parameters.swift */; };
+		FD0273D2217DA7BF006E5F24 /* MoyaSugarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273C2217DA7BF006E5F24 /* MoyaSugarProvider.swift */; };
+		FD0273D3217DA7BF006E5F24 /* SugarTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273C3217DA7BF006E5F24 /* SugarTargetType.swift */; };
+		FD0273D4217DA7BF006E5F24 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273C4217DA7BF006E5F24 /* Route.swift */; };
+		FD0273D5217DA7BF006E5F24 /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273C6217DA7BF006E5F24 /* UITableView+Rx.swift */; };
+		FD0273D7217DA81D006E5F24 /* GankApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273D6217DA81D006E5F24 /* GankApi.swift */; };
+		FD0273D9217DA9B1006E5F24 /* TypicodeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273D8217DA9B1006E5F24 /* TypicodeApi.swift */; };
+		FD0273DC217DAB7B006E5F24 /* GankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273DB217DAB7B006E5F24 /* GankService.swift */; };
+		FD0273DE217DABB7006E5F24 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273DD217DABB7006E5F24 /* Networking.swift */; };
+		FD0273E0217DAD90006E5F24 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273DF217DAD90006E5F24 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +53,6 @@
 		607FACD01AFB9204008FA782 /* MoyaMapper_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaMapper_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -57,16 +65,26 @@
 		B6F4D2AB4067674F326A3C05 /* Pods-MoyaMapper_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaMapper_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaMapper_Example/Pods-MoyaMapper_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CFA351889E9DBCC03999E651 /* Pods-MoyaMapper_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaMapper_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaMapper_Tests/Pods-MoyaMapper_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F626826386069280689B6FE6 /* Pods_MoyaMapper_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaMapper_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD1BB83620AECF130084FA95 /* LXFNetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFNetworkTool.swift; sourceTree = "<group>"; };
-		FD1BB83720AECF130084FA95 /* MyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
-		FD24F24B215B28BF00B19F4B /* CacheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheViewController.swift; sourceTree = "<group>"; };
-		FD86BA1820D1FA0A006D52AE /* NormalMoyaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalMoyaViewController.swift; sourceTree = "<group>"; };
-		FD86BA2120D20535006D52AE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		FD86BA2420D206BD006D52AE /* UITableView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
-		FD86BA2620D20730006D52AE /* RxMoyaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMoyaViewController.swift; sourceTree = "<group>"; };
-		FD86BA2820D20772006D52AE /* RxMoyaSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMoyaSection.swift; sourceTree = "<group>"; };
-		FD86BA2A20D2121E006D52AE /* MultipleModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleModelViewController.swift; sourceTree = "<group>"; };
-		FD86BA2C20D2128B006D52AE /* MultipleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleModel.swift; sourceTree = "<group>"; };
+		FD0273B1217DA7BF006E5F24 /* RxMoyaSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMoyaSection.swift; sourceTree = "<group>"; };
+		FD0273B3217DA7BF006E5F24 /* MultipleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleModel.swift; sourceTree = "<group>"; };
+		FD0273B4217DA7BF006E5F24 /* MyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
+		FD0273B7217DA7BF006E5F24 /* RxMoyaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxMoyaViewController.swift; sourceTree = "<group>"; };
+		FD0273B8217DA7BF006E5F24 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD0273B9217DA7BF006E5F24 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FD0273BA217DA7BF006E5F24 /* CacheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheViewController.swift; sourceTree = "<group>"; };
+		FD0273BB217DA7BF006E5F24 /* NormalMoyaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalMoyaViewController.swift; sourceTree = "<group>"; };
+		FD0273BC217DA7BF006E5F24 /* MultipleModelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleModelViewController.swift; sourceTree = "<group>"; };
+		FD0273BF217DA7BF006E5F24 /* LXFNetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFNetworkTool.swift; sourceTree = "<group>"; };
+		FD0273C1217DA7BF006E5F24 /* Parameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
+		FD0273C2217DA7BF006E5F24 /* MoyaSugarProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaSugarProvider.swift; sourceTree = "<group>"; };
+		FD0273C3217DA7BF006E5F24 /* SugarTargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarTargetType.swift; sourceTree = "<group>"; };
+		FD0273C4217DA7BF006E5F24 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		FD0273C6217DA7BF006E5F24 /* UITableView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
+		FD0273D6217DA81D006E5F24 /* GankApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankApi.swift; sourceTree = "<group>"; };
+		FD0273D8217DA9B1006E5F24 /* TypicodeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypicodeApi.swift; sourceTree = "<group>"; };
+		FD0273DB217DAB7B006E5F24 /* GankService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankService.swift; sourceTree = "<group>"; };
+		FD0273DD217DABB7006E5F24 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		FD0273DF217DAD90006E5F24 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,11 +131,11 @@
 		607FACD21AFB9204008FA782 /* Example for MoyaMapper */ = {
 			isa = PBXGroup;
 			children = (
-				FD86BA1E20D1FE47006D52AE /* Sections */,
-				FD86BA1D20D1FB07006D52AE /* Utils */,
-				FD86BA1C20D1FAE5006D52AE /* Other */,
-				FD86BA1B20D1FAD5006D52AE /* Models */,
-				FD86BA1A20D1FACA006D52AE /* Controllers */,
+				FD0273B6217DA7BF006E5F24 /* Controllers */,
+				FD0273B2217DA7BF006E5F24 /* Models */,
+				FD0273B5217DA7BF006E5F24 /* Other */,
+				FD0273B0217DA7BF006E5F24 /* Sections */,
+				FD0273BD217DA7BF006E5F24 /* Utils */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for MoyaMapper";
@@ -179,29 +197,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FD86BA1A20D1FACA006D52AE /* Controllers */ = {
+		FD0273B0217DA7BF006E5F24 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				FD86BA2120D20535006D52AE /* BaseViewController.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				FD86BA1820D1FA0A006D52AE /* NormalMoyaViewController.swift */,
-				FD86BA2620D20730006D52AE /* RxMoyaViewController.swift */,
-				FD86BA2A20D2121E006D52AE /* MultipleModelViewController.swift */,
-				FD24F24B215B28BF00B19F4B /* CacheViewController.swift */,
+				FD0273B1217DA7BF006E5F24 /* RxMoyaSection.swift */,
 			);
-			name = Controllers;
+			path = Sections;
 			sourceTree = "<group>";
 		};
-		FD86BA1B20D1FAD5006D52AE /* Models */ = {
+		FD0273B2217DA7BF006E5F24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FD1BB83720AECF130084FA95 /* MyModel.swift */,
-				FD86BA2C20D2128B006D52AE /* MultipleModel.swift */,
+				FD0273B3217DA7BF006E5F24 /* MultipleModel.swift */,
+				FD0273B4217DA7BF006E5F24 /* MyModel.swift */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		FD86BA1C20D1FAE5006D52AE /* Other */ = {
+		FD0273B5217DA7BF006E5F24 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -209,32 +222,70 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 			);
-			name = Other;
+			path = Other;
 			sourceTree = "<group>";
 		};
-		FD86BA1D20D1FB07006D52AE /* Utils */ = {
+		FD0273B6217DA7BF006E5F24 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FD86BA2320D206AD006D52AE /* Rx */,
-				FD1BB83620AECF130084FA95 /* LXFNetworkTool.swift */,
+				FD0273B7217DA7BF006E5F24 /* RxMoyaViewController.swift */,
+				FD0273B8217DA7BF006E5F24 /* ViewController.swift */,
+				FD0273B9217DA7BF006E5F24 /* BaseViewController.swift */,
+				FD0273BA217DA7BF006E5F24 /* CacheViewController.swift */,
+				FD0273BB217DA7BF006E5F24 /* NormalMoyaViewController.swift */,
+				FD0273BC217DA7BF006E5F24 /* MultipleModelViewController.swift */,
 			);
-			name = Utils;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		FD86BA1E20D1FE47006D52AE /* Sections */ = {
+		FD0273BD217DA7BF006E5F24 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FD86BA2820D20772006D52AE /* RxMoyaSection.swift */,
+				FD0273DA217DAB64006E5F24 /* Services */,
+				FD0273BE217DA7BF006E5F24 /* Networking */,
+				FD0273C5217DA7BF006E5F24 /* Rx */,
+				FD0273DF217DAD90006E5F24 /* Logger.swift */,
 			);
-			name = Sections;
+			path = Utils;
 			sourceTree = "<group>";
 		};
-		FD86BA2320D206AD006D52AE /* Rx */ = {
+		FD0273BE217DA7BF006E5F24 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				FD86BA2420D206BD006D52AE /* UITableView+Rx.swift */,
+				FD0273BF217DA7BF006E5F24 /* LXFNetworkTool.swift */,
+				FD0273D6217DA81D006E5F24 /* GankApi.swift */,
+				FD0273D8217DA9B1006E5F24 /* TypicodeApi.swift */,
+				FD0273DD217DABB7006E5F24 /* Networking.swift */,
+				FD0273C0217DA7BF006E5F24 /* MoyaSugar */,
 			);
-			name = Rx;
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		FD0273C0217DA7BF006E5F24 /* MoyaSugar */ = {
+			isa = PBXGroup;
+			children = (
+				FD0273C1217DA7BF006E5F24 /* Parameters.swift */,
+				FD0273C2217DA7BF006E5F24 /* MoyaSugarProvider.swift */,
+				FD0273C3217DA7BF006E5F24 /* SugarTargetType.swift */,
+				FD0273C4217DA7BF006E5F24 /* Route.swift */,
+			);
+			path = MoyaSugar;
+			sourceTree = "<group>";
+		};
+		FD0273C5217DA7BF006E5F24 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				FD0273C6217DA7BF006E5F24 /* UITableView+Rx.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		FD0273DA217DAB64006E5F24 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FD0273DB217DAB7B006E5F24 /* GankService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,18 +473,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
-				FD1BB83820AECF130084FA95 /* LXFNetworkTool.swift in Sources */,
-				FD86BA1920D1FA0A006D52AE /* NormalMoyaViewController.swift in Sources */,
+				FD0273D7217DA81D006E5F24 /* GankApi.swift in Sources */,
+				FD0273CB217DA7BF006E5F24 /* ViewController.swift in Sources */,
+				FD0273DC217DAB7B006E5F24 /* GankService.swift in Sources */,
+				FD0273D2217DA7BF006E5F24 /* MoyaSugarProvider.swift in Sources */,
+				FD0273C8217DA7BF006E5F24 /* MultipleModel.swift in Sources */,
+				FD0273D4217DA7BF006E5F24 /* Route.swift in Sources */,
+				FD0273CA217DA7BF006E5F24 /* RxMoyaViewController.swift in Sources */,
+				FD0273D5217DA7BF006E5F24 /* UITableView+Rx.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				FD86BA2B20D2121E006D52AE /* MultipleModelViewController.swift in Sources */,
-				FD86BA2920D20772006D52AE /* RxMoyaSection.swift in Sources */,
-				FD86BA2520D206BD006D52AE /* UITableView+Rx.swift in Sources */,
-				FD24F24C215B28BF00B19F4B /* CacheViewController.swift in Sources */,
-				FD86BA2720D20730006D52AE /* RxMoyaViewController.swift in Sources */,
-				FD86BA2220D20535006D52AE /* BaseViewController.swift in Sources */,
-				FD1BB83920AECF130084FA95 /* MyModel.swift in Sources */,
-				FD86BA2D20D2128B006D52AE /* MultipleModel.swift in Sources */,
+				FD0273D3217DA7BF006E5F24 /* SugarTargetType.swift in Sources */,
+				FD0273D9217DA9B1006E5F24 /* TypicodeApi.swift in Sources */,
+				FD0273DE217DABB7006E5F24 /* Networking.swift in Sources */,
+				FD0273CF217DA7BF006E5F24 /* MultipleModelViewController.swift in Sources */,
+				FD0273C7217DA7BF006E5F24 /* RxMoyaSection.swift in Sources */,
+				FD0273CC217DA7BF006E5F24 /* BaseViewController.swift in Sources */,
+				FD0273CE217DA7BF006E5F24 /* NormalMoyaViewController.swift in Sources */,
+				FD0273E0217DAD90006E5F24 /* Logger.swift in Sources */,
+				FD0273C9217DA7BF006E5F24 /* MyModel.swift in Sources */,
+				FD0273CD217DA7BF006E5F24 /* CacheViewController.swift in Sources */,
+				FD0273D0217DA7BF006E5F24 /* LXFNetworkTool.swift in Sources */,
+				FD0273D1217DA7BF006E5F24 /* Parameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +645,7 @@
 				INFOPLIST_FILE = MoyaMapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -605,6 +666,7 @@
 				INFOPLIST_FILE = MoyaMapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

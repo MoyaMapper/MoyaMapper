@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 import RxSwift
 import RxCocoa
 import RxDataSources
@@ -62,30 +61,35 @@ class RxMoyaViewController: BaseViewController {
 extension RxMoyaViewController {
     // MARK: 获取 模型数组
     fileprivate func models() {
-        rxRequest.mapArray(MyModel.self).subscribe(onSuccess: { models in
-            for model in models {
-                print("id -- \(model._id)")
-            }
-        }).disposed(by: disposeBag)
+        rxRequest.mapArray(MyModel.self)
+            .subscribe(onSuccess: { models in
+                for model in models {
+                    print("id -- \(model._id)")
+                }
+            }).disposed(by: disposeBag)
     }
     
     // MARK: 获取 请求结果
     fileprivate func result() {
-        rxRequest.mapResult().subscribe(onSuccess: { (isSuccess, tipStr) in
-            print("isSuccess -- \(isSuccess)")
-            print("tipStr -- \(tipStr)")
-        }).disposed(by: disposeBag)
+        rxRequest.mapResult()
+            .subscribe(onSuccess: { (isSuccess, tipStr) in
+                print("isSuccess -- \(isSuccess)")
+                print("tipStr -- \(tipStr)")
+            }).disposed(by: disposeBag)
     }
     
     // MARK: 获取 模型数组 + 请求结果
     fileprivate func modelsResult() {
-        rxRequest.catchError { (error) -> PrimitiveSequence<SingleTrait, Response> in
-            // 捕获请求失败（如：无网状态），自定义response
-            let err = error as NSError
-            let resBodyDict = ["error":"true", "errMsg":err.localizedDescription]
-            let response = Response(resBodyDict, statusCode: 203, parameter: NetParameter())
-            return Single.just(response)
-            }.mapArrayResult(MyModel.self).subscribe(onSuccess: { (result, models) in
+        rxRequest
+            .catchError { (error) -> Single<Response> in
+                // 捕获请求失败（如：无网状态），自定义response
+                let err = error as NSError
+                let resBodyDict = ["error":"true", "errMsg":err.localizedDescription]
+                let response = Response(resBodyDict, statusCode: 203, parameter: NetParameter())
+                return Single.just(response)
+            }
+            .mapArrayResult(MyModel.self)
+            .subscribe(onSuccess: { (result, models) in
                 print("isSuccess --\(result.0)")
                 print("tipStr --\(result.1)")
                 print("models count -- \(models.count)")
@@ -95,20 +99,20 @@ extension RxMoyaViewController {
     // MARK: 获取 指定路径的值
     fileprivate func fetchString() {
         // 获取指定路径的值
-        rxRequest.fetchString(keys: [0, "_id"]).subscribe(onSuccess: { str in
-            // 取第1条数据中的'_id'字段对应的值
-            print("str -- \(str)")
-        }).disposed(by: disposeBag)
+        rxRequest.fetchString(keys: [0, "_id"])
+            .subscribe(onSuccess: { str in
+                // 取第1条数据中的'_id'字段对应的值
+                print("str -- \(str)")
+            }).disposed(by: disposeBag)
     }
     
     // MARK: 使用自定义模型参数类
     fileprivate func customNetParamer() {
-        rxRequest.mapResult { () -> (ModelableParameterType) in
-            return CustomNetParameter()
-        }.subscribe(onSuccess: { (isSuccess, tipStr) in
-            print("isSuccess -- \(isSuccess)")
-            print("tipStr -- \(tipStr)")
-        }).disposed(by: disposeBag)
+        rxRequest.mapResult { CustomNetParameter() }
+            .subscribe(onSuccess: { (isSuccess, tipStr) in
+                print("isSuccess -- \(isSuccess)")
+                print("tipStr -- \(tipStr)")
+            }).disposed(by: disposeBag)
     }
     
     // MARK: 其它
@@ -131,20 +135,21 @@ extension RxMoyaViewController: UITableViewDelegate {
         self.view.addSubview(tableView)
         Observable.just(sections).bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
         
-        tableView.rx.itemSelected(dataSource: dataSource).subscribe(onNext: { [weak self] (sectionItem) in
-            switch sectionItem {
-            case .models:
-                self?.models()
-            case .result:
-                self?.result()
-            case .modelsResult:
-                self?.modelsResult()
-            case .fetchString:
-                self?.fetchString()
-            case .customNetParamer:
-                self?.customNetParamer()
-            }
-        }).disposed(by: disposeBag)
+        tableView.rx.itemSelected(dataSource: dataSource)
+            .subscribe(onNext: { [weak self] (sectionItem) in
+                switch sectionItem {
+                case .models:
+                    self?.models()
+                case .result:
+                    self?.result()
+                case .modelsResult:
+                    self?.modelsResult()
+                case .fetchString:
+                    self?.fetchString()
+                case .customNetParamer:
+                    self?.customNetParamer()
+                }
+            }).disposed(by: disposeBag)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
