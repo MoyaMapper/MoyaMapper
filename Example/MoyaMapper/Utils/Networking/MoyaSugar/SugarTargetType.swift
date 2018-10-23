@@ -42,9 +42,8 @@ public extension SugarTargetType {
     return .requestParameters(parameters: parameters.values, encoding: parameters.encoding)
   }
     
-    var timeout : TimeInterval {
-        return Parameters.defaultTimeout
-    }
-    
+  public var timeout : TimeInterval {
+    return Parameters.defaultTimeout
+  }
 }
 

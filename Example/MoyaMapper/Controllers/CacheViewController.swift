@@ -33,8 +33,8 @@ class CacheViewController: UIViewController {
          */
         lxfNetTool.rx.cacheRequest(.data(type: .all, size: 10, index: 1))
             .subscribe(onNext: { response in
-                response.toJSON()
-                print(" ===== cache =====")
+                log.debug("statusCode -- \(response.statusCode)")
+                log.debug(" ===== cache =====")
             }).disposed(by: disposeBag)
     }
 }

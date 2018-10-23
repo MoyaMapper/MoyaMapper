@@ -34,6 +34,7 @@
 		FD0273DC217DAB7B006E5F24 /* GankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273DB217DAB7B006E5F24 /* GankService.swift */; };
 		FD0273DE217DABB7006E5F24 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273DD217DABB7006E5F24 /* Networking.swift */; };
 		FD0273E0217DAD90006E5F24 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0273DF217DAD90006E5F24 /* Logger.swift */; };
+		FD1989D9217F6F4D005E1E58 /* TypicodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1989D8217F6F4D005E1E58 /* TypicodeService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		FD0273DB217DAB7B006E5F24 /* GankService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankService.swift; sourceTree = "<group>"; };
 		FD0273DD217DABB7006E5F24 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		FD0273DF217DAD90006E5F24 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		FD1989D8217F6F4D005E1E58 /* TypicodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypicodeService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				FD0273DB217DAB7B006E5F24 /* GankService.swift */,
+				FD1989D8217F6F4D005E1E58 /* TypicodeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				FD0273D4217DA7BF006E5F24 /* Route.swift in Sources */,
 				FD0273CA217DA7BF006E5F24 /* RxMoyaViewController.swift in Sources */,
 				FD0273D5217DA7BF006E5F24 /* UITableView+Rx.swift in Sources */,
+				FD1989D9217F6F4D005E1E58 /* TypicodeService.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				FD0273D3217DA7BF006E5F24 /* SugarTargetType.swift in Sources */,
 				FD0273D9217DA9B1006E5F24 /* TypicodeApi.swift in Sources */,

@@ -14,14 +14,22 @@ class MultipleModelViewController: BaseViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
-        lxfNetTool.rx.request(.multipleModel)
-            .mapArray(UserModel.self, modelKey: "")
+//        lxfNetTool.rx.request(.multipleModel)
+//            .mapArray(UserModel.self, modelKey: "")
+//            .subscribe(onSuccess: { models in
+//                for model in models {
+//                    print(model.email)
+//                    print(model.address.city)
+//                    print(model.address.geo.lat)
+//                    print(model.company.catchPhrase)
+//                }
+//            }).disposed(by: disposeBag)
+        
+        TypicodeService.shared.fetchUserInfos()
             .subscribe(onSuccess: { models in
                 for model in models {
-                    print(model.email)
-                    print(model.address.city)
-                    print(model.address.geo.lat)
-                    print(model.company.catchPhrase)
+                    log.debug("\(model.email)")
+                    log.debug("\(model.address)")
                 }
             }).disposed(by: disposeBag)
     }
