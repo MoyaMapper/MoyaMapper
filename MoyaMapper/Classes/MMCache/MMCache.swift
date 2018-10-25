@@ -32,6 +32,11 @@ public struct MMCache {
         case custom(String)
     }
     
+    public enum CacheType {
+        case onlyRAM
+        case hybrid
+    }
+    
     private let boolRAMStorage = MemoryStorage<Bool>(config: MemoryConfig())
     private let jsonRAMStorage = MemoryStorage<JSON>(config: MemoryConfig())
     
@@ -67,9 +72,9 @@ extension MMCache {
 // MARK: Moya.Response
 public extension MMCache {
     @discardableResult
-    func cacheResponse(_ response: Moya.Response, target: TargetType, cacheType: CacheKeyType = .default) -> Bool {
+    func cacheResponse(_ response: Moya.Response, target: TargetType, cacheKey: CacheKeyType = .default) -> Bool {
         do {
-            try MMCache.shared.responseStorage?.setObject(response, forKey: target.fetchCacheKey(cacheType))
+            try MMCache.shared.responseStorage?.setObject(response, forKey: target.fetchCacheKey(cacheKey))
             let mp = MMResponseParameter(response.lxf_modelableParameter)
             mp.cache(key: target.cacheParameterTypeKey)
             try MMCache.shared.jsonStorage?.setObject(mp.toJSON(), forKey: target.cacheParameterTypeKey)
@@ -77,8 +82,8 @@ public extension MMCache {
         }
         catch { return false }
     }
-    func fetchResponseCache(target: TargetType, cacheType: CacheKeyType = .default) -> Moya.Response? {
-        guard let response = try? MMCache.shared.responseStorage?.object(forKey: target.fetchCacheKey(cacheType))
+    func fetchResponseCache(target: TargetType, cacheKey: CacheKeyType = .default) -> Moya.Response? {
+        guard let response = try? MMCache.shared.responseStorage?.object(forKey: target.fetchCacheKey(cacheKey))
         else { return nil }
         
         guard let json = try? MMCache.shared.jsonStorage?.object(forKey: target.cacheParameterTypeKey)
@@ -118,75 +123,89 @@ public extension MMCache {
 // MARK: JSON
 public extension MMCache {
     @discardableResult
-    func cacheJSON(_ json: String, key: String, isRAM: Bool = true) -> Bool {
-        if isRAM {
-            MMCache.shared.jsonRAMStorage.setObject(JSON(json), forKey: key)
+    func cacheJSON(_ json: JSON, key: String, cacheType: MMCache.CacheType = .onlyRAM) -> Bool {
+        switch cacheType {
+        case .onlyRAM:
+            MMCache.shared.jsonRAMStorage.setObject(json, forKey: key)
             return true
+        case .hybrid:
+            do {
+                try MMCache.shared.jsonStorage?.setObject(json, forKey: key)
+                return true
+            }
+            catch {
+                return false
+            }
         }
-        do {
-            try MMCache.shared.jsonStorage?.setObject(JSON(json), forKey: key)
-            return true
-        }
-        catch { return false }
     }
     
-    func fetchJSONCache(key: String, isRAM: Bool = true) -> JSON? {
-        if isRAM {
+    func fetchJSONCache(key: String, cacheType: MMCache.CacheType = .onlyRAM) -> JSON? {
+        switch cacheType {
+        case .onlyRAM:
             return try? MMCache.shared.jsonRAMStorage.object(forKey: key)
-        } else {
+        case .hybrid:
             guard let json = try? MMCache.shared.jsonStorage?.object(forKey: key)
-                else { return nil }
+                else {
+                    return nil
+            }
             return json
         }
     }
     
     @discardableResult
-    func removeJSONCache(_ key: String, isRAM: Bool = true) -> Bool {
-        if isRAM {
+    func removeJSONCache(_ key: String, cacheType: MMCache.CacheType = .onlyRAM) -> Bool {
+        switch cacheType {
+        case .onlyRAM:
             MMCache.shared.jsonRAMStorage.removeObject(forKey: key)
             return true
+        case .hybrid:
+            do {
+                try MMCache.shared.jsonStorage?.removeObject(forKey: key)
+                return true
+            }
+            catch { return false }
         }
-        do {
-            try MMCache.shared.jsonStorage?.removeObject(forKey: key)
-            return true
-        }
-        catch { return false }
     }
     
     @discardableResult
-    func removeAllJSONCache(isRAM: Bool = true) -> Bool {
-        if isRAM {
+    func removeAllJSONCache(cacheType: MMCache.CacheType = .onlyRAM) -> Bool {
+        switch cacheType {
+        case .onlyRAM:
             MMCache.shared.jsonRAMStorage.removeAll()
             return true
+        case .hybrid:
+            do {
+                try MMCache.shared.jsonStorage?.removeAll()
+                return true
+            }
+            catch { return false }
         }
-        do {
-            try MMCache.shared.jsonStorage?.removeAll()
-            return true
-        }
-        catch { return false }
     }
 }
 
 // MARK: Modelable
 public extension MMCache {
     @discardableResult
-    public func cacheModel(_ model: Modelable, key: String, isRAM: Bool = true) -> Bool {
-        if isRAM {
+    public func cacheModel(_ model: Modelable, key: String, cacheType: MMCache.CacheType = .onlyRAM) -> Bool {
+        switch cacheType {
+        case .onlyRAM:
+            do {
+                try MMCache.shared.jsonStorage?.setObject(model.toJSON(), forKey: key)
+                return true
+            }
+            catch { return false }
+        case .hybrid:
             MMCache.shared.jsonRAMStorage.setObject(model.toJSON(), forKey: key)
             return true
         }
-        do {
-            try MMCache.shared.jsonStorage?.setObject(model.toJSON(), forKey: key)
-            return true
-        }
-        catch { return false }
     }
     
-    func fetchModelCache<T: Modelable>(_ type: T.Type, key: String, isRAM: Bool = true) -> T? {
+    func fetchModelCache<T: Modelable>(_ type: T.Type, key: String, cacheType: MMCache.CacheType = .onlyRAM) -> T? {
         var model : T?
-        if isRAM {
+        switch cacheType {
+        case .onlyRAM:
             model = try? MMCache.shared.jsonRAMStorage.object(forKey: key).modelValue(type.self)
-        } else {
+        case .hybrid:
             guard let json = try? MMCache.shared.jsonStorage?.object(forKey: key) else { return nil }
             model = json?.modelValue(type.self)
         }
@@ -194,11 +213,12 @@ public extension MMCache {
         return lxf_model
     }
     
-    func fetchModelsCache<T: Modelable>(_ type: T.Type, key: String, isRAM: Bool = true) -> [T] {
+    func fetchModelsCache<T: Modelable>(_ type: T.Type, key: String, cacheType: MMCache.CacheType = .onlyRAM) -> [T] {
         var models : [T]?
-        if isRAM {
+        switch cacheType {
+        case .onlyRAM:
             models = try? MMCache.shared.jsonRAMStorage.object(forKey: key).modelsValue(type.self)
-        } else {
+        case .hybrid:
             guard let json = try? MMCache.shared.jsonStorage?.object(forKey: key) else { return [] }
             models = json?.modelsValue(type.self)
         }
@@ -209,22 +229,22 @@ public extension MMCache {
 
 public extension Modelable {
     @discardableResult
-    func cache(key: String, isRAM: Bool = true) -> Bool {
-        return MMCache.shared.cacheModel(self, key: key, isRAM: isRAM)
+    func cache(key: String, cacheType: MMCache.CacheType = .onlyRAM) -> Bool {
+        return MMCache.shared.cacheModel(self, key: key, cacheType: cacheType)
     }
     
-    static func fromCache(key: String, isRAM: Bool = true) -> Self? {
-        return MMCache.shared.fetchModelCache(Self.self, key: key, isRAM: isRAM)
+    static func fromCache(key: String, cacheType: MMCache.CacheType = .onlyRAM) -> Self? {
+        return MMCache.shared.fetchModelCache(Self.self, key: key, cacheType: cacheType)
     }
 }
 
 public extension Array where Element: Modelable {
     @discardableResult
-    func cache(key: String, isRAM: Bool = true) -> Bool {
-        return MMCache.shared.cacheJSON(self.toJSONString(), key: key, isRAM: isRAM)
+    func cache(key: String, cacheType: MMCache.CacheType = .onlyRAM) -> Bool {
+        return MMCache.shared.cacheJSON(self.toJSON(), key: key, cacheType: cacheType)
     }
     
-    static func fromCache(key: String, isRAM: Bool = true) -> [Element] {
-        return MMCache.shared.fetchModelsCache(Element.self, key: key, isRAM: isRAM)
+    static func fromCache(key: String, cacheType: MMCache.CacheType = .onlyRAM) -> [Element] {
+        return MMCache.shared.fetchModelsCache(Element.self, key: key, cacheType: cacheType)
     }
 }

@@ -33,11 +33,14 @@ public extension Modelable {
 }
 
 public extension Array where Element: Modelable {
-    func toJSONString() -> String {
+    func toJSON() -> JSON {
         let dictArr = self.map { $0.toDictionary() }
-        guard let data = try? JSONSerialization.data(withJSONObject: dictArr, options: .prettyPrinted) else { return "" }
-        guard let json = try? JSON(data: data) else { return "" }
-        return json.rawString() ?? ""
+        guard let data = try? JSONSerialization.data(withJSONObject: dictArr, options: .prettyPrinted) else { return JSON() }
+        guard let json = try? JSON(data: data) else { return JSON() }
+        return json
+    }
+    func toJSONString() -> String {
+        return toJSON().rawString() ?? ""
     }
 }
 

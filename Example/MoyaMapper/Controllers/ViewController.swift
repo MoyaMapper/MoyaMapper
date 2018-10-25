@@ -12,6 +12,7 @@ import Result
 import MoyaMapper
 import Moya
 import SwiftyJSON
+
 class ViewController: BaseViewController {
     
     let dataArray = ["普通Moya网络请求", "RxMoya网络请求", "模型嵌套解析", "Cache"]

@@ -23,6 +23,9 @@ class TypicodeService {
 extension TypicodeService {
     func fetchUserInfos() -> Single<[UserModel]> {
         return self.networking.request(.users)
+            .do(onSuccess: { response in
+                log.debug("response -- \(response.fetchJSONString())")
+            })
             .mapArray(UserModel.self)
     }
 }
