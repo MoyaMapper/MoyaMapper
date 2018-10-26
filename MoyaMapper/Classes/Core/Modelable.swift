@@ -24,11 +24,37 @@ public extension Modelable {
 }
 
 public extension Modelable {
+    /// Modelable -> mapping -> Model
     static func mapModel(from jsonString: String) -> Self {
         return JSON(parseJSON: jsonString).modelValue(Self.self)
     }
+    /// Modelable -> mapping -> Models
     static func mapModels(from jsonString: String) -> [Self] {
         return JSON(parseJSON: jsonString).modelsValue(Self.self)
+    }
+    
+    /*
+     * 以下两个方法使用情景主要用于 Model -> toJSONString -> Model
+     *
+     * let model: Modelable = ...
+     * let jsonStr = model.toJSONString()
+     
+     * let model1 = MyModel.mapModel(from: jsonStr)
+     * let model2 = MyModel.codeModel(from: jsonStr)
+     *
+     * log.debug("model.created -- \(model.created)") // "2018-02-23T07:47:12.993Z"
+     *
+     * log.debug("model1.created -- \(model1.created)") // ""
+     * log.debug("model2.created -- \(model2.created)") // "2018-02-23T07:47:12.993Z"
+     */
+    
+    /// Codeable -> Model
+    static func codeModel(from jsonString: String) -> Self {
+        return JSON(parseJSON: jsonString).codeModel(Self.self)
+    }
+    /// Codeable -> Models
+    static func codeModels(from jsonString: String) -> [Self] {
+        return JSON(parseJSON: jsonString).codeModels(Self.self)
     }
 }
 
@@ -50,6 +76,24 @@ extension JSON {
     /// - Parameter type: 模型类型
     /// - Returns: 模型
     public func modelValue<T: Modelable>(_ type: T.Type) -> T {
+        var model = codeModel(type)
+        model.mapping(self)
+        return model
+    }
+    
+    /// 模型数组解析
+    ///
+    /// - Parameter type: 模型类型
+    /// - Returns: 模型数组
+    public func modelsValue<T: Modelable>(_ type: T.Type) -> [T] {
+        return arrayValue.compactMap { $0.modelValue(type) }
+    }
+    
+    /// System Codable Model
+    ///
+    /// - Parameter type: T: Modelable
+    /// - Returns: T
+    public func codeModel<T: Modelable>(_ type: T.Type) -> T {
         var model = T()
         var _dict: [String: Any] = [:]
         
@@ -77,22 +121,20 @@ extension JSON {
             if _value != nil { _dict[key] = _value }
         }
         
-        guard let data =  try? JSONSerialization.data(withJSONObject: _dict, options: .prettyPrinted) else {
+        guard let data = try? JSONSerialization.data(withJSONObject: _dict, options: .prettyPrinted) else {
             return model
         }
         
         let decoder = JSONDecoder()
         if let _model = try? decoder.decode(T.self, from: data) { model = _model }
-        
-        model.mapping(self)
         return model
     }
     
-    /// 模型数组解析
+    /// System Codable Models
     ///
-    /// - Parameter type: 模型类型
-    /// - Returns: 模型数组
-    public func modelsValue<T: Modelable>(_ type: T.Type) -> [T] {
-        return arrayValue.compactMap { $0.modelValue(type) }
+    /// - Parameter type: T: Modelable
+    /// - Returns: [T]
+    public func codeModels<T: Modelable>(_ type: T.Type) -> [T] {
+        return arrayValue.compactMap { $0.codeModel(type) }
     }
 }
