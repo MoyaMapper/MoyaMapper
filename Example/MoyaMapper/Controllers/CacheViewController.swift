@@ -36,5 +36,12 @@ class CacheViewController: UIViewController {
                 log.debug("statusCode -- \(response.statusCode)")
                 log.debug(" ===== cache =====")
             }).disposed(by: disposeBag)
+        
+        
+//        let _ = lxfNetTool.cacheRequest(.data(type: .all, size: 10, index: 1)) { result in
+//            guard let resp = result.value else { return }
+//            log.debug("statusCode -- \(resp.statusCode)")
+//        }
+        
     }
 }

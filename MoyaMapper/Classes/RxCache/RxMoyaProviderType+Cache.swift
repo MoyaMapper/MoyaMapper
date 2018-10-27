@@ -1,6 +1,6 @@
 //
-//  MoyaProviderType+Cache.swift
-//  Alamofire
+//  RxMoyaProviderType+Cache.swift
+//  MoyaMapper
 //
 //  Created by LinXunFeng on 2018/9/26.
 //
@@ -18,19 +18,18 @@ public extension Reactive where Base: MoyaProviderType {
      - 适用于APP首页数据缓存
      
      */
-    func cacheRequest(_ token: Base.Target, callbackQueue: DispatchQueue? = nil) -> Observable<Response> {
-        var originRequest = request(token, callbackQueue: callbackQueue).asObservable()
+    func cacheRequest(_ target: Base.Target, callbackQueue: DispatchQueue? = nil, cacheType: MMCache.CacheKeyType = .default) -> Observable<Response> {
+        var originRequest = request(target, callbackQueue: callbackQueue).asObservable()
         var cacheResponse: Response? = nil
-        
-        if MMCache.shared.isNoRecord(token) {
-            if let cache = MMCache.shared.fetchResponseCache(target: token) {
+        if MMCache.shared.isNoRecord(target, cacheType: cacheType) {
+            if let cache = MMCache.shared.fetchResponseCache(target: target) {
                 cacheResponse = cache
             }
         }
         // 更新缓存
         originRequest = originRequest.map { response -> Response in
             let resp = try response.filterSuccessfulStatusCodes()
-            MMCache.shared.cacheResponse(resp, target: token)
+            MMCache.shared.cacheResponse(resp, target: target)
             return response
         }
         

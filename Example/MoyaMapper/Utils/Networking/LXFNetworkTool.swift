@@ -89,7 +89,7 @@ extension LXFNetworkTool: TargetType {
 }
 
 struct NetParameter : ModelableParameterType {
-    // 可以任意指定位置的值，如： "error>used"
+    // statusCodeKey、tipStrKey、 modelKey 可以任意指定级别的路径，如： "error>used"
     var successValue = "false"
     var statusCodeKey = "error"
     var tipStrKey = "errMsg"
@@ -97,7 +97,6 @@ struct NetParameter : ModelableParameterType {
 }
 
 let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter())])
-
 
 
 // MARK:- 自定义网络结果参数

@@ -14,15 +14,54 @@
 
 
 
+## Feature
+
+- 支持`json` 转 `Model ` 自动映射 与 自定义映射
+- 无视 `json` 中值的类型，`Model` 中属性声明的是什么类型，它就是什么类型
+- 支持 `json` 字符串转`Model`
+- 插件方式，全方位保障`Moya.Response`，拒绝各种网络问题导航 `Response` 为 `nil`
+- Optional - 支持数据随意缓存( `JSON` `Number` 、`String`、 `Bool`、 `Moya.Response` )
+- Optional - 支持网络请求缓存 
+
+
+
 ## Usage
 
 
 
-### Model
+#####  一、插件
+
+![success-obj](https://github.com/MoyaMapper/MoyaMapper.github.io/raw/master/img/code/success-obj.png)
+
+定义适用于项目接口的 `ModelableParameterType`
+
+```swift
+// statusCodeKey、tipStrKey、 modelKey 可以任意指定级别的路径，如： "error>used"
+struct NetParameter : ModelableParameterType {
+    var successValue = "000"
+    var statusCodeKey = "retStatus"
+    var tipStrKey = "retMsg"
+    var modelKey = "retBody"
+}
+```
+
+在 `MoyaProvider` 中使用 `MoyaMapperPlugin` 插件，并指定 `ModelableParameterType`
+
+```swift
+let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter())])
+```
 
 
 
-支持模型自动映射，不需要考虑源json数据的真实类型，这里统一按`Model`中属性声明的类型进行转换
+❗ 使用 `MoyaMapperPlugin` 插件是整个 `MoyaMapper`  的核心所在！
+
+
+
+##### 二、Model声明
+
+> 1、`MoyaMapper` 支持模型自动映射
+>
+> 2、不需要考虑源json数据的真实类型，这里统一按 `Model` 中属性声明的类型进行转换
 
 
 
@@ -72,9 +111,17 @@ struct UserModel: Modelable {
 
 
 
+##### 三、Response --> Model
 
 
-### Response --> Model
+
+> 1、以下示例皆使用了 `MoyaMapperPlugin` ，所以不需要指定 `解析路径`
+>
+> 2、如果没有使用 `MoyaMapperPlugin` 则需要指定 `解析路径`，否则无法正常解析
+>
+> ps:  `解析路径` 可以使用 `a>b` 这种形式来解决多级路径的问题
+
+
 
 如果接口请求后 `json` 的数据结构与下图类似，则使用 `MoyaMapper` 是最合适不过了
 
@@ -84,12 +131,12 @@ struct UserModel: Modelable {
 
 ```swift
 // Normal
-let model = response.mapObject(MMModel.self, modelKey: "retBody")
+let model = response.mapObject(MMModel.self)
 print("name -- \(model.name)")
 print("github -- \(model.github)")
 
 // Rx
-rxRequest.mapObject(MMModel.self, modelKey: "retBody")
+rxRequest.mapObject(MMModel.self)
     .subscribe(onSuccess: { (model) in
         print("name -- \(model.name)")
         print("github -- \(model.github)")
@@ -100,13 +147,13 @@ rxRequest.mapObject(MMModel.self, modelKey: "retBody")
 
 ```swift
 // Normal
-let models = response.mapArray(MMModel.self, modelKey: "retBody")
+let models = response.mapArray(MMModel.self)
 let name = models[0].name
 print("count -- \(models.count)")
 print("name -- \(name)")
 
 // Rx
-rxRequest.mapArray(MMModel.self, modelKey: "retBody")
+rxRequest.mapArray(MMModel.self)
     .subscribe(onSuccess: { models in
         let name = models[0].name
         print("count -- \(models.count)")
@@ -120,12 +167,12 @@ rxRequest.mapArray(MMModel.self, modelKey: "retBody")
 
 ```swift
 // Normal
-let (isSuccess, tipStr) = response.mapResult {  CustomNetParameter() }
+let (isSuccess, tipStr) = response.mapResult()
 print("isSuccess -- \(isSuccess)")
 print("tipStr -- \(tipStr)")
 
 // Rx
-rxRequest.mapResult { CustomNetParameter() }
+rxRequest.mapResult()
     .subscribe(onSuccess: { (isSuccess, tipStr) in
         print("isSuccess -- \(isSuccess)") // 是否为 "000"
         print("retMsg -- \(retMsg)")

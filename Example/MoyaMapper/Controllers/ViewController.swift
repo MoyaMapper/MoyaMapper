@@ -54,9 +54,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         var vc: UIViewController?
         if indexPath.row == 0 {
-            vc = NormalMoyaViewController()
+//            vc = NormalMoyaViewController()
+            MMCache.shared.cacheInt(12, key: "abc")
         } else if indexPath.row == 1 {
-            vc = RxMoyaViewController()
+//            vc = RxMoyaViewController()
+            let value = MMCache.shared.fetchIntCache(key: "abc")
+            log.debug("value -- \(value)")
         } else if indexPath.row == 2 {
             vc = MultipleModelViewController()
         } else if indexPath.row == 3 {

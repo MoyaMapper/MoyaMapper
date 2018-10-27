@@ -24,9 +24,9 @@ extension MMCache {
 
 // MARK:- MMCache MemoryStorage
 extension MMCache {
-    func isNoRecord(_ target: TargetType, autoRecord: Bool = true, cacheType: CacheKeyType = .default) -> Bool {
+    func isNoRecord(_ target: TargetType, cacheType: CacheKeyType = .default) -> Bool {
         let isNoRecord = (try? MMCache.shared.boolRAMStorage.object(forKey: target.fetchCacheKey(cacheType))) ?? false
-        if autoRecord && !isNoRecord {
+        if !isNoRecord {
             MMCache.shared.record(target)
         }
         return !isNoRecord
