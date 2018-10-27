@@ -10,7 +10,7 @@
 
 >  MoyaMapper是基于Moya和SwiftyJSON封装的工具，以Moya的plugin的方式来实现间接解析，支持RxSwift
 >
->  详细的使用 手册 [https://MoyaMapper.github.io](https://moyamapper.github.io/)
+>  📖 详细的使用请查看手册 [https://MoyaMapper.github.io](https://moyamapper.github.io/)
 
 
 
@@ -135,6 +135,9 @@ let model = response.mapObject(MMModel.self)
 print("name -- \(model.name)")
 print("github -- \(model.github)")
 
+// 打印json
+print(response.fetchJSONString())
+
 // Rx
 rxRequest.mapObject(MMModel.self)
     .subscribe(onSuccess: { (model) in
@@ -151,6 +154,9 @@ let models = response.mapArray(MMModel.self)
 let name = models[0].name
 print("count -- \(models.count)")
 print("name -- \(name)")
+
+// 打印 json 模型数组中第一个的name
+print(response.fetchString(keys: [0, "name"]))
 
 // Rx
 rxRequest.mapArray(MMModel.self)

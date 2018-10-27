@@ -40,6 +40,19 @@ extension NormalMoyaViewController {
         for model in models {
             print("createdAt -- \(model.created)")
         }
+        
+        /*
+        let jsonArrStr = models.toJSONString()
+        let models1 = MyModel.mapModels(from: jsonArrStr)
+        let models2 = MyModel.codeModels(from: jsonArrStr)
+        
+        let model = models[0]
+        let jsonStr = model.toJSONString()
+        let model1 = MyModel.mapModel(from: jsonStr)
+        let model2 = MyModel.codeModel(from: jsonStr)
+        log.debug("model1 -- \(model1)")
+        log.debug("model2 -- \(model2)")
+        */
     }
     
     // MARK: 获取 请求结果
