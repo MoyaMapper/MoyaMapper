@@ -18,9 +18,9 @@
 
 - 支持`json` 转 `Model ` 自动映射 与 自定义映射
 - 无视 `json` 中值的类型，`Model` 中属性声明的是什么类型，它就是什么类型
-- 支持 `json` 字符串转`Model`
-- 插件方式，全方位保障`Moya.Response`，拒绝各种网络问题导航 `Response` 为 `nil`
-- Optional - 支持数据随意缓存( `JSON` `Number` 、`String`、 `Bool`、 `Moya.Response` )
+- 支持 `json字符串` 转`Model`
+- 插件方式，全方位保障`Moya.Response`，拒绝各种网络问题导致 `Response` 为 `nil`
+- Optional - 支持数据随意缓存( `JSON`、 `Number` 、`String`、 `Bool`、 `Moya.Response` )
 - Optional - 支持网络请求缓存 
 
 
@@ -33,7 +33,7 @@
 
 ![success-obj](https://github.com/MoyaMapper/MoyaMapper.github.io/raw/master/img/code/success-obj.png)
 
-定义适用于项目接口的 `ModelableParameterType`
+1、定义适用于项目接口的 `ModelableParameterType`
 
 ```swift
 // statusCodeKey、tipStrKey、 modelKey 可以任意指定级别的路径，如： "error>used"
@@ -45,7 +45,7 @@ struct NetParameter : ModelableParameterType {
 }
 ```
 
-在 `MoyaProvider` 中使用 `MoyaMapperPlugin` 插件，并指定 `ModelableParameterType`
+2、在 `MoyaProvider` 中使用 `MoyaMapperPlugin` 插件，并指定 `ModelableParameterType`
 
 ```swift
 let lxfNetTool = MoyaProvider<LXFNetworkTool>(plugins: [MoyaMapperPlugin(NetParameter())])
@@ -111,7 +111,7 @@ struct UserModel: Modelable {
 
 
 
-##### 三、Response --> Model
+##### 三、Response 解析
 
 
 
@@ -120,6 +120,23 @@ struct UserModel: Modelable {
 > 2、如果没有使用 `MoyaMapperPlugin` 则需要指定 `解析路径`，否则无法正常解析
 >
 > ps:  `解析路径` 可以使用 `a>b` 这种形式来解决多级路径的问题
+
+
+
+解析方法如下列表所示
+
+|      方法       | 描述 (支持RxSwift)                                           |
+| :-------------: | :----------------------------------------------------------- |
+|     toJSON      | Response 转 JSON ( [toJSON](https://moyamapper.github.io/core/toJSON/) \|  [rx.toJSON](https://moyamapper.github.io/rx/toJSON/)) |
+|   fetchString   | 获取指定路径的字符串( [fetchString](https://moyamapper.github.io/core/fetchString/) \|  [rx.fetchString](https://moyamapper.github.io/rx/fetchString/)) |
+| fetchJSONString | 获取指定路径的原始json字符串 ( [fetchJSONString](https://moyamapper.github.io/core/fetchJSONString/) \|  [rx.fetchJSONString](https://moyamapper.github.io/rx/fetchJSONString/) ) |
+|    mapResult    | Response -> MoyaMapperResult   `(Bool, String)` ( [mapResult](https://moyamapper.github.io/core/mapResult/) \|  [rx.mapResult](https://moyamapper.github.io/rx/mapResult/) ) |
+|    mapObject    | Response -> Model ( [mapObject](https://moyamapper.github.io/core/mapObject/) \|  [rx.mapObject](https://moyamapper.github.io/rx/mapObject/)) |
+|  mapObjResult   | Response -> (MoyaMapperResult, Model) ( [mapObjResult](https://moyamapper.github.io/core/mapObjResult/) \|  [rx.mapObjResult](https://moyamapper.github.io/rx/mapObjResult/)) |
+|    mapArray     | Response -> [Model]( [mapArray](https://moyamapper.github.io/core/mapArray/) \|  [rx.mapArray](https://moyamapper.github.io/rx/mapArray/)) |
+| mapArrayResult  | Response -> (MoyaMapperResult, [Model]) ( [mapArrayResult](https://moyamapper.github.io/core/mapArrayResult/) \|  [rx.mapArrayResult](https://moyamapper.github.io/rx/mapArrayResult/)) |
+
+❗除了 `fetchJSONString` 的默认解析路径是`根路径`之外，其它方法的默认解析路径为插件对象中的 `modelKey`
 
 
 
