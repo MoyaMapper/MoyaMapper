@@ -8,43 +8,23 @@
 public extension MMCache {
     @discardableResult
     public func cacheModel(_ model: Modelable, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
-        switch cacheContainer {
-        case .RAM:
-            do {
-                try MMCache.shared.jsonStorage?.setObject(model.toJSON(), forKey: key)
-                return true
-            }
-            catch { return false }
-        case .hybrid:
-            MMCache.shared.jsonRAMStorage.setObject(model.toJSON(), forKey: key)
-            return true
-        }
+        return MMCache.shared.cacheJSON(model.toJSON(), key: key, cacheContainer: cacheContainer)
     }
     
     func fetchModelCache<T: Modelable>(_ type: T.Type, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> T? {
-        var model : T?
-        switch cacheContainer {
-        case .RAM:
-            model = try? MMCache.shared.jsonRAMStorage.object(forKey: key).modelValue(type.self)
-        case .hybrid:
-            guard let json = try? MMCache.shared.jsonStorage?.object(forKey: key) else { return nil }
-            model = json?.modelValue(type.self)
-        }
-        guard let lxf_model = model else { return nil }
-        return lxf_model
+        
+        let json = MMCache.shared.fetchJSONCache(key: key, cacheContainer: cacheContainer)
+        return json?.codeModel(type.self)
+    }
+    
+    @discardableResult
+    public func cacheModels<T: Modelable>(_ models: [T], key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+        return MMCache.shared.cacheJSON(models.toJSON(), key: key, cacheContainer: cacheContainer)
     }
     
     func fetchModelsCache<T: Modelable>(_ type: T.Type, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> [T] {
-        var models : [T]?
-        switch cacheContainer {
-        case .RAM:
-            models = try? MMCache.shared.jsonRAMStorage.object(forKey: key).modelsValue(type.self)
-        case .hybrid:
-            guard let json = try? MMCache.shared.jsonStorage?.object(forKey: key) else { return [] }
-            models = json?.modelsValue(type.self)
-        }
-        guard let lxf_models = models else { return [] }
-        return lxf_models
+        let json = MMCache.shared.fetchJSONCache(key: key, cacheContainer: cacheContainer)
+        return json?.codeModels(type.self) ?? []
     }
 }
 
@@ -63,7 +43,7 @@ public extension Modelable {
 public extension Array where Element: Modelable {
     @discardableResult
     func cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
-        return MMCache.shared.cacheJSON(self.toJSON(), key: key, cacheContainer: cacheContainer)
+        return MMCache.shared.cacheModels(self, key: key, cacheContainer: cacheContainer)
     }
     
     static func fromCache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> [Element] {
