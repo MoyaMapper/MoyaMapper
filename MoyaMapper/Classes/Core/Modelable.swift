@@ -116,6 +116,7 @@ extension JSON {
             case is Float: _value = _json.stringValue
             case is Double: _value = _json.doubleValue
             case is String: _value = _json.stringValue
+            case is Array<Any>: _value = _json.arrayObject ?? []
             default: _value = _json.rawValue
             }
             if _value != nil { _dict[key] = _value }

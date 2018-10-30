@@ -22,6 +22,7 @@ enum LXFNetworkTool {
         case obj     = "obj"
         case array   = "array"
         case fail    = "fail"
+        case special = "special"
     }
     case data(type: LXFNetworkCategory, size:Int, index:Int)
     case multipleModel
