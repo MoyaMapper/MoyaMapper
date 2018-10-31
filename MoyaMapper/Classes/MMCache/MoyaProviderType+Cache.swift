@@ -18,11 +18,25 @@ public extension MoyaProviderType {
      - 适用于APP首页数据缓存
      
      */
-    func cacheRequest(_ target: Target, cacheType: MMCache.CacheKeyType = .default, callbackQueue: DispatchQueue? = nil, progress: Moya.ProgressBlock? = nil, completion: @escaping Moya.Completion) -> Cancellable {
+    func cacheRequest(
+        _ target: Target,
+        alwaysFetchCache: Bool = false,
+        cacheType: MMCache.CacheKeyType = .default,
+        callbackQueue: DispatchQueue? = nil,
+        progress: Moya.ProgressBlock? = nil,
+        completion: @escaping Moya.Completion
+    ) -> Cancellable {
         
-        if MMCache.shared.isNoRecord(target, cacheType: cacheType) {
-            if let cache = MMCache.shared.fetchResponseCache(target: target) {
-                completion(Result(value: cache))
+        let cache = MMCache.shared.fetchResponseCache(target: target)
+        
+        if alwaysFetchCache && cache != nil {
+            completion(Result(value: cache!))
+        } else {
+            if MMCache.shared.isNoRecord(target, cacheType: cacheType) {
+                MMCache.shared.record(target)
+                if cache != nil {
+                    completion(Result(value: cache!))
+                }
             }
         }
         

@@ -26,9 +26,6 @@ extension MMCache {
 extension MMCache {
     func isNoRecord(_ target: TargetType, cacheType: CacheKeyType = .default) -> Bool {
         let isNoRecord = (try? MMCache.shared.boolRAMStorage.object(forKey: target.fetchCacheKey(cacheType))) ?? false
-        if !isNoRecord {
-            MMCache.shared.record(target)
-        }
         return !isNoRecord
     }
     
@@ -52,8 +49,16 @@ public extension MMCache {
         catch { return false }
     }
     func fetchResponseCache(target: TargetType, cacheKey: CacheKeyType = .default) -> Moya.Response? {
+        
         guard let response = try? MMCache.shared.responseStorage?.object(forKey: target.fetchCacheKey(cacheKey))
-            else { return nil }
+        else { return nil }
+        
+        /*
+         TransformerFactory.forResponse中的fromData仅执行一次
+         导致无法更改 Response.statusCode 为 MMStatusCode.cache.rawValue，遂在此再次进行修改
+        */
+        guard let resp = response else { return nil }
+        let cacheResp = Response(statusCode: MMStatusCode.cache.rawValue, data: resp.data)
         
         guard let json = try? MMCache.shared.jsonStorage?.object(forKey: target.cacheParameterTypeKey)
             else { return nil }
@@ -61,13 +66,13 @@ public extension MMCache {
         guard let mp = json?.modelValue(MMResponseParameter.self)
             else { return nil }
         
-        response?.setNetParameter(TemplateParameter(
+        cacheResp.setNetParameter(TemplateParameter(
             successValue: mp.successValue,
             statusCodeKey: mp.statusCodeKey,
             tipStrKey: mp.tipStrKey,
             modelKey: mp.modelKey
         ))
-        return response
+        return cacheResp
     }
     
     @discardableResult

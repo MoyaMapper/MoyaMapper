@@ -31,17 +31,17 @@ class CacheViewController: UIViewController {
          * APP再次启动并进行网络请求时，会先加载缓存，再加载网络数据
          * 其它情况只会加载网络数据
          */
-        lxfNetTool.rx.cacheRequest(.data(type: .all, size: 10, index: 1))
-            .subscribe(onNext: { response in
-                log.debug("statusCode -- \(response.statusCode)")
-                log.debug(" ===== cache =====")
-            }).disposed(by: disposeBag)
+//        lxfNetTool.rx.cacheRequest(.data(type: .all, size: 10, index: 1))
+////        lxfNetTool.rx.cacheRequest(.data(type: .all, size: 10, index: 1), alwaysFetchCache: true)
+//            .subscribe(onNext: { response in
+//                log.debug("statusCode -- \(response.statusCode)")
+//            }).disposed(by: disposeBag)
         
         
-//        let _ = lxfNetTool.cacheRequest(.data(type: .all, size: 10, index: 1)) { result in
-//            guard let resp = result.value else { return }
-//            log.debug("statusCode -- \(resp.statusCode)")
-//        }
-        
+//        lxfNetTool.cacheRequest(.data(type: .all, size: 10, index: 1), alwaysFetchCache: true)
+        let _ = lxfNetTool.cacheRequest(.data(type: .all, size: 10, index: 1)) { result in
+            guard let resp = result.value else { return }
+            log.debug("statusCode -- \(resp.statusCode)")
+        }
     }
 }
