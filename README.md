@@ -27,7 +27,7 @@
 
 ## Usage
 
-
+### 映射
 
 #####  一、插件
 
@@ -203,6 +203,175 @@ rxRequest.mapResult()
 ```
 
 
+
+##### 缓存
+
+```
+// 缓存
+@discardableResult
+MMCache.shared.cache`XXX`(value : XXX, key: String, cacheContainer: MMCache.CacheContainer = .RAM)  -> Bool
+// 取舍
+MMCache.shared.fetch`XXX`Cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM)
+```
+
+
+
+缓存成功会返回一个 `Bool` 值，这里可不接收
+
+| XXX 所支持类型 |             |
+| -------------- | ----------- |
+| Bool           | -           |
+| Float          | -           |
+| Double         | -           |
+| String         | -           |
+| JSON           | -           |
+| Modelable      | [Modelable] |
+| Moya.Response  | -           |
+| Int            | UInt        |
+| Int8           | UInt8       |
+| Int16          | UInt16      |
+| Int32          | UInt32      |
+| Int64          | UInt64      |
+
+> 其中，除了 `Moya.Response` 之外，其它类型皆是通过 `JSON` 来实现缓存
+
+
+
+所以，如果你想清除这些类型的缓存，只需要调用如下方法即可
+
+```swift
+@discardableResult
+func removeJSONCache(_ key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool
+
+@discardableResult
+func removeAllJSONCache(cacheContainer: MMCache.CacheContainer = .RAM) -> Bool
+```
+
+
+
+清除 `Moya.Response` 则使用如下两个方法
+
+```swift
+@discardableResult
+func removeResponseCache(_ key: String) -> Bool
+
+@discardableResult
+func removeAllResponseCache() -> Bool
+```
+
+
+
+再来看看MMCache.CacheContainer
+
+```swift
+enum CacheContainer {
+    case RAM 	// 只缓存于内存的容器
+    case hybrid // 缓存于内存与磁盘的容器
+}
+```
+
+> 这两种容器互不相通，即 即使key相同，使用 `hybrid` 来缓存后，再通过 `RAM` 取值是取不到的。
+
+- RAM : 仅缓存于内存之中，缓存的数据在APP使用期间一直存在
+- hybrid ：缓存于内存与磁盘中，APP重启后也可以获取到数据
+
+
+
+##### 缓存网络请求
+
+> 内部缓存过程：
+>
+> 1. APP首次启动并进行网络请求，网络数据将缓存起来
+> 2. APP再次启动并进行网络请求时，会先加载缓存，再加载网络数据
+> 3. 其它情况只会加载网络数据
+> 4. 每次成功请求到数据都会进行数据更新
+
+
+
+```swift
+// Normal
+func cacheRequest(
+    _ target: Target, 
+    cacheType: MMCache.CacheKeyType = .default, 
+    callbackQueue: DispatchQueue? = nil, 
+    progress: Moya.ProgressBlock? = nil, 
+    completion: @escaping Moya.Completion
+) -> Cancellable
+
+// Rx
+func cacheRequest(
+    _ target: Base.Target, 
+    callbackQueue: DispatchQueue? = nil, 
+    cacheType: MMCache.CacheKeyType = .default
+) -> Observable<Response>
+```
+
+
+
+>  可对 `Moya` 请求后的 `Response` 进行缓存。 其实与 `Moya` 自带的方法相比较只多了一个参数 `cacheType: MMCache.CacheKeyType` ，定义着缓存中的 `key` ，默认为 `default` 
+
+
+
+下面是 `MMCache.CacheKeyType` 的定义
+
+```
+/**
+ let cacheKey = [method]baseURL/path
+ 
+ - default : cacheKey + "?" + parameters
+ - base : cacheKey
+ - custom : cacheKey + "?" + customKey
+ */
+public enum CacheKeyType {
+    case `default`
+    case base
+    case custom(String)
+}
+```
+
+
+
+> 如果你想缓存`多页`列表数据的`最新一页`的数据，则可以使用 `base` 或者 `custom(String)` 
+
+
+
+```swift
+/*
+ * APP第一次启动并进行网络请求，网络数据将缓存起来
+ * APP再次启动并进行网络请求时，会先加载缓存，再加载网络数据
+ * 其它情况只会加载网络数据
+ * 每次成功请求到数据都会进行数据更新
+ */
+lxfNetTool.rx.cacheRequest(.data(type: .all, size: 10, index: 1))
+    .subscribe(onNext: { response in
+        log.debug("statusCode -- \(response.statusCode)")
+        log.debug(" ===== cache =====")
+    }).disposed(by: disposeBag)
+
+// 传统方式
+/*
+let _ = lxfNetTool.cacheRequest(.data(type: .all, size: 10, index: 1)) { result in
+    guard let resp = result.value else { return }
+    log.debug("statusCode -- \(resp.statusCode)")
+}
+*/
+```
+
+
+
+打印结果
+
+```
+// 第一次使用
+statusCode -- 200
+
+// 关闭并重新打开APP，再请求一下
+statusCode -- 230
+statusCode -- 200
+
+// 然后再请求一下
+statusCode -- 200
+```
 
 
 
