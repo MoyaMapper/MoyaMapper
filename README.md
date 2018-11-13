@@ -216,7 +216,7 @@ MMCache.shared.fetch`XXX`Cache(key: String, cacheContainer: MMCache.CacheContain
 
 
 
-缓存成功会返回一个 `Bool` 值，这里可不接收
+缓存成功与否都会返回一个 `Bool` 值，但不会强制接收
 
 | XXX 所支持类型 |             |
 | -------------- | ----------- |
@@ -270,7 +270,7 @@ enum CacheContainer {
 }
 ```
 
-> 这两种容器互不相通，即 即使key相同，使用 `hybrid` 来缓存后，再通过 `RAM` 取值是取不到的。
+> 这两种容器互不相通，即 即使 `key` 相同，使用 `hybrid` 来缓存后，再通过 `RAM` 取值是取不到的。
 
 - RAM : 仅缓存于内存之中，缓存的数据在APP使用期间一直存在
 - hybrid ：缓存于内存与磁盘中，APP重启后也可以获取到数据
