@@ -18,26 +18,49 @@ public struct MoyaMapperPlugin: PluginType {
         self.transformError = transformError
     }
     
-    public func process(_ result: Result<Response, MoyaError>, target: TargetType) -> Result<Response, MoyaError> {
+    public func process(
+        _ result: Result<Response, MoyaError>,
+        target: TargetType
+    ) -> Result<Response, MoyaError> {
         /**
-         transformError 默认为 true，当请求失败的时候 result.response 为nil，这里会自动创建一个 response 并返回出去。
+         transformError 默认为 true，当请求失败的时候，这里会自动创建一个 response 并返回出去。
          
-         这里将请求失败进行了统一，无论是服务器还是自身设备的问题，statusCode 都为 MMStatusCode.loadFail，但是 errorDescription 会保持原来的样子
+         这里将请求失败进行了统一，无论是服务器还是自身设备的问题，statusCode 都为 MMStatusCode.loadFail，
+         如果有 result.error 的存在，则 errorDescription 会保持 result.error 原来的样子，
+         否则，则 errorDescription 为 response.statusCode
 
          应用场景：空白页提示加载失败
          */
         if transformError && result.error != nil {
-            var errorDict: [String: Any] = [:]
-            errorDict[parameter.statusCodeKey] = MMStatusCode.loadFail.rawValue
-            errorDict[parameter.tipStrKey] = result.error!.localizedDescription
-            let response = Response(errorDict, statusCode: MMStatusCode.loadFail.rawValue, parameter: parameter)
+            // 捕捉设备问题，如 网络不可达
+            let response = failResponse(
+                statusCode: MMStatusCode.loadFail.rawValue,
+                errorMsg: result.error!.localizedDescription
+            )
             return Result(value: response)
         }
         
         _ = result.map { (response) -> Response in
-            response.setNetParameter(parameter)
-            return response
+            // 捕捉其它问题，如 400
+            guard let resp = try? response.filterSuccessfulStatusCodes() else {
+                return failResponse(
+                    statusCode: response.statusCode,
+                    errorMsg: "\(response.statusCode)"
+                )
+            }
+            resp.setNetParameter(parameter)
+            return resp
         }
         return result
+    }
+    
+    fileprivate func failResponse(
+        statusCode: Int,
+        errorMsg: String
+    ) -> Response {
+        var errorDict: [String: Any] = [:]
+        errorDict[parameter.statusCodeKey] = MMStatusCode.loadFail.rawValue
+        errorDict[parameter.tipStrKey] = errorMsg
+        return Response(errorDict, statusCode: statusCode, parameter: parameter)
     }
 }
