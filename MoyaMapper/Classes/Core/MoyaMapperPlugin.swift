@@ -40,18 +40,17 @@ public struct MoyaMapperPlugin: PluginType {
             return Result(value: response)
         }
         
-        _ = result.map { (response) -> Response in
-            // 捕捉其它问题，如 400
-            guard let resp = try? response.filterSuccessfulStatusCodes() else {
-                return failResponse(
-                    statusCode: response.statusCode,
-                    errorMsg: "\(response.statusCode)"
-                )
-            }
-            resp.setNetParameter(parameter)
-            return resp
+        guard let response = result.value else { return result }
+        
+        // 捕捉其它问题，如 400
+        guard let resp = try? response.filterSuccessfulStatusCodes() else {
+            return Result(value: failResponse(
+                statusCode: response.statusCode,
+                errorMsg: result.error?.localizedDescription ?? "\(response.statusCode)"
+            ))
         }
-        return result
+        resp.setNetParameter(parameter)
+        return Result(value: resp)
     }
     
     fileprivate func failResponse(
