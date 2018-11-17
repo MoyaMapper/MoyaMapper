@@ -1,12 +1,23 @@
 ![MoyaMapper](https://github.com/LinXunFeng/MoyaMapper/raw/master/Screenshots/MoyaMapper.png)
 
 
-
-<center>
-
-[![Author](https://img.shields.io/badge/author-LinXunFeng-blue.svg)](https://cocoapods.org/pods/MoyaMapper) [![Build Status](https://travis-ci.org/MoyaMapper/MoyaMapper.svg?branch=master)](https://travis-ci.org/MoyaMapper/MoyaMapper)  [![Version](https://img.shields.io/cocoapods/v/MoyaMapper.svg?style=flat)](https://cocoapods.org/pods/MoyaMapper) [![License](https://img.shields.io/github/license/LinXunFeng/MoyaMapper.svg)](https://cocoapods.org/pods/MoyaMapper) [![Platform](https://img.shields.io/cocoapods/p/MoyaMapper.svg?style=flat)](https://cocoapods.org/pods/MoyaMapper)
-
-</center>
+<p align="center">
+  <a href="https://github.com/LinXunFeng">
+    <img src="https://img.shields.io/badge/author-LinXunFeng-blue.svg" alt="Author" />
+  </a>
+  <a href="https://travis-ci.org/MoyaMapper/MoyaMapper">
+    <img src="https://travis-ci.org/MoyaMapper/MoyaMapper.svg?branch=master" alt="Build Status" />
+  </a>
+  <a href="https://cocoapods.org/pods/MoyaMapper">
+    <img src="https://img.shields.io/cocoapods/v/MoyaMapper.svg?style=flat" alt="Version" />
+  </a>
+  <a href="https://cocoapods.org/pods/MoyaMapper">
+    <img src="https://img.shields.io/github/license/LinXunFeng/MoyaMapper.svg" alt="License" />
+  </a>
+  <a href="https://cocoapods.org/pods/MoyaMapper">
+    <img src="https://img.shields.io/cocoapods/p/MoyaMapper.svg?style=flat" alt="Platform" />
+  </a>
+</p>
 
 >  MoyaMapper是基于Moya和SwiftyJSON封装的工具，以Moya的plugin的方式来实现间接解析，支持RxSwift
 >
