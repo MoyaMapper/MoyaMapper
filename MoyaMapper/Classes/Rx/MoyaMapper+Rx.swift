@@ -28,7 +28,10 @@ extension ObservableType where E == Response {
     ///   - path: JSON数据路径 (默认为模型数据路径)
     ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: Observable<String>
-    public func fetchString(path: String? = nil, keys: [JSONSubscriptType] = []) -> Observable<String> {
+    public func fetchString(
+        path: String? = nil,
+        keys: [JSONSubscriptType] = []
+    ) -> Observable<String> {
         return flatMap { response -> Observable<String> in
             return Observable.just(response.fetchString(path: path, keys: keys))
         }
@@ -40,7 +43,10 @@ extension ObservableType where E == Response {
     ///   - path: JSON数据路径 (默认为根路径)
     ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: Observable<String>
-    public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType] = []) -> Observable<String> {
+    public func fetchJSONString(
+        path: String? = nil,
+        keys: [JSONSubscriptType] = []
+    ) -> Observable<String> {
         return flatMap { response -> Observable<String> in
             return Observable.just(response.fetchJSONString(path: path, keys: keys))
         }
@@ -52,7 +58,10 @@ extension ObservableType where E == Response {
     ///   - type: 模型类型
     ///   - modelKey: 模型数据路径
     /// - Returns: Observable<Model>
-    public func mapObject<T: Modelable>(_ type: T.Type, modelKey: String? = nil) -> Observable<T> {
+    public func mapObject<T: Modelable>(
+        _ type: T.Type,
+        modelKey: String? = nil
+    ) -> Observable<T> {
         return flatMap { response -> Observable<T> in
             return Observable.just(response.mapObject(T.self, modelKey: modelKey))
         }
@@ -74,7 +83,10 @@ extension ObservableType where E == Response {
     ///   - type: 模型类型
     ///   - params: 自定义解析的设置回调
     /// - Returns: Observable<(MoyaMapperResult,Model)>
-    public func mapObjResult<T: Modelable>(_ type: T.Type, params: ModelableParamsBlock? = nil) -> Observable<(MoyaMapperResult,T)> {
+    public func mapObjResult<T: Modelable>(
+        _ type: T.Type,
+        params: ModelableParamsBlock? = nil
+    ) -> Observable<(MoyaMapperResult,T)> {
         return flatMap({ response -> Observable<(MoyaMapperResult, T)> in
             return Observable.just(response.mapObjResult(T.self, params: params))
         })
@@ -87,7 +99,10 @@ extension ObservableType where E == Response {
     ///   - type: 模型类型
     ///   - modelKey: 模型路径
     /// - Returns: Observable<[Model]>
-    public func mapArray<T: Modelable>(_ type: T.Type, modelKey: String? = nil) -> Observable<[T]> {
+    public func mapArray<T: Modelable>(
+        _ type: T.Type,
+        modelKey: String? = nil
+    ) -> Observable<[T]> {
         return flatMap { response -> Observable<[T]> in
             return Observable.just(response.mapArray(T.self, modelKey: modelKey))
         }
@@ -99,7 +114,10 @@ extension ObservableType where E == Response {
     ///   - type: 模型类型
     ///   - params: 自定义解析的设置回调
     /// - Returns: Observable<(MoyaMapperResult, [Model])>
-    public func mapArrayResult<T: Modelable>(_ type: T.Type, params: ModelableParamsBlock? = nil) -> Observable<(MoyaMapperResult,[T])> {
+    public func mapArrayResult<T: Modelable>(
+        _ type: T.Type,
+        params: ModelableParamsBlock? = nil
+    ) -> Observable<(MoyaMapperResult,[T])> {
         return flatMap({ response -> Observable<(MoyaMapperResult, [T])> in
             return Observable.just(response.mapArrayResult(T.self, params: params))
         })
@@ -124,7 +142,10 @@ extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
     ///   - path: JSON数据路径 (默认为模型数据路径)
     ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: Single<String>
-    public func fetchString(path: String? = nil, keys: [JSONSubscriptType] = []) -> Single<String> {
+    public func fetchString(
+        path: String? = nil,
+        keys: [JSONSubscriptType] = []
+    ) -> Single<String> {
         return flatMap { response -> Single<String> in
             return Single.just(response.fetchString(path: path, keys: keys))
         }
@@ -136,7 +157,10 @@ extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
     ///   - path: JSON数据路径 (默认为模型数据路径)
     ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: Single<String>
-    public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType] = []) -> Single<String> {
+    public func fetchJSONString(
+        path: String? = nil,
+        keys: [JSONSubscriptType] = []
+    ) -> Single<String> {
         return flatMap { response -> Single<String> in
             return Single.just(response.fetchJSONString(path: path, keys: keys))
         }
@@ -148,7 +172,10 @@ extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
     ///   - type: 模型类型
     ///   - modelKey: 模型数据路径
     /// - Returns: Single<Model>
-    public func mapObject<T: Modelable>(_ type: T.Type, modelKey: String? = nil) ->  Single<T> {
+    public func mapObject<T: Modelable>(
+        _ type: T.Type,
+        modelKey: String? = nil
+    ) ->  Single<T> {
         return flatMap { response -> Single<T> in
             return Single.just(response.mapObject(T.self, modelKey: modelKey))
         }
@@ -170,7 +197,10 @@ extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
     ///   - type: 模型类型
     ///   - params: 自定义解析的设置回调
     /// - Returns: Single<(MoyaMapperResult,Model)>
-    public func mapObjResult<T: Modelable>(_ type: T.Type, params: ModelableParamsBlock? = nil) -> Single<(MoyaMapperResult,T)> {
+    public func mapObjResult<T: Modelable>(
+        _ type: T.Type,
+        params: ModelableParamsBlock? = nil
+    ) -> Single<(MoyaMapperResult,T)> {
         return flatMap({ response -> Single<(MoyaMapperResult, T)> in
             return Single.just(response.mapObjResult(T.self, params: params))
         })
@@ -183,7 +213,10 @@ extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
     ///   - type: 模型类型
     ///   - modelKey: 模型路径
     /// - Returns: Single<[Model]>
-    public func mapArray<T: Modelable>(_ type: T.Type, modelKey: String? = nil) -> Single<[T]> {
+    public func mapArray<T: Modelable>(
+        _ type: T.Type,
+        modelKey: String? = nil
+    ) -> Single<[T]> {
         return flatMap { response -> Single<[T]> in
             return Single.just(response.mapArray(T.self, modelKey: modelKey))
         }
@@ -195,7 +228,10 @@ extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
     ///   - type: 模型类型
     ///   - params: 自定义解析的设置回调
     /// - Returns: Single<(MoyaMapperResult, [Model])>
-    public func mapArrayResult<T: Modelable>(_ type: T.Type, params: ModelableParamsBlock? = nil) -> Single<(MoyaMapperResult,[T])> {
+    public func mapArrayResult<T: Modelable>(
+        _ type: T.Type,
+        params: ModelableParamsBlock? = nil
+    ) -> Single<(MoyaMapperResult,[T])> {
         return flatMap({ response -> Single<(MoyaMapperResult, [T])> in
             return Single.just(response.mapArrayResult(T.self, params: params))
         })
