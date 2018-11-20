@@ -11,7 +11,11 @@ import SwiftyJSON
 // MARK:- JSON
 public extension MMCache {
     @discardableResult
-    func cacheJSON(_ json: JSON, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheJSON(
+        _ json: JSON,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         switch cacheContainer {
         case .RAM:
             MMCache.shared.jsonRAMStorage.setObject(json, forKey: key)
@@ -27,7 +31,10 @@ public extension MMCache {
         }
     }
     
-    func fetchJSONCache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> JSON? {
+    func fetchJSONCache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> JSON? {
         switch cacheContainer {
         case .RAM:
             return try? MMCache.shared.jsonRAMStorage.object(forKey: key)
@@ -41,7 +48,10 @@ public extension MMCache {
     }
     
     @discardableResult
-    func removeJSONCache(_ key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func removeJSONCache(
+        _ key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         switch cacheContainer {
         case .RAM:
             MMCache.shared.jsonRAMStorage.removeObject(forKey: key)
@@ -75,11 +85,19 @@ public extension MMCache {
 // MARK: Bool
 public extension MMCache {
     @discardableResult
-    func cacheBool(_ value: Bool, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheBool(
+        _ value: Bool,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchBoolCache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool? {
+    
+    func fetchBoolCache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .boolValue
@@ -89,11 +107,19 @@ public extension MMCache {
 // MARK: Int
 public extension MMCache {
     @discardableResult
-    func cacheInt(_ value: Int, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheInt(
+        _ value: Int,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchIntCache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Int? {
+    
+    func fetchIntCache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Int? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .intValue
@@ -103,11 +129,19 @@ public extension MMCache {
 // MARK: Int8
 public extension MMCache {
     @discardableResult
-    func cacheInt8(_ value: Int8, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheInt8(
+        _ value: Int8,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchInt8Cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Int8? {
+    
+    func fetchInt8Cache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Int8? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .int8Value
@@ -117,11 +151,19 @@ public extension MMCache {
 // MARK: Int16
 public extension MMCache {
     @discardableResult
-    func cacheInt16(_ value: Int16, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheInt16(
+        _ value: Int16,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchInt16Cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Int16? {
+    
+    func fetchInt16Cache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Int16? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .int16Value
@@ -131,11 +173,19 @@ public extension MMCache {
 // MARK: Int32
 public extension MMCache {
     @discardableResult
-    func cacheInt32(_ value: Int32, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheInt32(
+        _ value: Int32,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchInt32Cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Int32? {
+    
+    func fetchInt32Cache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Int32? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .int32Value
@@ -145,11 +195,19 @@ public extension MMCache {
 // MARK: Int64
 public extension MMCache {
     @discardableResult
-    func cacheInt64(_ value: Int64, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheInt64(
+        _ value: Int64,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchInt64Cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Int64? {
+    
+    func fetchInt64Cache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Int64? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .int64Value
@@ -159,11 +217,19 @@ public extension MMCache {
 // MARK: UInt
 public extension MMCache {
     @discardableResult
-    func cacheUInt(_ value: UInt, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheUInt(
+        _ value: UInt,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchUIntCache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> UInt? {
+    
+    func fetchUIntCache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> UInt? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .uIntValue
@@ -173,11 +239,19 @@ public extension MMCache {
 // MARK: UInt8
 public extension MMCache {
     @discardableResult
-    func cacheUInt8(_ value: UInt8, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheUInt8(
+        _ value: UInt8,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchUInt8Cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> UInt8? {
+    
+    func fetchUInt8Cache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> UInt8? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .uInt8Value
@@ -187,11 +261,19 @@ public extension MMCache {
 // MARK: UInt16
 public extension MMCache {
     @discardableResult
-    func cacheUInt16(_ value: UInt16, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheUInt16(
+        _ value: UInt16,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchUInt16Cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> UInt16? {
+    
+    func fetchUInt16Cache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> UInt16? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .uInt16Value
@@ -201,11 +283,19 @@ public extension MMCache {
 // MARK: UInt32
 public extension MMCache {
     @discardableResult
-    func cacheUInt32(_ value: UInt32, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheUInt32(
+        _ value: UInt32,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchUInt32Cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> UInt32? {
+    
+    func fetchUInt32Cache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> UInt32? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .uInt32Value
@@ -215,11 +305,19 @@ public extension MMCache {
 // MARK: UInt64
 public extension MMCache {
     @discardableResult
-    func cacheUInt64(_ value: UInt64, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheUInt64(
+        _ value: UInt64,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchInt64Cache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> UInt64? {
+    
+    func fetchInt64Cache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> UInt64? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .uInt64Value
@@ -229,11 +327,19 @@ public extension MMCache {
 // MARK: Float
 public extension MMCache {
     @discardableResult
-    func cacheFloat(_ value: Float, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheFloat(
+        _ value: Float,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchFloatCache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Float? {
+    
+    func fetchFloatCache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Float? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .floatValue
@@ -243,11 +349,19 @@ public extension MMCache {
 // MARK: Double
 public extension MMCache {
     @discardableResult
-    func cacheDouble(_ value: Double, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheDouble(
+        _ value: Double,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchDoubleCache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Double? {
+    
+    func fetchDoubleCache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Double? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .doubleValue
@@ -257,11 +371,19 @@ public extension MMCache {
 // MARK: String
 public extension MMCache {
     @discardableResult
-    func cacheString(_ value: String, key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> Bool {
+    func cacheString(
+        _ value: String,
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> Bool {
         let json = JSON([key : value])
         return cacheJSON(json, key: key, cacheContainer: cacheContainer)
     }
-    func fetchStringCache(key: String, cacheContainer: MMCache.CacheContainer = .RAM) -> String? {
+    
+    func fetchStringCache(
+        key: String,
+        cacheContainer: MMCache.CacheContainer = .RAM
+    ) -> String? {
         return fetchJSONCache(key: key, cacheContainer: cacheContainer)?
             .dictionaryValue[key]?
             .stringValue

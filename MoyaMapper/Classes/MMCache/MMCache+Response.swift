@@ -24,12 +24,18 @@ extension MMCache {
 
 // MARK:- MMCache MemoryStorage
 extension MMCache {
-    func isNoRecord(_ target: TargetType, cacheType: CacheKeyType = .default) -> Bool {
+    func isNoRecord(
+        _ target: TargetType,
+        cacheType: CacheKeyType = .default
+    ) -> Bool {
         let isNoRecord = (try? MMCache.shared.boolRAMStorage.object(forKey: target.fetchCacheKey(cacheType))) ?? false
         return !isNoRecord
     }
     
-    func record(_ target: TargetType, cacheType: CacheKeyType = .default) {
+    func record(
+        _ target: TargetType,
+        cacheType: CacheKeyType = .default
+    ) {
         MMCache.shared.boolRAMStorage.setObject(true, forKey: target.fetchCacheKey(cacheType))
     }
 }
@@ -38,7 +44,11 @@ extension MMCache {
 // MARK: Moya.Response
 public extension MMCache {
     @discardableResult
-    func cacheResponse(_ response: Moya.Response, target: TargetType, cacheKey: CacheKeyType = .default) -> Bool {
+    func cacheResponse(
+        _ response: Moya.Response,
+        target: TargetType,
+        cacheKey: CacheKeyType = .default
+    ) -> Bool {
         do {
             try MMCache.shared.responseStorage?.setObject(response, forKey: target.fetchCacheKey(cacheKey))
             let mp = MMResponseParameter(response.lxf_modelableParameter)
@@ -48,7 +58,11 @@ public extension MMCache {
         }
         catch { return false }
     }
-    func fetchResponseCache(target: TargetType, cacheKey: CacheKeyType = .default) -> Moya.Response? {
+    
+    func fetchResponseCache(
+        target: TargetType,
+        cacheKey: CacheKeyType = .default
+    ) -> Moya.Response? {
         
         guard let response = try? MMCache.shared.responseStorage?.object(forKey: target.fetchCacheKey(cacheKey))
         else { return nil }
