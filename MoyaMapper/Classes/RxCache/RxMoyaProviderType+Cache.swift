@@ -39,8 +39,9 @@ public extension Reactive where Base: MoyaProviderType {
         
         // 更新缓存
         originRequest = originRequest.map { response -> Response in
-            let resp = try response.filterSuccessfulStatusCodes()
-            MMCache.shared.cacheResponse(resp, target: target)
+            if let resp = try? response.filterSuccessfulStatusCodes() {
+                MMCache.shared.cacheResponse(resp, target: target)
+            }
             return response
         }
         
