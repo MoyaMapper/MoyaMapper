@@ -54,14 +54,20 @@ extension Response {
         let result = JSON(data)
         return result.json(path: lxf_modelKey)
     }
-    
+}
+
+// MARK:- Json -> String
+extension Response {
     /// 获取指定路径的字符串
     ///
     /// - Parameters:
     ///   - path: JSON数据路径 (默认为模型数据路径)
     ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: 指定路径的字符串
-    public func fetchString(path: String? = nil, keys: [JSONSubscriptType] = []) -> String {
+    public func fetchString(
+        path: String? = nil,
+        keys: [JSONSubscriptType] = []
+    ) -> String {
         var resJson = toJSON(modelKey: path)
         return resJson[keys].stringValue
     }
@@ -72,26 +78,18 @@ extension Response {
     ///   - path: JSON数据路径 (默认为根路径)
     ///   - keys: 目标数据子路径  (例： [0, "_id"])
     /// - Returns: 指定路径的原始json字符串
-    public func fetchJSONString(path: String? = nil, keys: [JSONSubscriptType] = []) -> String {
+    public func fetchJSONString(
+        path: String? = nil,
+        keys: [JSONSubscriptType] = []
+    ) -> String {
         let rootPath = ""
         var resJson = toJSON(modelKey: path != nil ? path : rootPath)
         return resJson[keys].rawString() ?? ""
     }
 }
 
-// MARK: - Json -> Model
+// MARK:- Json -> ResultStatus
 extension Response {
-    /// Response -> Model
-    ///
-    /// - Parameters:
-    ///   - type: 模型类型
-    ///   - modelKey: 模型数据路径
-    /// - Returns: 模型
-    public func mapObject<T: Modelable>(_ type: T.Type, modelKey: String? = nil) -> T {
-        let resJson = toJSON(modelKey: modelKey)
-        return toModel(type, modelJson: resJson)
-    }
-    
     /// Response -> MoyaMapperResult
     ///
     /// - Parameter params: 自定义解析的设置回调
@@ -105,7 +103,38 @@ extension Response {
         
         let code = result.json(path: resCodeKey).stringValue
         let msg = result.json(path: resMsgKey).stringValue
-        return (code==resSuccessValue, msg)
+        return (code == resSuccessValue, msg)
+    }
+    
+    /// 获取接口返回的状态码
+    ///
+    /// - Parameters:
+    ///   - path: JSON数据路径 (默认为模型数据路径)
+    ///   - keys: 目标数据子路径  (例： [0, "_id"])
+    /// - Returns: 接口返回的状态码
+    public func fetchStatusCode(
+        path: String? = nil,
+        keys: [JSONSubscriptType] = []
+    ) -> String {
+        let resCodeKey = path != nil ? path : lxf_modelableParameter.statusCodeKey
+        return self.fetchString(path: resCodeKey, keys: keys)
+    }
+}
+
+// MARK: - Json -> Model
+extension Response {
+    /// Response -> Model
+    ///
+    /// - Parameters:
+    ///   - type: 模型类型
+    ///   - modelKey: 模型数据路径
+    /// - Returns: 模型
+    public func mapObject<T: Modelable>(
+        _ type: T.Type,
+        modelKey: String? = nil
+    ) -> T {
+        let resJson = toJSON(modelKey: modelKey)
+        return toModel(type, modelJson: resJson)
     }
 
     /// Response -> (MoyaMapperResult, Model)
@@ -114,7 +143,10 @@ extension Response {
     ///   - type: 模型类型
     ///   - params: 自定义解析的设置回调
     /// - Returns: (MoyaMapperResult, Model)
-    public func mapObjResult<T: Modelable>(_ type: T.Type, params: ModelableParamsBlock? = nil) -> (MoyaMapperResult, T) {
+    public func mapObjResult<T: Modelable>(
+        _ type: T.Type,
+        params: ModelableParamsBlock? = nil
+    ) -> (MoyaMapperResult, T) {
         let parameter = params != nil ? params!() : lxf_modelableParameter
         let modelKey = parameter.modelKey
         let (isSuccess, retMsg) = mapResult(params: params)
@@ -133,7 +165,10 @@ extension Response {
     ///   - type: 模型类型
     ///   - modelKey: 模型路径
     /// - Returns: 模型数组
-    public func mapArray<T: Modelable>(_ type: T.Type, modelKey: String? = nil) -> [T] {
+    public func mapArray<T: Modelable>(
+        _ type: T.Type,
+        modelKey: String? = nil
+    ) -> [T] {
         let lxf_modelKey = modelKey == nil ? self.lxf_modelableParameter.modelKey : modelKey!
         let jsonArr = toJSON(modelKey: lxf_modelKey).arrayValue
         return jsonArr.compactMap { toModel(type, modelJson: $0) }
@@ -145,7 +180,10 @@ extension Response {
     ///   - type: 模型类型
     ///   - params: 自定义解析的设置回调
     /// - Returns: (MoyaMapperResult, [Model])
-    public func mapArrayResult<T: Modelable>(_ type: T.Type, params: ModelableParamsBlock? = nil) -> (MoyaMapperResult, [T]) {
+    public func mapArrayResult<T: Modelable>(
+        _ type: T.Type,
+        params: ModelableParamsBlock? = nil
+    ) -> (MoyaMapperResult, [T]) {
         let parameter = params != nil ? params!() : lxf_modelableParameter
         let modelKey = parameter.modelKey
         let result = mapResult(params: params)
@@ -165,7 +203,11 @@ extension Response {
     ///   - dataDict: 数据字典
     ///   - statusCode: 状态码
     ///   - parameterType: ModelableParameterType
-    public convenience init(_ dataDict: [String: Any], statusCode: Int, parameter: ModelableParameterType) {
+    public convenience init(
+        _ dataDict: [String: Any],
+        statusCode: Int,
+        parameter: ModelableParameterType
+    ) {
         defer { self.setNetParameter(parameter) }
         let jsonData = (try? JSON(dataDict).rawData()) ?? Data()
         self.init(statusCode: statusCode, data: jsonData)
