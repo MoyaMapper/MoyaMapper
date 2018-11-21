@@ -38,4 +38,5 @@ Carthage/Build
 Example/Pods/
 Example/Podfile.lock
 Example/*.xcworkspace
+fastlane/report.xml
 
