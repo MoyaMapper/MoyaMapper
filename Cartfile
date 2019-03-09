@@ -1,0 +1,6 @@
+github "Alamofire/Alamofire"
+github "Moya/Moya"
+github "ReactiveX/RxSwift"
+github "hyperoslo/Cache"
+github "SwiftyJSON/SwiftyJSON"
+github "RxSwiftCommunity/RxDataSources"
