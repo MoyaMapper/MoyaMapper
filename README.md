@@ -386,7 +386,7 @@ statusCode -- 200
 
 
 
-## Install
+## Installation
 
 ### CocoaPods
 
