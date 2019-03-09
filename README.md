@@ -386,7 +386,9 @@ statusCode -- 200
 
 
 
-## CocoaPods
+## Install
+
+### CocoaPods
 
 - 默认安装
 
@@ -413,6 +415,18 @@ pod 'MoyaMapper/MMCache'
 ```ruby
 pod 'MoyaMapper/RxCache'
 ```
+
+
+
+### Carthage
+
+在你的 `Cartfile` 文件中添加如下内容:
+
+```
+github "MoyaMapper/MoyaMapper"
+```
+
+接着运行  `carthage update`.
 
 
 
