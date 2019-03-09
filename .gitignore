@@ -35,8 +35,8 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 # Pods/
-Example/Pods/
-Example/Podfile.lock
-Example/*.xcworkspace
+Pods/
+Podfile.lock
+*.xcworkspace
 fastlane/report.xml
-
+Carthage
