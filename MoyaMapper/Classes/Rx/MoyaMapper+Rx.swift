@@ -9,6 +9,9 @@
 import RxSwift
 import Moya
 import SwiftyJSON
+#if !COCOAPODS
+import MoyaMapper
+#endif
 
 // MARK: - Json -> Observable<Model>
 extension ObservableType where E == Response {

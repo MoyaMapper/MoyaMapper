@@ -12,6 +12,9 @@ import RxCocoa
 import RxDataSources
 import MoyaMapper
 import Moya
+#if !COCOAPODS
+import RxCacheMoyaMapper
+#endif
 
 class RxMoyaViewController: BaseViewController {
     

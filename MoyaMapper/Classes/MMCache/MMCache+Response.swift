@@ -6,6 +6,9 @@
 //
 
 import Moya
+#if !COCOAPODS
+import MoyaMapper
+#endif
 
 extension MMCache {
     /**
@@ -23,7 +26,7 @@ extension MMCache {
 }
 
 // MARK:- MMCache MemoryStorage
-extension MMCache {
+public extension MMCache {
     func isNoRecord(
         _ target: TargetType,
         cacheType: CacheKeyType = .default

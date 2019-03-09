@@ -8,6 +8,9 @@
 import Cache
 import SwiftyJSON
 import Moya
+#if !COCOAPODS
+import MoyaMapper
+#endif
 
 extension TransformerFactory {
     static func forResponse<T: Moya.Response>(_ type : T.Type) -> Transformer<T> {

@@ -10,6 +10,9 @@ import UIKit
 import RxSwift
 import SwiftyJSON
 import MoyaMapper
+#if !COCOAPODS
+import CacheMoyaMapper
+#endif
 
 class CacheViewController: UIViewController {
     

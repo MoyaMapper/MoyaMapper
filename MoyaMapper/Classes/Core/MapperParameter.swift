@@ -24,6 +24,19 @@ public struct TemplateParameter: ModelableParameterType {
     public var statusCodeKey: String = ""
     public var tipStrKey: String = ""
     public var modelKey: String = ""
+    
+    // Carthage 必须包含init方法，否则使用时会遇到 initializer is inaccessible due to 'internal' protection level
+    public init(
+        successValue: String = "",
+        statusCodeKey: String = "",
+        tipStrKey: String = "",
+        modelKey: String = ""
+    ) {
+        self.successValue = successValue
+        self.statusCodeKey = statusCodeKey
+        self.tipStrKey = tipStrKey
+        self.modelKey = modelKey
+    }
 }
 
 public struct MMResponseParameterKey {

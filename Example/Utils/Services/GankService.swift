@@ -9,6 +9,9 @@
 import Moya
 import MoyaMapper
 import RxSwift
+#if !COCOAPODS
+import RxMoyaMapper
+#endif
 
 final class GankService {
     fileprivate let networking: GankNetworking

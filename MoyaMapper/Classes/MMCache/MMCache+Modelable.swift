@@ -5,6 +5,10 @@
 //  Created by LinXunFeng on 2018/10/26.
 //
 
+#if !COCOAPODS
+import MoyaMapper
+#endif
+
 public extension MMCache {
     @discardableResult
     public func cacheModel(

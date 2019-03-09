@@ -216,14 +216,14 @@ extension Response {
     /// 设置数据解析参数
     ///
     /// - Parameter type: ModelableParameterType
-    func setNetParameter(_ type: ModelableParameterType) {
+    public func setNetParameter(_ type: ModelableParameterType) {
         self.lxf_modelableParameter = type
     }
     
     private struct AssociatedKeys {
         static var lxf_modelableParameterKey = "lxf_modelableParameterKey"
     }
-    var lxf_modelableParameter: ModelableParameterType {
+    public internal(set) var lxf_modelableParameter: ModelableParameterType {
         get {
             // https://stackoverflow.com/questions/42033735/failing-cast-in-swift-from-any-to-protocol/42034523#42034523
             let value = objc_getAssociatedObject(self, &AssociatedKeys.lxf_modelableParameterKey) as AnyObject

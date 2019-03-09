@@ -7,6 +7,10 @@
 
 import Moya
 import RxSwift
+#if !COCOAPODS
+import RxMoya
+import CacheMoyaMapper
+#endif
 
 public extension Reactive where Base: MoyaProviderType {
     /**
