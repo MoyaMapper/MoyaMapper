@@ -1,6 +1,5 @@
 ![MoyaMapper](https://github.com/LinXunFeng/MoyaMapper/raw/master/Screenshots/MoyaMapper.png)
 
-
 <p align="center">
   <a href="https://github.com/LinXunFeng">
     <img src="https://img.shields.io/badge/author-LinXunFeng-blue.svg" alt="Author" />
@@ -11,6 +10,9 @@
   <a href="https://cocoapods.org/pods/MoyaMapper">
     <img src="https://img.shields.io/cocoapods/v/MoyaMapper.svg?style=flat" alt="Version" />
   </a>
+  <a href="https://github.com/Carthage/Carthage">
+    <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage" />
+  </a>
   <a href="https://cocoapods.org/pods/MoyaMapper">
     <img src="https://img.shields.io/github/license/LinXunFeng/MoyaMapper.svg" alt="License" />
   </a>
@@ -18,6 +20,7 @@
     <img src="https://img.shields.io/cocoapods/p/MoyaMapper.svg?style=flat" alt="Platform" />
   </a>
 </p>
+
 
 >  MoyaMapper是基于Moya和SwiftyJSON封装的工具，以Moya的plugin的方式来实现间接解析，支持RxSwift
 >
