@@ -1,4 +1,4 @@
-osx_image: xcode9.4.1
+osx_image: xcode10
 language: swift
 
 before_install: 
@@ -13,4 +13,4 @@ before_install:
   # - pod install --project-directory=Example 
 
 script:
-  - pod lib lint --allow-warnings --verbose
+  - pod lib lint --allow-warnings --no-clean --verbose
