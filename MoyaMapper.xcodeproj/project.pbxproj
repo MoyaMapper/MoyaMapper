@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		FD3ADA2E2243DCB8005F6715 /* MMJSONDecodingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA1E2243DCB8005F6715 /* MMJSONDecodingStorage.swift */; };
+		FD3ADA2F2243DCB8005F6715 /* MMJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA1F2243DCB8005F6715 /* MMJSONDecoder.swift */; };
+		FD3ADA302243DCB8005F6715 /* MMJSONDecoder+DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA202243DCB8005F6715 /* MMJSONDecoder+DecodingError.swift */; };
+		FD3ADA312243DCB8005F6715 /* MMJSONDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA212243DCB8005F6715 /* MMJSONDefault.swift */; };
+		FD3ADA322243DCB8005F6715 /* MMJSONUnkeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA222243DCB8005F6715 /* MMJSONUnkeyedEncodingContainer.swift */; };
+		FD3ADA332243DCB8005F6715 /* MMJSONEncoder+SingleValueEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA232243DCB8005F6715 /* MMJSONEncoder+SingleValueEncodingContainer.swift */; };
+		FD3ADA342243DCB8005F6715 /* MMJSONDecoder+SingleValueDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA242243DCB8005F6715 /* MMJSONDecoder+SingleValueDecodingContainer.swift */; };
+		FD3ADA352243DCB8005F6715 /* MMJSONKeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA252243DCB8005F6715 /* MMJSONKeyedEncodingContainer.swift */; };
+		FD3ADA362243DCB8005F6715 /* MMJSONReferencingEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA262243DCB8005F6715 /* MMJSONReferencingEncoder.swift */; };
+		FD3ADA372243DCB8005F6715 /* MMJSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA272243DCB8005F6715 /* MMJSONEncoder.swift */; };
+		FD3ADA382243DCB8005F6715 /* MMJSONEncoder+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA282243DCB8005F6715 /* MMJSONEncoder+Box.swift */; };
+		FD3ADA392243DCB8005F6715 /* MMJSONDecoder+Unbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA292243DCB8005F6715 /* MMJSONDecoder+Unbox.swift */; };
+		FD3ADA3A2243DCB8005F6715 /* MMJSONEncodingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA2A2243DCB8005F6715 /* MMJSONEncodingStorage.swift */; };
+		FD3ADA3B2243DCB8005F6715 /* MMJSONKeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA2B2243DCB8005F6715 /* MMJSONKeyedDecodingContainer.swift */; };
+		FD3ADA3C2243DCB8005F6715 /* MMJSONKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA2C2243DCB8005F6715 /* MMJSONKey.swift */; };
+		FD3ADA3D2243DCB8005F6715 /* MMJSONUnkeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3ADA2D2243DCB8005F6715 /* MMJSONUnkeyedDecodingContainer.swift */; };
 		FD846F042233A5B90038A715 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD846EE12233A5B90038A715 /* LaunchScreen.xib */; };
 		FD846F052233A5B90038A715 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD846EE32233A5B90038A715 /* Main.storyboard */; };
 		FD846F062233A5B90038A715 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD846EE52233A5B90038A715 /* Images.xcassets */; };
@@ -119,6 +135,22 @@
 		607FACE51AFB9204008FA782 /* MoyaMapper_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyaMapper_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		FD3ADA1E2243DCB8005F6715 /* MMJSONDecodingStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONDecodingStorage.swift; sourceTree = "<group>"; };
+		FD3ADA1F2243DCB8005F6715 /* MMJSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONDecoder.swift; sourceTree = "<group>"; };
+		FD3ADA202243DCB8005F6715 /* MMJSONDecoder+DecodingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMJSONDecoder+DecodingError.swift"; sourceTree = "<group>"; };
+		FD3ADA212243DCB8005F6715 /* MMJSONDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONDefault.swift; sourceTree = "<group>"; };
+		FD3ADA222243DCB8005F6715 /* MMJSONUnkeyedEncodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONUnkeyedEncodingContainer.swift; sourceTree = "<group>"; };
+		FD3ADA232243DCB8005F6715 /* MMJSONEncoder+SingleValueEncodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMJSONEncoder+SingleValueEncodingContainer.swift"; sourceTree = "<group>"; };
+		FD3ADA242243DCB8005F6715 /* MMJSONDecoder+SingleValueDecodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMJSONDecoder+SingleValueDecodingContainer.swift"; sourceTree = "<group>"; };
+		FD3ADA252243DCB8005F6715 /* MMJSONKeyedEncodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONKeyedEncodingContainer.swift; sourceTree = "<group>"; };
+		FD3ADA262243DCB8005F6715 /* MMJSONReferencingEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONReferencingEncoder.swift; sourceTree = "<group>"; };
+		FD3ADA272243DCB8005F6715 /* MMJSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONEncoder.swift; sourceTree = "<group>"; };
+		FD3ADA282243DCB8005F6715 /* MMJSONEncoder+Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMJSONEncoder+Box.swift"; sourceTree = "<group>"; };
+		FD3ADA292243DCB8005F6715 /* MMJSONDecoder+Unbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMJSONDecoder+Unbox.swift"; sourceTree = "<group>"; };
+		FD3ADA2A2243DCB8005F6715 /* MMJSONEncodingStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONEncodingStorage.swift; sourceTree = "<group>"; };
+		FD3ADA2B2243DCB8005F6715 /* MMJSONKeyedDecodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONKeyedDecodingContainer.swift; sourceTree = "<group>"; };
+		FD3ADA2C2243DCB8005F6715 /* MMJSONKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONKey.swift; sourceTree = "<group>"; };
+		FD3ADA2D2243DCB8005F6715 /* MMJSONUnkeyedDecodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMJSONUnkeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		FD846EE22233A5B90038A715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FD846EE42233A5B90038A715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD846EE52233A5B90038A715 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -336,6 +368,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FD3ADA1D2243DCB8005F6715 /* MMCodable */ = {
+			isa = PBXGroup;
+			children = (
+				FD3ADA1E2243DCB8005F6715 /* MMJSONDecodingStorage.swift */,
+				FD3ADA1F2243DCB8005F6715 /* MMJSONDecoder.swift */,
+				FD3ADA202243DCB8005F6715 /* MMJSONDecoder+DecodingError.swift */,
+				FD3ADA212243DCB8005F6715 /* MMJSONDefault.swift */,
+				FD3ADA222243DCB8005F6715 /* MMJSONUnkeyedEncodingContainer.swift */,
+				FD3ADA232243DCB8005F6715 /* MMJSONEncoder+SingleValueEncodingContainer.swift */,
+				FD3ADA242243DCB8005F6715 /* MMJSONDecoder+SingleValueDecodingContainer.swift */,
+				FD3ADA252243DCB8005F6715 /* MMJSONKeyedEncodingContainer.swift */,
+				FD3ADA262243DCB8005F6715 /* MMJSONReferencingEncoder.swift */,
+				FD3ADA272243DCB8005F6715 /* MMJSONEncoder.swift */,
+				FD3ADA282243DCB8005F6715 /* MMJSONEncoder+Box.swift */,
+				FD3ADA292243DCB8005F6715 /* MMJSONDecoder+Unbox.swift */,
+				FD3ADA2A2243DCB8005F6715 /* MMJSONEncodingStorage.swift */,
+				FD3ADA2B2243DCB8005F6715 /* MMJSONKeyedDecodingContainer.swift */,
+				FD3ADA2C2243DCB8005F6715 /* MMJSONKey.swift */,
+				FD3ADA2D2243DCB8005F6715 /* MMJSONUnkeyedDecodingContainer.swift */,
+			);
+			path = MMCodable;
+			sourceTree = "<group>";
+		};
 		FD846EE02233A5B90038A715 /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +512,7 @@
 		FD846F572233AF100038A715 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				FD3ADA1D2243DCB8005F6715 /* MMCodable */,
 				FD846F582233AF100038A715 /* MoyaMapper.swift */,
 				FD846F592233AF100038A715 /* Modelable.swift */,
 				FD846F5A2233AF100038A715 /* MapperParameter.swift */,
@@ -811,11 +867,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD3ADA302243DCB8005F6715 /* MMJSONDecoder+DecodingError.swift in Sources */,
+				FD3ADA362243DCB8005F6715 /* MMJSONReferencingEncoder.swift in Sources */,
+				FD3ADA3B2243DCB8005F6715 /* MMJSONKeyedDecodingContainer.swift in Sources */,
+				FD3ADA372243DCB8005F6715 /* MMJSONEncoder.swift in Sources */,
+				FD3ADA3D2243DCB8005F6715 /* MMJSONUnkeyedDecodingContainer.swift in Sources */,
+				FD3ADA332243DCB8005F6715 /* MMJSONEncoder+SingleValueEncodingContainer.swift in Sources */,
 				FD846F762233AFC40038A715 /* MoyaMapper.swift in Sources */,
+				FD3ADA322243DCB8005F6715 /* MMJSONUnkeyedEncodingContainer.swift in Sources */,
+				FD3ADA352243DCB8005F6715 /* MMJSONKeyedEncodingContainer.swift in Sources */,
 				FD846F772233AFC40038A715 /* Modelable.swift in Sources */,
 				FD846F782233AFC40038A715 /* MapperParameter.swift in Sources */,
 				FD846F792233AFC40038A715 /* MoyaMapperPlugin.swift in Sources */,
+				FD3ADA3C2243DCB8005F6715 /* MMJSONKey.swift in Sources */,
+				FD3ADA382243DCB8005F6715 /* MMJSONEncoder+Box.swift in Sources */,
+				FD3ADA2E2243DCB8005F6715 /* MMJSONDecodingStorage.swift in Sources */,
+				FD3ADA3A2243DCB8005F6715 /* MMJSONEncodingStorage.swift in Sources */,
+				FD3ADA312243DCB8005F6715 /* MMJSONDefault.swift in Sources */,
+				FD3ADA2F2243DCB8005F6715 /* MMJSONDecoder.swift in Sources */,
 				FD846F7A2233AFC40038A715 /* MMConvertable.swift in Sources */,
+				FD3ADA392243DCB8005F6715 /* MMJSONDecoder+Unbox.swift in Sources */,
+				FD3ADA342243DCB8005F6715 /* MMJSONDecoder+SingleValueDecodingContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1102,6 +1174,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxf.MoyaMapper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1143,6 +1216,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxf.MoyaMapper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1185,6 +1259,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxf.RxMoyaMapper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1226,6 +1301,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxf.RxMoyaMapper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1268,6 +1344,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxf.CacheMoyaMapper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1309,6 +1386,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxf.CacheMoyaMapper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1351,6 +1429,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxf.RxCacheMoyaMapper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1392,6 +1471,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lxf.RxCacheMoyaMapper;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MultipleModelViewController: BaseViewController {
 
@@ -25,6 +26,29 @@ class MultipleModelViewController: BaseViewController {
 //                }
 //            }).disposed(by: disposeBag)
         
+        print("--- 本地请求 ---")
+        let dict: [String : Any] = [
+            "goodJob" : "1",
+            "d2" : [
+                [
+                    "cc":3
+                ],
+                [
+                    "cc":4
+                ],
+                [
+                    "cc":5
+                ],
+            ],
+        ]
+        guard let jsonStr = JSON(dict).rawString() else {
+            return
+        }
+        let model = BBB.mapModel(from: jsonStr)
+        print("model -- \(model)")
+        
+        
+        print("--- 网络请求 ---")
         TypicodeService.shared.fetchUserInfos()
             .subscribe(onSuccess: { models in
                 for model in models {
