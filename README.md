@@ -33,6 +33,7 @@
 - 支持`json` 转 `Model ` 自动映射 与 自定义映射
 - 无视 `json` 中值的类型，`Model` 中属性声明的是什么类型，它就是什么类型
 - 支持 `json字符串` 转`Model`
+- 支持定义默认值策略、解析策略
 - 插件方式，全方位保障`Moya.Response`，拒绝各种网络问题导致 `Response` 为 `nil`
 - Optional - 支持数据随意缓存( `JSON`、 `Number` 、`String`、 `Bool`、 `Moya.Response` )
 - Optional - 支持网络请求缓存 
@@ -87,13 +88,15 @@ struct CompanyModel: Modelable {
     var name : String = ""
     var catchPhrase : String = ""
     
-    init() { }
+    mutating func mapping(_ json: JSON) {
+       	
+    }
 }
 ```
 
 
 
-如果键名需要自定义，则可以实现方法 `mutating func mapping(_ json: JSON)`
+如果键名需要自定义，则可以在方法 `mutating func mapping(_ json: JSON)` 中实现
 
 ```swift
 struct CompanyModel: Modelable {
@@ -101,7 +104,6 @@ struct CompanyModel: Modelable {
     var name : String = ""
     var catchPhrase : String = ""
     
-    init() { }
     mutating func mapping(_ json: JSON) {
         self.name = json["nickname"].stringValue
     }
@@ -119,7 +121,9 @@ struct UserModel: Modelable {
     var name : String = ""
     var company : CompanyModel = CompanyModel()
     
-    init() { }
+    mutating func mapping(_ json: JSON) {
+        
+    }
 }
 ```
 
