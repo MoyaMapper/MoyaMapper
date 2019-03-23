@@ -369,7 +369,7 @@ extension _MMJSONDecoder {
         }
         let json = JSON(dict)
         
-        var _dict: [String: Any] = [:]
+        var _dict: [String: Any] = dict
         
         for case let (key, value) in Mirror(reflecting: _model).children {
             guard let key = key else { continue }
