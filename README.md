@@ -443,6 +443,8 @@ MoyaMapper is available under the MIT license. See the LICENSE file for more inf
 
 
 
+
+
 ## Author
 
 - LinXunFeng
@@ -451,7 +453,7 @@ MoyaMapper is available under the MIT license. See the LICENSE file for more inf
 
 
 
-| <img src="https://github.com/LinXunFeng/linxunfeng.github.io/raw/master/images/others/wx/wxQR.png" style="width:200px;height:200px;"></img> | <img src="https://github.com/LinXunFeng/linxunfeng.github.io/raw/master/images/others/pay/alipay.png" style="width:200px;height:200px;"></img> | <img src="https://github.com/LinXunFeng/linxunfeng.github.io/raw/master/images/others/pay/wechat.png" style="width:200px;height:200px;"></img> |
+| <img src="https://github.com/LinXunFeng/site/raw/master/source/images/others/wx/wxQR_tip.png" style="width:200px;height:200px;"></img> | <img src="https://github.com/LinXunFeng/site/raw/master/source/images/others/pay/alipay_tip.png" style="width:200px;height:200px;"></img> | <img src="https://github.com/LinXunFeng/site/raw/master/source/images/others/pay/wechat_tip.png" style="width:200px;height:200px;"></img> |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |                                                              |                                                              |                                                              |
 
