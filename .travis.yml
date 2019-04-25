@@ -2,8 +2,8 @@ osx_image: xcode10.2
 language: swift
 
 before_install: 
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet 
-  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet 
+  - gem install xcpretty 
+  - gem install cocoapods --pre
   - pod --version
   - pod setup --silent > /dev/null
   - pod repo update --silent
