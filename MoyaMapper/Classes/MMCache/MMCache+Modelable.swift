@@ -11,7 +11,7 @@ import MoyaMapper
 
 public extension MMCache {
     @discardableResult
-    public func cacheModel(
+    func cacheModel(
         _ model: Modelable,
         key: String,
         cacheContainer: MMCache.CacheContainer = .RAM
@@ -30,7 +30,7 @@ public extension MMCache {
     }
     
     @discardableResult
-    public func cacheModels<T: Modelable>(
+    func cacheModels<T: Modelable>(
         _ models: [T],
         key: String,
         cacheContainer: MMCache.CacheContainer = .RAM
