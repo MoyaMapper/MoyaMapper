@@ -36,16 +36,16 @@ public extension Modelable {
 
 public extension Modelable {
     /// Modelable -> mapping -> Model
-    static func mapModel(from jsonString: String) -> Self {
-        return JSON(parseJSON: jsonString).modelValue(Self.self)
+    static func mapModel(from object: Any) -> Self {
+        return Self.toJSON(with: object).modelValue(Self.self)
     }
     /// Modelable -> mapping -> Models
-    static func mapModels(from jsonString: String) -> [Self] {
-        return JSON(parseJSON: jsonString).modelsValue(Self.self)
+    static func mapModels(from object: Any) -> [Self] {
+        return Self.toJSON(with: object).modelsValue(Self.self)
     }
     
     /*
-     * 以下两个方法使用情景主要用于 Model -> toJSONString -> Model
+     * 以下两个方法使用情景主要用于 Model -> Any -> Model
      *
      * let model: Modelable = ...
      * let jsonStr = model.toJSONString()
@@ -60,12 +60,24 @@ public extension Modelable {
      */
     
     /// Codeable -> Model
-    static func codeModel(from jsonString: String) -> Self {
-        return JSON(parseJSON: jsonString).codeModel(Self.self)
+    static func codeModel(from object: Any) -> Self {
+        return Self.toJSON(with: object).codeModel(Self.self)
     }
     /// Codeable -> Models
-    static func codeModels(from jsonString: String) -> [Self] {
-        return JSON(parseJSON: jsonString).codeModels(Self.self)
+    static func codeModels(from object: Any) -> [Self] {
+        return Self.toJSON(with: object).codeModels(Self.self)
+    }
+    
+    /// Any -> JSON
+    internal static func toJSON(with object: Any) -> JSON {
+        var json: JSON
+        switch object  {
+        case let object as String:
+            json = JSON(parseJSON: object)
+        default:
+            json = JSON(object)
+        }
+        return json
     }
 }
 
