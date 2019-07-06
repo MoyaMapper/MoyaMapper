@@ -395,6 +395,13 @@ statusCode -- 200
 
 ## Installation
 
+| Swift | MoyaMapper |
+| ----- | ---------- |
+| 5.X   | >=2.0.0    |
+| 4.x   | <=1.2.3    |
+
+
+
 ### CocoaPods
 
 - 默认安装
@@ -433,15 +440,13 @@ pod 'MoyaMapper/RxCache'
 github "MoyaMapper/MoyaMapper"
 ```
 
-接着运行  `carthage update`.
+接着运行  `carthage update --no-use-binaries --platform ios`.
 
 
 
 ## License
 
 MoyaMapper is available under the MIT license. See the LICENSE file for more info.
-
-
 
 
 
