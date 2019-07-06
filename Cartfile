@@ -1,6 +1,5 @@
-github "Alamofire/Alamofire"
-github "Moya/Moya"
-github "ReactiveX/RxSwift"
-github "hyperoslo/Cache"
-github "SwiftyJSON/SwiftyJSON"
-github "RxSwiftCommunity/RxDataSources"
+github "Moya/Moya" ~> 13.0
+github "ReactiveX/RxSwift" ~> 4.0
+github "Igor-Palaguta/Cache" "560f00a9a9549db161ca70d96eed74fc580b03e3"
+github "SwiftyJSON/SwiftyJSON" ~> 5.0
+github "RxSwiftCommunity/RxDataSources" ~> 3.0

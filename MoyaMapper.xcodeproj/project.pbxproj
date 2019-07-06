@@ -80,22 +80,24 @@
 		FD846FC62233C9280038A715 /* RxMoyaProviderType+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD846F662233AF100038A715 /* RxMoyaProviderType+Cache.swift */; };
 		FD846FC72233CA7B0038A715 /* CacheMoyaMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FA42233C86E0038A715 /* CacheMoyaMapper.framework */; };
 		FD846FC82233CA7B0038A715 /* MoyaMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F6E2233AF970038A715 /* MoyaMapper.framework */; };
-		FD846FC92233CA7B0038A715 /* RxCacheMoyaMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FBB2233C8EB0038A715 /* RxCacheMoyaMapper.framework */; };
 		FD846FCA2233CA7B0038A715 /* RxMoyaMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F922233C7A80038A715 /* RxMoyaMapper.framework */; };
 		FD846FE02233CC770038A715 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F812233B9920038A715 /* RxSwift.framework */; };
 		FD846FE32233FCDE0038A715 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FE22233FCDE0038A715 /* RxMoya.framework */; };
-		FD846FE42233FFCC0038A715 /* RxMoya.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846FE22233FCDE0038A715 /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD846FE52233FFCC0038A715 /* Cache.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846FAD2233C8B30038A715 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD846FE62233FFCC0038A715 /* RxDataSources.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846F8B2233C7000038A715 /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD846FE72233FFCC0038A715 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846F882233C2C10038A715 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD846FE82233FFCC0038A715 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846F852233B9B20038A715 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD846FE92233FFCC0038A715 /* Moya.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846F832233B9A20038A715 /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD846FEA2233FFCC0038A715 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846F812233B9920038A715 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD846FEB2233FFCC0038A715 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846F7F2233B9830038A715 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD846FED2234003C0038A715 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FEC2234003C0038A715 /* Differentiator.framework */; };
-		FD846FEE2234003C0038A715 /* Differentiator.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846FEC2234003C0038A715 /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD846FF0223400AA0038A715 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FEF223400AA0038A715 /* Result.framework */; };
-		FD846FF1223400AA0038A715 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD846FEF223400AA0038A715 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D03022D07FAB0070B04D /* MoyaMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F6E2233AF970038A715 /* MoyaMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D03422D07FAB0070B04D /* RxMoyaMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F922233C7A80038A715 /* RxMoyaMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D03822D07FAB0070B04D /* CacheMoyaMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FA42233C86E0038A715 /* CacheMoyaMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D03B22D07FAB0070B04D /* RxCacheMoyaMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FBB2233C8EB0038A715 /* RxCacheMoyaMapper.framework */; };
+		FDA1D03C22D07FAB0070B04D /* RxCacheMoyaMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FBB2233C8EB0038A715 /* RxCacheMoyaMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D04122D07FCC0070B04D /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FEF223400AA0038A715 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D04322D07FCC0070B04D /* Differentiator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FEC2234003C0038A715 /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D04522D07FCC0070B04D /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FE22233FCDE0038A715 /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D04722D07FCC0070B04D /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846FAD2233C8B30038A715 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D04922D07FCC0070B04D /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F8B2233C7000038A715 /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D04B22D07FCC0070B04D /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F882233C2C10038A715 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D04D22D07FCC0070B04D /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F852233B9B20038A715 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D04F22D07FCC0070B04D /* Moya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F832233B9A20038A715 /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D05122D07FCC0070B04D /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F812233B9920038A715 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA1D05322D07FCC0070B04D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD846F7F2233B9830038A715 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,26 +108,59 @@
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
 			remoteInfo = MoyaMapper;
 		};
+		FDA1D03122D07FAB0070B04D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD846F6D2233AF970038A715;
+			remoteInfo = MoyaMapper;
+		};
+		FDA1D03522D07FAB0070B04D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD846F912233C7A80038A715;
+			remoteInfo = RxMoyaMapper;
+		};
+		FDA1D03922D07FAB0070B04D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD846FA32233C86E0038A715;
+			remoteInfo = CacheMoyaMapper;
+		};
+		FDA1D03D22D07FAB0070B04D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD846FBA2233C8EB0038A715;
+			remoteInfo = RxCacheMoyaMapper;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FD846FCB2233CA9D0038A715 /* CopyFiles */ = {
+		FDA1D03F22D07FAB0070B04D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FD846FE42233FFCC0038A715 /* RxMoya.framework in CopyFiles */,
-				FD846FE52233FFCC0038A715 /* Cache.framework in CopyFiles */,
-				FD846FE62233FFCC0038A715 /* RxDataSources.framework in CopyFiles */,
-				FD846FEE2234003C0038A715 /* Differentiator.framework in CopyFiles */,
-				FD846FE72233FFCC0038A715 /* SwiftyJSON.framework in CopyFiles */,
-				FD846FE82233FFCC0038A715 /* RxCocoa.framework in CopyFiles */,
-				FD846FE92233FFCC0038A715 /* Moya.framework in CopyFiles */,
-				FD846FF1223400AA0038A715 /* Result.framework in CopyFiles */,
-				FD846FEA2233FFCC0038A715 /* RxSwift.framework in CopyFiles */,
-				FD846FEB2233FFCC0038A715 /* Alamofire.framework in CopyFiles */,
+				FDA1D04922D07FCC0070B04D /* RxDataSources.framework in Embed Frameworks */,
+				FDA1D04322D07FCC0070B04D /* Differentiator.framework in Embed Frameworks */,
+				FDA1D03C22D07FAB0070B04D /* RxCacheMoyaMapper.framework in Embed Frameworks */,
+				FDA1D03822D07FAB0070B04D /* CacheMoyaMapper.framework in Embed Frameworks */,
+				FDA1D04F22D07FCC0070B04D /* Moya.framework in Embed Frameworks */,
+				FDA1D04B22D07FCC0070B04D /* SwiftyJSON.framework in Embed Frameworks */,
+				FDA1D05122D07FCC0070B04D /* RxSwift.framework in Embed Frameworks */,
+				FDA1D04122D07FCC0070B04D /* Result.framework in Embed Frameworks */,
+				FDA1D03022D07FAB0070B04D /* MoyaMapper.framework in Embed Frameworks */,
+				FDA1D04522D07FCC0070B04D /* RxMoya.framework in Embed Frameworks */,
+				FDA1D03422D07FAB0070B04D /* RxMoyaMapper.framework in Embed Frameworks */,
+				FDA1D05322D07FCC0070B04D /* Alamofire.framework in Embed Frameworks */,
+				FDA1D04D22D07FCC0070B04D /* RxCocoa.framework in Embed Frameworks */,
+				FDA1D04722D07FCC0070B04D /* Cache.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -220,11 +255,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA1D03B22D07FAB0070B04D /* RxCacheMoyaMapper.framework in Frameworks */,
 				FD846FC72233CA7B0038A715 /* CacheMoyaMapper.framework in Frameworks */,
-				FD846FED2234003C0038A715 /* Differentiator.framework in Frameworks */,
 				FD846FC82233CA7B0038A715 /* MoyaMapper.framework in Frameworks */,
-				FD846FF0223400AA0038A715 /* Result.framework in Frameworks */,
-				FD846FC92233CA7B0038A715 /* RxCacheMoyaMapper.framework in Frameworks */,
 				FD846FCA2233CA7B0038A715 /* RxMoyaMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,11 +643,15 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				FD846FCB2233CA9D0038A715 /* CopyFiles */,
+				FDA1D03F22D07FAB0070B04D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FDA1D03222D07FAB0070B04D /* PBXTargetDependency */,
+				FDA1D03622D07FAB0070B04D /* PBXTargetDependency */,
+				FDA1D03A22D07FAB0070B04D /* PBXTargetDependency */,
+				FDA1D03E22D07FAB0070B04D /* PBXTargetDependency */,
 			);
 			name = MoyaMapper_Example;
 			productName = MoyaMapper;
@@ -724,7 +761,7 @@
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -756,6 +793,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -929,6 +967,26 @@
 			target = 607FACCF1AFB9204008FA782 /* MoyaMapper_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
 		};
+		FDA1D03222D07FAB0070B04D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD846F6D2233AF970038A715 /* MoyaMapper */;
+			targetProxy = FDA1D03122D07FAB0070B04D /* PBXContainerItemProxy */;
+		};
+		FDA1D03622D07FAB0070B04D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD846F912233C7A80038A715 /* RxMoyaMapper */;
+			targetProxy = FDA1D03522D07FAB0070B04D /* PBXContainerItemProxy */;
+		};
+		FDA1D03A22D07FAB0070B04D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD846FA32233C86E0038A715 /* CacheMoyaMapper */;
+			targetProxy = FDA1D03922D07FAB0070B04D /* PBXContainerItemProxy */;
+		};
+		FDA1D03E22D07FAB0070B04D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD846FBA2233C8EB0038A715 /* RxCacheMoyaMapper */;
+			targetProxy = FDA1D03D22D07FAB0070B04D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -996,7 +1054,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1042,7 +1100,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1053,9 +1111,10 @@
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1070,16 +1129,18 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1093,7 +1154,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -1180,7 +1242,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1221,7 +1283,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1265,7 +1327,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1306,7 +1368,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1350,7 +1412,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1391,7 +1453,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1435,7 +1497,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1476,7 +1538,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
