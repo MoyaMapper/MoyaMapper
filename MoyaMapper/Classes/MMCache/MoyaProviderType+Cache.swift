@@ -41,9 +41,8 @@ public extension MoyaProviderType {
         }
         
         return self.request(target, callbackQueue: callbackQueue, progress: progress) { result in
-            if let resp = try? result.value?.filterSuccessfulStatusCodes(),
-                resp != nil { // 更新缓存
-                MMCache.shared.cacheResponse(resp!, target: target)
+            if let resp = try? result.value?.filterSuccessfulStatusCodes() { // 更新缓存
+                MMCache.shared.cacheResponse(resp, target: target)
             }
             completion(result)
         }

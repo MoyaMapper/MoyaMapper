@@ -74,14 +74,12 @@ public extension MMCache {
          TransformerFactory.forResponse中的fromData仅执行一次
          导致无法更改 Response.statusCode 为 MMStatusCode.cache.rawValue，遂在此再次进行修改
         */
-        guard let resp = response else { return nil }
-        let cacheResp = Response(statusCode: MMStatusCode.cache.rawValue, data: resp.data)
+        let cacheResp = Response(statusCode: MMStatusCode.cache.rawValue, data: response.data)
         
         guard let json = try? MMCache.shared.jsonStorage?.object(forKey: target.cacheParameterTypeKey)
             else { return nil }
         
-        guard let mp = json?.modelValue(MMResponseParameter.self)
-            else { return nil }
+        let mp = json.modelValue(MMResponseParameter.self)
         
         cacheResp.setNetParameter(TemplateParameter(
             successValue: mp.successValue,
