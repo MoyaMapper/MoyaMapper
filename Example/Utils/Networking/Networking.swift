@@ -16,11 +16,8 @@ typealias TypicodeNetworking = Networking<TypicodeApi>
 final class Networking<Target: SugarTargetType>: MoyaSugarProvider<Target> {
     init(plugins: [PluginType] = []) {
         let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
-        
-        let manager = Manager(configuration: configuration)
-        manager.startRequestsImmediately = false
-        super.init(manager: manager, plugins: plugins)
+        let session = Session(configuration: configuration, startRequestsImmediately: false)
+        super.init(session: session, plugins: plugins)
     }
     
     func request(
@@ -30,6 +27,7 @@ final class Networking<Target: SugarTargetType>: MoyaSugarProvider<Target> {
         line: UInt = #line
         ) -> Single<Response> {
         let requestString = "\(target.baseURL.absoluteString) \(target.method) \(target.path)"
+        
         return self.rx.request(target)
             .do(
                 onSuccess: { (value) in

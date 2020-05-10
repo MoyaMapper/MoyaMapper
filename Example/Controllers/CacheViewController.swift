@@ -43,8 +43,11 @@ class CacheViewController: UIViewController {
         
 //        lxfNetTool.cacheRequest(.data(type: .all, size: 10, index: 1), alwaysFetchCache: true)
         let _ = lxfNetTool.cacheRequest(.data(type: .all, size: 10, index: 1)) { result in
-            guard let resp = result.value else { return }
-            log.debug("statusCode -- \(resp.statusCode)")
+            switch result {
+            case let .success(resp):
+                log.debug("statusCode -- \(resp.statusCode)")
+            default: break
+            }
         }
     }
 }

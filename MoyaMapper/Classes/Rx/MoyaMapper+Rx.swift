@@ -14,7 +14,7 @@ import MoyaMapper
 #endif
 
 // MARK: - Json -> Observable<Model>
-extension ObservableType where E == Response {
+extension ObservableType where Element == Response {
     /// Response -> Observable<JSON>
     ///
     /// - Parameter modelKey: 模型数据路径
@@ -128,7 +128,7 @@ extension ObservableType where E == Response {
 }
 
 // MARK: - Json -> Single<Model>
-extension PrimitiveSequence where TraitType == SingleTrait, E == Response {
+extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
     /// Response -> Single<JSON>
     ///
     /// - Parameter modelKey: 模型数据路径

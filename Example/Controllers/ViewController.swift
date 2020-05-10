@@ -8,7 +8,6 @@
 
 import UIKit
 import RxSwift
-import Result
 import MoyaMapper
 import Moya
 import SwiftyJSON

@@ -8,7 +8,6 @@
 
 import UIKit
 import Moya
-import Result
 import MoyaMapper
 
 class NormalMoyaViewController: BaseViewController {
@@ -34,11 +33,14 @@ class NormalMoyaViewController: BaseViewController {
 extension NormalMoyaViewController {
     // MARK: 获取 模型数组
     fileprivate func models(_ result: moyaResult) {
-        guard let response = result.value else { return }
-        print("json -- \(response.fetchJSONString())")
-        let models = response.mapArray(MyModel.self)
-        for model in models {
-            print("createdAt -- \(model.created)")
+        switch result {
+        case let .success(response):
+            print("json -- \(response.fetchJSONString())")
+            let models = response.mapArray(MyModel.self)
+            for model in models {
+                print("createdAt -- \(model.created)")
+            }
+        default: return
         }
         
         /*
@@ -57,38 +59,50 @@ extension NormalMoyaViewController {
     
     // MARK: 获取 请求结果
     fileprivate func result(_ result: moyaResult) {
-        guard let response = result.value else { return }
-        let (isSuccess, tipStr) = response.mapResult()
-        print("isSuccess -- \(isSuccess)")
-        print("tipStr -- \(tipStr)")
+        switch result {
+        case let .success(response):
+            let (isSuccess, tipStr) = response.mapResult()
+            print("isSuccess -- \(isSuccess)")
+            print("tipStr -- \(tipStr)")
+        default: return
+        }
     }
     
     // MARK: 获取 模型数组 + 请求结果
     fileprivate func modelsResult(_ result: moyaResult) {
-        guard let response = result.value else { return }
-        let (result, models) = response.mapArrayResult(MyModel.self)
-        print("isSuccess --\(result.0)")
-        print("tipStr --\(result.1)")
-        print("models count -- \(models.count)")
+        switch result {
+        case let .success(response):
+            let (result, models) = response.mapArrayResult(MyModel.self)
+            print("isSuccess --\(result.0)")
+            print("tipStr --\(result.1)")
+            print("models count -- \(models.count)")
+        default: return
+        }
     }
     
     // MARK: 获取 指定路径的值
     fileprivate func fetchString(_ result: moyaResult) {
-        guard let response = result.value else { return }
-        print(response.fetchJSONString())
-        print(response.fetchJSONString(keys: ["results", 0]))
-        
-        print(response.fetchString(keys: [0, "_id"]))
+        switch result {
+        case let .success(response):
+            print(response.fetchJSONString())
+            print(response.fetchJSONString(keys: ["results", 0]))
+            
+            print(response.fetchString(keys: [0, "_id"]))
+        default: return
+        }
     }
     
     // MARK: 使用自定义模型参数类
     fileprivate func customNetParamer(_ result: moyaResult) {
-        guard let response = result.value else { return }
-        let (isSuccess, tipStr) = response.mapResult { () -> (ModelableParameterType) in
-            return CustomNetParameter()
+        switch result {
+        case let .success(response):
+            let (isSuccess, tipStr) = response.mapResult { () -> (ModelableParameterType) in
+                return CustomNetParameter()
+            }
+            print("isSuccess -- \(isSuccess)")
+            print("tipStr -- \(tipStr)")
+        default: return
         }
-        print("isSuccess -- \(isSuccess)")
-        print("tipStr -- \(tipStr)")
     }
     
     // MARK: 其它

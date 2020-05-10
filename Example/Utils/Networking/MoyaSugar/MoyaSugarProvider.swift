@@ -1,6 +1,5 @@
 import class Foundation.DispatchQueue
 import Moya
-import Result
 
 fileprivate struct MoyaSugarSetting {
     static var targetTimeout: TimeInterval = Parameters.defaultTimeout
@@ -10,15 +9,15 @@ fileprivate struct MoyaSugarSetting {
 /// `endpointClosure` with `SugarTargetType`. `MoyaSugarProvider` can be used only with
 /// `SugarTargetType`.
 open class MoyaSugarProvider<Target: SugarTargetType>: MoyaProvider<Target> {
-  override public init(
-    endpointClosure: @escaping MoyaProvider<Target>.EndpointClosure = MoyaProvider<Target>.defaultEndpointMapping,
-    requestClosure: @escaping MoyaProvider<Target>.RequestClosure = MoyaProvider<Target>.defaultRequestMapping,
-    stubClosure: @escaping MoyaProvider<Target>.StubClosure = MoyaProvider.neverStub,
-    callbackQueue: DispatchQueue? = nil,
-    manager: Manager = MoyaProvider<Target>.defaultAlamofireManager(),
-    plugins: [PluginType] = [],
-    trackInflights: Bool = false  
-   ) {
+    public override init(
+        endpointClosure: @escaping MoyaProvider<Target>.EndpointClosure = MoyaProvider.defaultEndpointMapping,
+        requestClosure: @escaping MoyaProvider<Target>.RequestClosure = MoyaProvider<Target>.defaultRequestMapping,
+        stubClosure: @escaping MoyaProvider<Target>.StubClosure = MoyaProvider.neverStub,
+        callbackQueue: DispatchQueue? = nil,
+        session: Session = MoyaProvider<Target>.defaultAlamofireSession(),
+        plugins: [PluginType] = [],
+        trackInflights: Bool = false
+    ) {
     
     var requestTimeoutClosure = requestClosure
     
@@ -48,7 +47,7 @@ open class MoyaSugarProvider<Target: SugarTargetType>: MoyaProvider<Target> {
       requestClosure: requestTimeoutClosure, // origin: requestClosure
       stubClosure: stubClosure,
       callbackQueue: callbackQueue,
-      manager: manager,
+      session: session,
       plugins: plugins,
       trackInflights: trackInflights
     )
