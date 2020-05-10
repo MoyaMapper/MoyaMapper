@@ -20,7 +20,7 @@ public extension MMConvertable {
     func toDictionary() -> [String: Any] {
         guard let data = toData() else { return [:] }
         guard let dict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String, Any> else { return [:] }
-        return dict ?? [:]
+        return dict
     }
     
     func toJSONString() -> String {

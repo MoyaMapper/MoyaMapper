@@ -68,7 +68,7 @@ extension Response {
         path: String? = nil,
         keys: [JSONSubscriptType] = []
     ) -> String {
-        var resJson = toJSON(modelKey: path)
+        let resJson = toJSON(modelKey: path)
         return resJson[keys].stringValue
     }
     
@@ -83,7 +83,7 @@ extension Response {
         keys: [JSONSubscriptType] = []
     ) -> String {
         let rootPath = ""
-        var resJson = toJSON(modelKey: path != nil ? path : rootPath)
+        let resJson = toJSON(modelKey: path != nil ? path : rootPath)
         return resJson[keys].rawString() ?? ""
     }
 }
