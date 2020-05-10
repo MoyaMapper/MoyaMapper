@@ -9,6 +9,12 @@
 import SwiftyJSON
 import MoyaMapper
 
+// 自定义enum，(需要遵守Codable)
+enum MyType: String, Codable {
+    case android = "Android"
+    case other = "other"
+}
+
 struct MyModel: Modelable {
     
     var _id : String = ""
@@ -16,7 +22,8 @@ struct MyModel: Modelable {
     var desc : String = ""
     var publishedAt : String = ""
     var source : String = ""
-    var type : String = ""
+//    var type : String = ""
+    var type : MyType = .other
     var url : String = ""
     var used : String = ""
     var who : String = ""
