@@ -376,25 +376,40 @@ extension _MMJSONDecoder {
             let _json = json[key]
             var _value : Any?
             switch value {
-            case is Bool: _value = _json.boolValue
-            case is Int: _value = _json.intValue
-            case is Int8: _value = _json.int8Value
-            case is Int16: _value = _json.int16Value
-            case is Int32: _value = _json.int32Value
-            case is Int64: _value = _json.int64Value
-            case is UInt: _value = _json.uIntValue
-            case is UInt8: _value = _json.uInt8Value
-            case is UInt16: _value = _json.uInt16Value
-            case is UInt32: _value = _json.uInt32Value
-            case is UInt64: _value = _json.uInt64Value
-            case is Float: _value = _json.stringValue
-            case is Double: _value = _json.doubleValue
-            case is String: _value = _json.stringValue
-            default: _value = _json.rawValue
+            case is Bool:
+                _value = _json.boolValue
+            case is Int:
+                _value = _json.intValue
+            case is Int8:
+                _value = _json.int8Value
+            case is Int16:
+                _value = _json.int16Value
+            case is Int32:
+                _value = _json.int32Value
+            case is Int64:
+                _value = _json.int64Value
+            case is UInt:
+                _value = _json.uIntValue
+            case is UInt8:
+                _value = _json.uInt8Value
+            case is UInt16:
+                _value = _json.uInt16Value
+            case is UInt32:
+                _value = _json.uInt32Value
+            case is UInt64:
+                _value = _json.uInt64Value
+            case is Float, is CGFloat:
+                _value = _json.floatValue
+            case is Double:
+                _value = _json.doubleValue
+            case is String:
+                _value = _json.stringValue
+            default:
+                _value = _json.rawValue
             }
             if _value != nil { _dict[key] = _value }
         }
-        self.storage.push(container: dict)
+        self.storage.push(container: _dict)
         defer { self.storage.popContainer() }
         var model = try type.init(from: self)
         if model is Modelable {
