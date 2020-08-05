@@ -41,8 +41,11 @@ struct AddressModel: Modelable {
 
 struct GeoModel: Modelable {
     
-    var lat : String = ""
-    var lng : String = ""
+//    var lat : String = ""
+//    var lng : String = ""
+    
+    var lat : Float = 0
+    var lng : Float = 0
     
     mutating func mapping(_ json: JSON) {
         
